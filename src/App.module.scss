@@ -1,0 +1,11 @@
+.app {
+    background: $mono1;
+    @include flex-center;
+}
+
+.link {
+    background: $primary;
+    color: $white;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+}
