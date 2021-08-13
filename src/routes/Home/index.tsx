@@ -1,14 +1,14 @@
 import React from "react";
 
-import logo from "../../assets/logo.svg";
+import Layout from "../../components/layouts/scroll";
+
 import "./styles.scss";
 
 const Home: React.FunctionComponent = () => {
     return (
-        <div className="Page Home">
+        <Layout className="Home">
             <h2>Welcome to Public Home</h2>
-            <img src={logo} className="React-logo" alt="logo" />
-        </div>
+        </Layout>
     );
 };
 
