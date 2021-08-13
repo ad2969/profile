@@ -1,1 +1,55 @@
 // site-wide styles here
+html {
+    // phone
+    font-size: 14px;
+
+    // tablets
+    @include for-tablet-up {
+        font-size: 16px;
+    }
+
+    // laptops
+    @include for-laptop-up {
+        font-size: 18px;
+    }
+
+    // widescreen
+    @include for-widescreen-up {
+        font-size: 20px;
+    }
+}
+
+// fonts
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"), url("./assets/fonts/montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"), url("./assets/fonts/montserrat/Montserrat-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"), url("./assets/fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"), url("./assets/fonts/montserrat/Montserrat-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+body {    
+    margin: 0;
+    overflow: hidden;
+    font-family: Montserrat;
+}
