@@ -6,9 +6,9 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
 }
 
-const ScrollPageLayout: React.FunctionComponent<Props> = ({ children, ...rest }) => {
+const ScrollPageLayout: React.FunctionComponent<Props> = ({ children, className = "", ...rest }) => {
     return (
-        <div className="Page--scroll" {...rest}>
+        <div className={"Page--scroll " + className} {...rest}>
             <Header />
             <div className="Content">
                 {children}
