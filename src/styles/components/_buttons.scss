@@ -5,6 +5,8 @@
 
 // button animations
 .button--scale {
+    @extend .button;
+
     transition: all 0.2s;
     &:hover {
         transform: scale(1.1);
@@ -14,6 +16,8 @@
     }
 }
 .button--darken {
+    @extend .button;
+
     transition: all 0.3s ease;
     &:hover {
         filter: brightness(85%);
