@@ -35,7 +35,7 @@ const ParallaxScene: React.FunctionComponent = () => {
     }, []);
 
     return (
-        <div ref={sceneRef} className="Parallax">
+        <div ref={sceneRef} className="parallax">
             <ParallaxLayer depth={0.1}><img className="sun" src={SunImage} alt="sun"/></ParallaxLayer>
             <ParallaxLayer depth={0.5}><img className="birds" src={BirdsImage} alt="sun"/></ParallaxLayer>
             <ParallaxLayer depth={0.2}><div className="layer-wide mountain1" /></ParallaxLayer>

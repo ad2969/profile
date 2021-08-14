@@ -2,6 +2,47 @@
     overflow: visible !important;
 }
 
+.hero {
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -70%);
+
+    @media (min-height: 1000px) {
+        top: 500px;
+    }
+
+    @include flex-row;
+    align-items: center;
+
+    .hero__image {
+        margin-right: 4rem;
+        img {
+            height: 10rem;
+            width: 10rem;
+        }
+    }
+
+    .hero__text {
+        font-size: 0.9rem;
+
+        div {
+            margin-bottom: 0.25em;
+        }
+
+        .hero__text-title {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: $color-primary;
+            transition: all 0.1s ease;
+        }
+    }
+
+}
+
 .parallax {
     height: calc(100vh - 7rem);
     width: 100%;
