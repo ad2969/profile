@@ -20,7 +20,7 @@
         }
 
         .hero__image {
-            margin-right: 3rem;
+            margin-right: 4rem;
             display: none;
 
             @include for-tablet-up {
@@ -37,6 +37,7 @@
             font-size: 0.9rem;
             list-style-position: outside;
             list-style-type: "/  ";
+            padding-left: 0;
 
             li {
                 margin-bottom: 0.5em;
