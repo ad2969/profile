@@ -1,0 +1,11 @@
+.custom-icon {
+    display: inline-block;
+    height: 1em;
+    overflow: visible;
+
+    .custom-icon__img {
+        height: 100%;
+        transform: scale(1.2);
+        transform-origin: center;
+    }
+}
