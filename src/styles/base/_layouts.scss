@@ -1,5 +1,6 @@
+@import "../mixins/breakpoints.module";
+
 .Page {
-    height: 100vh;
     width: 100vw;
 }
 
@@ -10,7 +11,13 @@
     }
 }
 
-.Page--scroll {
+.Page--magazine {
     @extend .Page;
-    overflow-y: scroll;
+    height: auto;
+    overflow: hidden;
+
+    @include for-widescreen-up {
+        max-width: 2500px;
+        margin: 0 auto;
+    }
 }

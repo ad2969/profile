@@ -12,8 +12,8 @@ const Header: React.FunctionComponent = () => {
     useLayoutEffect(() => {
         const updateHeader = () => {
             const breakpoint = parseInt(BREAKPOINTS.tablet.replace("px", ""));
-            if (window.innerWidth >= breakpoint && !doShowAll) setDoShowAll(true);
-            else if (window.innerWidth < breakpoint && doShowAll) setDoShowAll(false);
+            if (window.innerWidth < breakpoint) setDoShowAll(false);
+            else if (window.innerWidth >= breakpoint) setDoShowAll(true);
         };
         window.addEventListener("resize", updateHeader);
         updateHeader();

@@ -1,13 +1,16 @@
 import React from "react";
 
-import Layout from "../../components/layouts/scroll";
+import Layout from "../../components/layouts/magazine";
+import Parallax from "./Parallax";
+import Hero from "./Hero";
 
 import "./styles.scss";
 
 const Home: React.FunctionComponent = () => {
     return (
         <Layout className="Home">
-            <h2>Welcome to Public Home</h2>
+            <Parallax />
+            <Hero />
         </Layout>
     );
 };
