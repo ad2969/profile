@@ -78,7 +78,7 @@ const CityGrid: React.FunctionComponent = () => {
     });
 
     return (
-        <group position={[-GRID_LENGTH * 3, -10, -GRID_DEPTH * 3]}>
+        <group position={[-GRID_LENGTH * 3, -10, -GRID_DEPTH * 2.8]}>
             <mesh receiveShadow castShadow>
                 {buildingGrid.map((grid, i) => (
                     <a.primitive
