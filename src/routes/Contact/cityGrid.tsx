@@ -72,8 +72,6 @@ const CityGrid: React.FunctionComponent = () => {
     const trail = useTrail(buildingGrid.length, {
         immediate: false,
         config: { duration: 70, clamp: true },
-        // to: { scale: buildingGrid.length ? [0.009, 0.0001, 0.009] : [0.009, 0.0001, 0.009] }
-        // visible: !!buildingGrid.length
         scale: buildingGrid.length ? [MAX_SCALE, MAX_SCALE, MAX_SCALE] : [MAX_SCALE, 0, MAX_SCALE],
         from: { scale: [MAX_SCALE, 0, MAX_SCALE] },
         to: { scale: [MAX_SCALE, MAX_SCALE, MAX_SCALE] }
