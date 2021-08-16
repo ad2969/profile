@@ -40,12 +40,12 @@ const City: React.FunctionComponent = () => {
         // THREE.Raycaster
         // Resize observer
         <Canvas
-            camera={{ fov: 20, near: 1, far: 1000, position: [0, 30, 150] }} // THREE.Perspective camera props
+            camera={{ fov: 20, near: 1, far: 1000, position: [0, 50, 200] }} // THREE.Perspective camera props
             orthographic={false} // THREE.Orthographic camera
             shadows={true} // THREE.PCFSoftShadowMap
         >
             {/* EFFECTS */}
-            <fog attach="fog" args={["#fff", 1, 225]} />
+            <fog attach="fog" args={["#fff", 1, 300]} />
 
             <group>
                 {/* LIGHTS */}

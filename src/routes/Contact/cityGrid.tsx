@@ -5,15 +5,15 @@ import { useTrail, a } from "@react-spring/three";
 
 import "./styles.scss";
 
-const MAX_SCALE = 0.02;
-const MIN_SCALE = 0.005;
+const MAX_SCALE = 0.009;
+const MIN_SCALE = 0.001;
 
-const GRID_LENGTH = 25;
-const GRID_DEPTH = 15;
-const GRID_BOX_SIZE = 6;
+const GRID_LENGTH = 40;
+const GRID_DEPTH = 40;
+const GRID_BOX_SIZE = 5;
 
 const CityGrid: React.FunctionComponent = () => {
-    const [buildingGrid, setBuildingGrid] = useState<any[]>([]);
+    const [buildingGrid, setBuildingGrid] = useState<any[][]>([]);
 
     const buildingModels = useLoader(OBJLoader, [
         "building-1.obj",
@@ -42,24 +42,33 @@ const CityGrid: React.FunctionComponent = () => {
     };
 
     const generateGrid = () => {
-        const grid: any[] = [];
+        const grid: any[][] = [];
+
         for (let i = GRID_DEPTH; i >= 0; i--) {
+            let row: any[] = [];
+
             for (let j = 0; j < GRID_LENGTH; j++) {
                 const building = getRandomBuidingModel().clone();
                 const scaleNum = Math.random() * (MAX_SCALE - MIN_SCALE + 0.02) + MIN_SCALE;
 
-                grid.push({
+                row.push({
                     scale: [scaleNum, scaleNum, scaleNum],
                     position: [j * GRID_BOX_SIZE, 0, i * GRID_BOX_SIZE],
-                    building
+                    model: building
                 });
             }
+
+            grid.push(row);
+            row = [];
         }
 
         setBuildingGrid(grid);
 
         return null;
     };
+
+    // TODO: Optimise
+    // Organize to animate "rows" at a time
 
     useEffect(() => {
         // do nothing if not loaded
@@ -69,26 +78,28 @@ const CityGrid: React.FunctionComponent = () => {
         generateGrid();
     }, [buildingModels]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const trail = useTrail(buildingGrid.length, {
+    const rowTrail = useTrail(buildingGrid.length, {
         immediate: false,
-        config: { duration: 70, clamp: true },
-        scale: buildingGrid.length ? [MAX_SCALE, MAX_SCALE, MAX_SCALE] : [MAX_SCALE, 0, MAX_SCALE],
-        from: { scale: [MAX_SCALE, 0, MAX_SCALE] },
-        to: { scale: [MAX_SCALE, MAX_SCALE, MAX_SCALE] }
+        config: { duration: 80, clamp: true },
+        scale: buildingGrid.length ? [1, 1, 1] : [1, 0, 1],
+        from: { scale: [1, 0, 1] },
+        to: { scale: [1, 1, 1] }
     });
 
     return (
-        <group position={[-GRID_LENGTH * 3, -10, -GRID_DEPTH * 2.8]}>
+        <group position={[-GRID_LENGTH * 2.5, -10, -GRID_DEPTH * 2]}>
             <mesh receiveShadow castShadow>
-                {buildingGrid.map((grid, i) => (
-                    <a.primitive
-                        object={grid.building}
-                        key={i}
-                        scale={trail[i].scale}
-                        // scale={grid.scale}
-                        position={grid.position}
-                        // visible={trail[i].visible}
-                    />
+                {buildingGrid.map((row, i) => (
+                    <a.group key={i} scale={rowTrail[i].scale}>
+                        {row.map((building, j) => (
+                            <a.primitive
+                                object={building.model}
+                                key={j}
+                                scale={building.scale}
+                                position={building.position}
+                            />
+                        ))}
+                    </a.group>
                 ))}
                 <meshPhysicalMaterial
                     color="#fff"
