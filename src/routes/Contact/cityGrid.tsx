@@ -15,6 +15,7 @@ const GRID_BOX_SIZE = 5;
 const CityGrid: React.FunctionComponent = () => {
     const [buildingGrid, setBuildingGrid] = useState<any[][]>([]);
 
+    // Credits to https://free3d.com/3d-model/19-low-poly-buildings-974347.html
     const buildingModels = useLoader(OBJLoader, [
         "building-1.obj",
         "building-2.obj",
