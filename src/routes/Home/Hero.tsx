@@ -8,7 +8,7 @@ import biztechLogo from "../../assets/images/logos/biztech-logo.png";
 import semiosLogo from "../../assets/images/logos/semios-logo.png";
 import face from "../../assets/images/face.png";
 
-const Hero = () => {
+const Hero: React.FunctionComponent = () => {
     return (
         <div className="hero">
             <div className="hero__image">
