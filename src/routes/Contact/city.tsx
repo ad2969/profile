@@ -18,7 +18,6 @@ const City: React.FunctionComponent = () => {
 
         useFrame(({ camera, mouse }) => {
             camera.position.set(mouse.x * 5, camera.position.y, camera.position.z);
-            // camera.rotation.set(camera.rotation._x, mouse.x * 0.01, 0);
             controls.current && (controls.current as any).dispose();
             controls.current && (controls.current as any).update();
         });
