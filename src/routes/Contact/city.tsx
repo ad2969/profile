@@ -45,7 +45,7 @@ const City: React.FunctionComponent = () => {
             shadows={true} // THREE.PCFSoftShadowMap
         >
             {/* EFFECTS */}
-            <fog attach="fog" args={["#fff", 1, 250]} />
+            <fog attach="fog" args={["#fff", 1, 225]} />
 
             <group>
                 {/* LIGHTS */}
@@ -69,7 +69,7 @@ const City: React.FunctionComponent = () => {
                     />
                 </mesh>
             </group>
-            <axesHelper args={5} />
+            {/* <axesHelper args={5} /> */}
             <MouseMoveControl />
         </Canvas>
     );
