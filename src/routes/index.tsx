@@ -3,6 +3,7 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 
 // import pages
 import Home from "./Home";
+import Contact from "./Contact";
 import NotFound from "./NotFound";
 
 interface Props {
@@ -16,6 +17,7 @@ const Routes: React.FunctionComponent<Props> = () => {
                 {/* AUTHENTICATED ROUTES */}
 
                 {/* PUBLIC ROUTES */}
+                <Route exact path="/contact" component={Contact} />
                 <Route exact path="/" component={Home} />
                 <Route path="*" component={NotFound} />
             </Switch>
