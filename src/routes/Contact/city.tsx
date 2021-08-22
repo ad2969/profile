@@ -23,11 +23,24 @@ const City: React.FunctionComponent = () => {
         const doControls = useRef();
         doControls.current = new DeviceOrientationControls(new THREE.PerspectiveCamera());
 
+        const scrollElement = document.querySelector(".Contact");
+        const opacityElement1 = scrollElement ? scrollElement.querySelector(".contact-info") : null;
+        const opacityElement2 = scrollElement ? scrollElement.querySelector(".contact-divider") : null;
+        const opacityElement3 = scrollElement ? scrollElement.querySelector(".contact-status") : null;
+        const scrollMaximum = scrollElement ? scrollElement.scrollHeight - window.innerHeight : window.innerHeight;
+
         useFrame(({ camera, mouse }) => {
             if (oControls.current) {
                 (oControls.current as any).dispose();
                 (oControls.current as any).update();
             }
+            const newScrollMultiplier = scrollElement ? scrollElement.scrollTop / scrollMaximum : 0;
+            const newZoomValue = 200 - newScrollMultiplier * 140;
+            const newZoomAngle = 50 - newScrollMultiplier * 40;
+
+            if (opacityElement1) (opacityElement1 as HTMLElement).style.backgroundColor = `rgba(255, 255, 255, ${newScrollMultiplier * 0.5})`;
+            if (opacityElement2) (opacityElement2 as HTMLElement).style.backgroundColor = `rgba(255, 255, 255, ${newScrollMultiplier * 0.5})`;
+            if (opacityElement3) (opacityElement3 as HTMLElement).style.backgroundColor = `rgba(255, 255, 255, ${newScrollMultiplier * 0.5})`;
 
             let deviceOrientationOffset = 0;
             if (doControls.current) {
@@ -38,7 +51,7 @@ const City: React.FunctionComponent = () => {
             }
 
             const newCameraX = mouse.x * 5 - deviceOrientationOffset;
-            camera.position.lerp(dummyVec.set(newCameraX, camera.position.y, camera.position.z), 0.1);
+            camera.position.lerp(dummyVec.set(newCameraX, newZoomAngle, newZoomValue), 0.05);
 
             if (cam.current) {
                 (cam.current as any).position.copy(camera.position);

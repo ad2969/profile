@@ -2,6 +2,8 @@ import React from "react";
 
 import Layout from "../../components/layouts/magazine";
 import City from "./city";
+import ContactInfo from "./Info";
+import ContactStatus from "./Status";
 
 import "./styles.scss";
 
@@ -11,6 +13,9 @@ const Contact: React.FunctionComponent = () => {
             <div className="city">
                 <City />
             </div>
+            <ContactInfo />
+            <div className="contact-divider"></div>
+            <ContactStatus />
         </Layout>
     );
 };
