@@ -68,9 +68,6 @@ const CityGrid: React.FunctionComponent = () => {
         return null;
     };
 
-    // TODO: Optimise
-    // Organize to animate "rows" at a time
-
     useEffect(() => {
         // do nothing if not loaded
         if (!buildingModels) return;

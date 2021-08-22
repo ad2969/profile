@@ -16,7 +16,7 @@
         align-items: center;
 
         @include for-phone-only {
-            width: 80%;
+            width: 60%;
         }
 
         .hero__image {
