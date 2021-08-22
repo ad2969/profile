@@ -8,10 +8,11 @@ interface Props {
     hoverColor?: string;
     icon: React.ComponentType<SvgProps>;
     url?: string;
+    direction?: string;
 }
 
-const TwitterLogo: React.FunctionComponent<Props> = ({
-    strokeColor = "#000", hoverColor = "#fff", icon: Icon, url = ""
+const IconButton: React.FunctionComponent<Props> = ({
+    strokeColor = "#000", hoverColor = "#fff", icon: Icon, url = "", direction = "ttb"
 }) => {
     const [isHover, setIsHover] = useState(false);
 
@@ -22,7 +23,7 @@ const TwitterLogo: React.FunctionComponent<Props> = ({
     return (
         <Icon
             color={isHover ? hoverColor : strokeColor}
-            className="icon-button button"
+            className={`icon-button icon-button--${direction} button`}
             style={{
                 borderColor: strokeColor,
                 backgroundColor: isHover ? strokeColor : "transparent"
@@ -34,4 +35,4 @@ const TwitterLogo: React.FunctionComponent<Props> = ({
     );
 };
 
-export default TwitterLogo;
+export default IconButton;

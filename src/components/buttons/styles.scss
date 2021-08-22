@@ -3,4 +3,100 @@
     border-width: 2px;
     border-radius: 10%;
     transition: all 0.2s;
+
+    &--rtl {
+        &:hover {
+            path {
+                animation: toLeftFromRight 0.3s forwards;
+            }
+        }
+    }
+
+    &--ttb {
+        &:hover {
+            path {
+                animation: toBottomFromTop 0.3s forwards;
+            }
+        }
+    }
+    
+}
+
+@keyframes toBottomFromTop {
+    49% {
+        transform: translateY(100%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    51% {
+        opacity: 1;
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes toLeftFromRight {
+    49% {
+        transform: translateX(-100%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    51% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+}
+
+.tooltip-button {
+
+    &__tooltip {
+        position: absolute;
+        opacity: 0;
+        transform: translate(-50%, -200%) rotate(90deg);
+        transition: all 0.2s ease-out;
+        z-index: -1;
+
+        font-size: 0.8em;
+        background: $color-primary;
+        color: $color-white;
+        white-space: nowrap;
+        padding: 1em;
+        margin: 0.3em 0;
+        border-radius: 1.5em;
+
+        @extend .t--unselectable;
+        pointer-events: none;
+
+        &::after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            right: -0.75em;
+            border-right: 0.5em solid transparent;
+            border-left: 0.5em solid transparent;
+            border-bottom: calc(1em * 0.8660254) solid $color-primary;
+            transform: rotate(90deg);
+        }
+    }
+
+    &__tooltip.active {
+        opacity: 1; 
+        transform: translate(-110%, 0%) rotate(0deg);
+    }
+
+    &__icon {        
+        border: solid;
+        border-width: 2px;
+        border-radius: 10%;
+
+        &:hover {
+            path {
+                animation: toLeftFromRight 0.3s forwards;
+            }
+        }
+    }
 }
