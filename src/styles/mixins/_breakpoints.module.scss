@@ -3,12 +3,14 @@ $breakpoint-phone: 576px;
 $breakpoint-tablet: 768px;
 $breakpoint-laptop: 1024px;
 $breakpoint-widescreen: 1200px;
+$breakpoint-widelimit: 3840px;
 
 :export {
     phone: $breakpoint-phone;
     tablet: $breakpoint-tablet;
     laptop: $breakpoint-laptop;
     widescreen: $breakpoint-widescreen;
+    widelimit: $breakpoint-widelimit;
 }
 
 // Mixins for sizes
@@ -47,4 +49,7 @@ $breakpoint-widescreen: 1200px;
 // widescreen
 @mixin for-widescreen-up {
     @media (min-width: $breakpoint-widescreen) { @content; }
+}
+@mixin for-widelimit-up {
+    @media (min-width: $breakpoint-widelimit) { @content; }
 }
