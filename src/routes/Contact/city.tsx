@@ -67,6 +67,7 @@ const City: React.FunctionComponent = () => {
         // THREE.Raycaster
         // Resize observer
         <Canvas
+            className="city-canvas"
             camera={{ fov: 20, near: 1, far: 1000, position: [0, 50, 200] }} // THREE.Perspective camera props
             orthographic={false} // THREE.Orthographic camera
             shadows={true} // THREE.PCFSoftShadowMap

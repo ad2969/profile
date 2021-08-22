@@ -1,6 +1,7 @@
 import React from "react";
 
-import Header from "../header";
+import HeaderFixed from "../header/headerFixed";
+import HeaderLogo from "../header/headerLogo";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
@@ -9,8 +10,9 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const MagazinePageLayout: React.FunctionComponent<Props> = ({ children, className = "", ...rest }) => {
     return (
         <div className={"Page--magazine " + className} {...rest}>
-            <Header />
+            <HeaderFixed />
             <div className="Content">
+                <HeaderLogo />
                 {children}
             </div>
         </div>
