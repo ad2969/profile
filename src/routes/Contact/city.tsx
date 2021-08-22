@@ -1,6 +1,7 @@
 import React, { useRef, Suspense } from "react";
 import { Canvas, useThree, useFrame, extend } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { DeviceOrientationControls } from "three/examples/jsm/controls/DeviceOrientationControls";
 
 import CityGrid from "./cityGrid";
 
@@ -8,22 +9,41 @@ import "./styles.scss";
 
 // Extend will make OrbitControls available as a JSX element called orbitControls for us to use.
 extend({ OrbitControls });
+extend({ DeviceOrientationControls });
 
 const City: React.FunctionComponent = () => {
     const MouseMoveControl = () => {
         const { camera, gl } = useThree();
         const { domElement } = gl;
 
-        const controls = useRef();
+        const oControls = useRef();
+        const doControls = useRef();
 
         useFrame(({ camera, mouse }) => {
-            camera.position.set(mouse.x * 5, camera.position.y, camera.position.z);
-            controls.current && (controls.current as any).dispose();
-            controls.current && (controls.current as any).update();
+            if (oControls.current) {
+                (oControls.current as any).dispose();
+                (oControls.current as any).update();
+            }
+
+            let deviceOrientationOffset = 0;
+            if (doControls.current) {
+                const gamma = (doControls.current as any).deviceOrientation.gamma || 0;
+                deviceOrientationOffset = gamma / 90;
+                (doControls.current as any).dispose();
+                (doControls.current as any).update();
+            }
+
+            const newMouseX = mouse.x * 5 - deviceOrientationOffset;
+            console.log(doControls.current, deviceOrientationOffset, newMouseX);
+            camera.position.set(newMouseX, camera.position.y, camera.position.z);
         });
 
-        // @ts-ignore
-        return <orbitControls ref={controls} args={[camera, domElement]} />;
+        return <React.Fragment>
+            {// @ts-ignore
+                <deviceOrientationControls ref={doControls} args={[camera, domElement]} />}
+            {// @ts-ignore
+                <orbitControls ref={oControls} args={[camera, domElement]} />}
+        </React.Fragment>;
     };
 
     return (
