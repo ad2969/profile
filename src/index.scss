@@ -1,7 +1,5 @@
 // site-wide styles here
 html {
-    overflow: hidden;
-
     // phone
     font-size: 14px;
 
@@ -53,7 +51,7 @@ html {
   font-style: italic;
 }
 
-body {    
+body, #root {    
     margin: 0;
     overflow-x: hidden;
     overflow-y: scroll;
