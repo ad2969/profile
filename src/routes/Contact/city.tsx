@@ -1,4 +1,5 @@
 import React, { useRef, Suspense } from "react";
+import * as THREE from "three";
 import { Canvas, useThree, useFrame, extend } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { DeviceOrientationControls } from "three/examples/jsm/controls/DeviceOrientationControls";
@@ -9,7 +10,6 @@ import "./styles.scss";
 
 // Extend will make OrbitControls available as a JSX element called orbitControls for us to use.
 extend({ OrbitControls });
-extend({ DeviceOrientationControls });
 
 const City: React.FunctionComponent = () => {
     const MouseMoveControl = () => {
@@ -18,6 +18,7 @@ const City: React.FunctionComponent = () => {
 
         const oControls = useRef();
         const doControls = useRef();
+        doControls.current = new DeviceOrientationControls(new THREE.PerspectiveCamera());
 
         useFrame(({ camera, mouse }) => {
             if (oControls.current) {
@@ -33,14 +34,12 @@ const City: React.FunctionComponent = () => {
                 (doControls.current as any).update();
             }
 
-            const newMouseX = mouse.x * 5 - deviceOrientationOffset;
-            console.log(doControls.current, deviceOrientationOffset, newMouseX);
-            camera.position.set(newMouseX, camera.position.y, camera.position.z);
+            const newCameraX = mouse.x * 5 - deviceOrientationOffset;
+            if (newCameraX !== camera.position.x) console.log(doControls.current, deviceOrientationOffset, newCameraX);
+            camera.position.set(newCameraX, camera.position.y, camera.position.z);
         });
 
         return <React.Fragment>
-            {// @ts-ignore
-                <deviceOrientationControls ref={doControls} args={[camera, domElement]} />}
             {// @ts-ignore
                 <orbitControls ref={oControls} args={[camera, domElement]} />}
         </React.Fragment>;
