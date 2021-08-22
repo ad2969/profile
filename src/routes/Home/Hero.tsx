@@ -18,7 +18,7 @@ interface LeenkProps {
 const Leenk: React.FunctionComponent<LeenkProps> = ({ href = "", to = "/", children }) => {
     if (href) {
         return (
-            <a className="t--default button--darken" href={href} >
+            <a className="t--default button--darken" href={href} target="_blank" rel="noreferrer">
                 {children}
             </a>
         );
@@ -34,22 +34,25 @@ const Leenk: React.FunctionComponent<LeenkProps> = ({ href = "", to = "/", child
 const Hero: React.FunctionComponent = () => {
     return (
         <div className="hero">
-            <div className="hero__image">
-                <img src={face} alt="face" />
+            <div className="hero-title">Hello, I&apos;m Clarence. I like to build things.</div>
+            <div className="hero-content">
+                <div className="hero-content__image">
+                    <img src={face} alt="face" />
+                </div>
+                <ul className="hero-content__text">
+                    <li>Currently based in <Leenk to="/">&#128205;Vancouver, Canada</Leenk></li>
+                    <li>Studying Electrical Engineering at the <Leenk href="https://ece.ubc.ca/undergraduates/programs/electrical-engineering-program/">&#127891;University of British Columbia</Leenk></li>
+                    <li>Part of &nbsp;
+                        <Leenk href="https://www.ubcbiztech.com/"><CustomIcon img={biztechLogo} /> UBC Biztech</Leenk>,&nbsp;
+                        <Leenk href="https://www.akpsiubc.com/"><CustomIcon img={akpsiLogo} /> Alpha Kappa Psi</Leenk> Business Fraternity
+                    </li>
+                    <br />
+                    <li>Doing work at <Leenk href="https://skyrocket.is/"><CustomIcon img={skyrocketLogo} /> Skyrocket Digital</Leenk></li>
+                    <li>Looking for <Leenk href="https://drive.google.com/file/d/1Joy0TLwtRjUDR-ELOJdS9ZibIYoAIMcI/view?usp=sharing">&#128084;Co-op Internships</Leenk> for Summer 2022</li>
+                    <li>Previously a Full-Stack Javascript Developer Co-op at <Leenk href="https://semios.com/"><CustomIcon img={semiosLogo} /> Semios</Leenk></li>
+                </ul>
+
             </div>
-            <ul className="hero__text">
-                <div className="hero__text-title">Hello, I&apos;m Clarence. I like to build things.</div>
-                <li>Currently based in <Leenk to="/">&#128205;Vancouver, Canada</Leenk></li>
-                <li>Studying Electrical Engineering at the <Leenk to="/">&#127891;University of British Columbia</Leenk></li>
-                <li>Part of &nbsp;
-                    <Leenk to="/"><CustomIcon img={biztechLogo} /> UBC Biztech</Leenk>,&nbsp;
-                    <Leenk to="/"><CustomIcon img={akpsiLogo} /> Alpha Kappa Psi</Leenk> Business Fraternity
-                </li>
-                <br />
-                <li>Doing work at <Leenk href="https://skyrocket.is/"><CustomIcon img={skyrocketLogo} /> Skyrocket Digital</Leenk></li>
-                <li>Looking for <Leenk to="/">&#128084;Co-op Internships</Leenk> for Summer 2022</li>
-                <li>Previously a Full-Stack Javascript Developer Co-op at <Leenk to="/"><CustomIcon img={semiosLogo} /> Semios</Leenk></li>
-            </ul>
         </div>);
 };
 

@@ -24,53 +24,61 @@
             padding-top: 250px;
         }
 
-        @include flex-row;
+        @include flex-col;
         align-items: center;
 
-        .hero__image {
-            display: none;
-
-            @include for-tablet-landscape-up {
-                margin-right: 2rem;
-                display: block;
-            }
-
-            @include for-laptop-up {
-                margin-right: 3rem;
-            }
-
-            img {
-                height: 10rem;
-                width: 10rem;
-            }
+        &-title {
+            font-size: 1.3em;
+            margin-bottom: 1em;
+            text-align: center;
+            @extend .t--uppercase;
         }
 
-        .hero__text {
-            list-style-position: outside;
-            list-style-type: "/  ";
-            padding-left: 0;
-            flex-grow: 1;
+        &-content {
+            @include flex-row;
+            align-items: center;
 
-            li {
-                font-size: 0.8em;
-                margin-bottom: 0.25em;
-                margin-left: 1em;
-
-                @include for-tablet-up {
-                    white-space: nowrap;
+            &__image {
+                display: none;
+    
+                @include for-tablet-landscape-up {
+                    margin-right: 2rem;
+                    display: block;
+                }
+    
+                @include for-laptop-up {
+                    margin-right: 3rem;
+                }
+    
+                img {
+                    height: 9rem;
+                    width: 9rem;
                 }
             }
-
-            .hero__text-title {
-                font-size: 1.3em;
-                margin-bottom: 1em;
-            }
-
-            a {
-                color: $color-primary;
-                transition: all 0.1s ease;
+    
+            &__text {
+                list-style-position: outside;
+                list-style-type: "/  ";
+                padding-left: 0;
+                flex-grow: 1;
+    
+                li {
+                    font-size: 0.8em;
+                    margin-bottom: 0.25em;
+                    margin-left: 1em;
+    
+                    @include for-tablet-up {
+                        white-space: nowrap;
+                    }
+                }
+    
+                a {
+                    color: $color-primary;
+                    transition: all 0.1s ease;
+                }
             }
         }
+
 
     }
 
