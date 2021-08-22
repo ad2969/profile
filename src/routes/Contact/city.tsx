@@ -18,7 +18,7 @@ const City: React.FunctionComponent = () => {
 
         const oControls = useRef();
         const doControls = useRef();
-        doControls.current = new DeviceOrientationControls(new THREE.PerspectiveCamera());
+        doControls.current = new DeviceOrientationControls(camera);
 
         useFrame(({ camera, mouse }) => {
             if (oControls.current) {
@@ -28,14 +28,13 @@ const City: React.FunctionComponent = () => {
 
             let deviceOrientationOffset = 0;
             if (doControls.current) {
-                const gamma = (doControls.current as any).deviceOrientation.gamma || 0;
-                deviceOrientationOffset = gamma / 90;
-                (doControls.current as any).dispose();
                 (doControls.current as any).update();
+                const { gamma = 0 } = (doControls.current as any).deviceOrientation;
+                deviceOrientationOffset = gamma / 90;
             }
 
             const newCameraX = mouse.x * 5 - deviceOrientationOffset;
-            if (newCameraX !== camera.position.x) console.log(doControls.current, deviceOrientationOffset, newCameraX);
+            if (newCameraX !== camera.position.x) console.log(doControls.current, deviceOrientationOffset, newCameraX); // eslint-disable-line
             camera.position.set(newCameraX, camera.position.y, camera.position.z);
         });
 
