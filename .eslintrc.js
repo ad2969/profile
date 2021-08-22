@@ -4,6 +4,9 @@ module.exports = {
         es2021: true,
         jest: true
     },
+    globals: {
+        JSX: true
+    },
     extends: [
         "plugin:react/recommended",
         "standard"

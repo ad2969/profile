@@ -15,7 +15,10 @@ html {
 
     // widescreen
     @include for-widescreen-up {
-        font-size: 20px;
+        font-size: 1.3vw;
+    }
+    @include for-widelimit-up {
+      font-size: 30px;
     }
 }
 
@@ -48,7 +51,7 @@ html {
   font-style: italic;
 }
 
-body {    
+body, #root {    
     margin: 0;
     overflow-x: hidden;
     overflow-y: scroll;
