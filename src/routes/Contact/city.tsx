@@ -10,15 +10,18 @@ import "./styles.scss";
 
 // Extend will make OrbitControls available as a JSX element called orbitControls for us to use.
 extend({ OrbitControls });
+const dummyVec = new THREE.Vector3();
 
 const City: React.FunctionComponent = () => {
     const MouseMoveControl = () => {
         const { camera, gl } = useThree();
         const { domElement } = gl;
 
+        const cam = useRef();
+        const scene = new THREE.Scene();
         const oControls = useRef();
         const doControls = useRef();
-        doControls.current = new DeviceOrientationControls(camera);
+        doControls.current = new DeviceOrientationControls(new THREE.PerspectiveCamera());
 
         useFrame(({ camera, mouse }) => {
             if (oControls.current) {
@@ -29,16 +32,23 @@ const City: React.FunctionComponent = () => {
             let deviceOrientationOffset = 0;
             if (doControls.current) {
                 (doControls.current as any).update();
-                const { gamma = 0 } = (doControls.current as any).deviceOrientation;
-                deviceOrientationOffset = gamma / 90;
+
+                const gamma = (doControls.current as any).deviceOrientation.gamma || 0;
+                deviceOrientationOffset = gamma / 5;
             }
 
             const newCameraX = mouse.x * 5 - deviceOrientationOffset;
-            if (newCameraX !== camera.position.x) console.log(doControls.current, deviceOrientationOffset, newCameraX); // eslint-disable-line
-            camera.position.set(newCameraX, camera.position.y, camera.position.z);
+            camera.position.lerp(dummyVec.set(newCameraX, camera.position.y, camera.position.z), 0.1);
+
+            if (cam.current) {
+                (cam.current as any).position.copy(camera.position);
+                (cam.current as any).updateMatrixWorld();
+                gl.render(scene, cam.current);
+            }
         });
 
         return <React.Fragment>
+            <perspectiveCamera ref={cam} />
             {// @ts-ignore
                 <orbitControls ref={oControls} args={[camera, domElement]} />}
         </React.Fragment>;
