@@ -91,11 +91,13 @@
         align-items: center;
         height: 100vh;
         text-align: center;
+        color: $color-white;
 
         &__location {
             font-size: 1em;
             margin-bottom: 0.5em;
             max-width: 60%;
+            margin-top: 12em;
         }
         
         &__text {
@@ -124,9 +126,9 @@
 
         .city-canvas {
             position: fixed !important;
-            top: 7rem;
+            top: 0;
             left: 0;
-            height: calc(100vh - 7rem);
+            height: 100vh;
         }
     }
     
