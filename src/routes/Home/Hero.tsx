@@ -6,26 +6,53 @@ import CustomIcon from "../../components/media/customImageIcon";
 import akpsiLogo from "../../assets/images/logos/akpsi-logo.png";
 import biztechLogo from "../../assets/images/logos/biztech-logo.png";
 import semiosLogo from "../../assets/images/logos/semios-logo.png";
+import skyrocketLogo from "../../assets/images/logos/skyrocket-logo.png";
 import face from "../../assets/images/face.png";
+
+interface LeenkProps {
+    to?: string;
+    href?: string;
+    children: React.ReactNode;
+}
+
+const Leenk: React.FunctionComponent<LeenkProps> = ({ href = "", to = "/", children }) => {
+    if (href) {
+        return (
+            <a className="t--default button--darken" href={href} target="_blank" rel="noreferrer">
+                {children}
+            </a>
+        );
+    } else {
+        return (
+            <Link className="t--default button--darken" to={to}>
+                {children}
+            </Link>
+        );
+    }
+};
 
 const Hero: React.FunctionComponent = () => {
     return (
         <div className="hero">
-            <div className="hero__image">
-                <img src={face} alt="face" />
+            <div className="hero-title">Hello, I&apos;m Clarence. I like to build things.</div>
+            <div className="hero-content">
+                <div className="hero-content__image">
+                    <img src={face} alt="face" />
+                </div>
+                <ul className="hero-content__text">
+                    <li>Currently based in <Leenk to="/">&#128205;Vancouver, Canada</Leenk></li>
+                    <li>Studying Electrical Engineering at the <Leenk href="https://ece.ubc.ca/undergraduates/programs/electrical-engineering-program/">&#127891;University of British Columbia</Leenk></li>
+                    <li>Part of &nbsp;
+                        <Leenk href="https://www.ubcbiztech.com/"><CustomIcon img={biztechLogo} /> UBC Biztech</Leenk>,&nbsp;
+                        <Leenk href="https://www.akpsiubc.com/"><CustomIcon img={akpsiLogo} /> Alpha Kappa Psi</Leenk> Business Fraternity
+                    </li>
+                    <br />
+                    <li>Doing work at <Leenk href="https://skyrocket.is/"><CustomIcon img={skyrocketLogo} /> Skyrocket Digital</Leenk></li>
+                    <li>Looking for <Leenk href="https://drive.google.com/file/d/1Joy0TLwtRjUDR-ELOJdS9ZibIYoAIMcI/view?usp=sharing">&#128084;Co-op Internships</Leenk> for Summer 2022</li>
+                    <li>Previously a Full-Stack Javascript Developer Co-op at <Leenk href="https://semios.com/"><CustomIcon img={semiosLogo} /> Semios</Leenk></li>
+                </ul>
+
             </div>
-            <ul className="hero__text">
-                <div className="hero__text-title">Hello, I&apos;m Clarence. I like to build things.</div>
-                <li>Currently based in <Link className="t--default button--darken" to="/">&#128205; Vancouver, Canada</Link></li>
-                <li>Studying Electrical Engineering at the <Link className="t--default button--darken" to="/">&#127891; University of British Columbia</Link></li>
-                <li>Part of &nbsp;
-                    <Link className="t--default button--darken" to="/"><CustomIcon img={biztechLogo} /> UBC Biztech</Link>,&nbsp;
-                    <Link className="t--default button--darken" to="/"><CustomIcon img={akpsiLogo} /> Alpha Kappa Psi</Link> Business Fraternity
-                </li>
-                <br />
-                <li>Looking for  <Link className="t--default button--darken" to="/">&#128084; Co-op Internships</Link> for Summer 2022</li>
-                <li>Previously a Full-Stack Javascript Developer Co-op at <Link className="t--default button--darken" to="/"><CustomIcon img={semiosLogo} /> Semios</Link></li>
-            </ul>
         </div>);
 };
 

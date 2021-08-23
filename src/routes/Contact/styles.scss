@@ -1,20 +1,133 @@
 .Contact {
-    .info {
-    
+
+    .Header-logo {
+        position: fixed;
+        transform: translateY(-7rem);
+    }
+
+    .Content {
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-info, .contact-divider, .contact-status {
+        position: relative;
+
+        pointer-events: none;
+        @media (hover: none) {
+            pointer-events: all;
+        }
+
+        div {
+            pointer-events: all;
+        }
+    }
+
+    .contact-info {
+        margin-top: 7rem;
+
+        @include flex-col;
+        justify-content: center;
+        align-items: center;
+
+        &__hero {
+            max-width: 60%;
+            text-align: center;
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+
+            @media (min-height: 1500px) {
+                margin-top: 750px;
+            }
+
+            @include flex-col;
+            align-items: center;
+
+            @include for-tablet-up {
+                max-width: 50%;
+            }
+
+            @include for-laptop-up {
+                max-width: 40%;
+            }
+
+            &-text {
+                font-size: 0.8em;
+            }
+
+            &-title {
+                font-size: 1.3em;
+                margin-bottom: 1em;
+                @extend .t--uppercase;
+            }
+
+            &-buttons {
+                margin-top: 2em;
+
+                .icon-button {
+                    margin: 0 0.5em;
+                }
+            }
+        }
+
+        &__more-links {
+            @include flex-col;
+            justify-content: flex-end;
+            align-self: flex-end;
+
+            .tooltip-button {
+                margin: 0.5em 4em;
+            }
+        }
+    }
+
+    .contact-divider {
+        height: 50vh;
+        width: 100vw;
     }
     
-    .status {
+    .contact-status {
+        @include flex-col;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+
+        &__location {
+            font-size: 1em;
+            margin-bottom: 0.5em;
+            max-width: 60%;
+        }
         
+        &__text {
+            @extend .t--uppercase;
+            font-size: 2em;
+            font-weight: bold;
+            max-width: 60%;
+            
+            span {
+                text-decoration: underline;
+                text-decoration-thickness: 0.2em;
+            }
+            span.active {
+                color: $color-primary;
+            }
+            span.inactive {
+                color: $color-accent;
+            }
+        }
     }
 
     .city {
         @extend .t--unselectable;
 
-        position: absolute;
-        top: 7rem;
-        left: 0;
-        height: calc(100vh - 7rem);
-        width: 100%;
+        background: rgba(255, 255, 255, 0.5);
+
+        .city-canvas {
+            position: fixed !important;
+            top: 7rem;
+            left: 0;
+            height: calc(100vh - 7rem);
+        }
     }
     
 }

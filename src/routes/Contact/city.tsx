@@ -1,6 +1,8 @@
 import React, { useRef, Suspense } from "react";
+import * as THREE from "three";
 import { Canvas, useThree, useFrame, extend } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { DeviceOrientationControls } from "three/examples/jsm/controls/DeviceOrientationControls";
 
 import CityGrid from "./cityGrid";
 
@@ -8,22 +10,61 @@ import "./styles.scss";
 
 // Extend will make OrbitControls available as a JSX element called orbitControls for us to use.
 extend({ OrbitControls });
+const dummyVec = new THREE.Vector3();
 
 const City: React.FunctionComponent = () => {
     const MouseMoveControl = () => {
         const { camera, gl } = useThree();
         const { domElement } = gl;
 
-        const controls = useRef();
+        const cam = useRef();
+        const scene = new THREE.Scene();
+        const oControls = useRef();
+        const doControls = useRef();
+        doControls.current = new DeviceOrientationControls(new THREE.PerspectiveCamera());
+
+        const scrollElement = document.querySelector(".Contact");
+        const opacityElement1 = scrollElement ? scrollElement.querySelector(".contact-info") : null;
+        const opacityElement2 = scrollElement ? scrollElement.querySelector(".contact-divider") : null;
+        const opacityElement3 = scrollElement ? scrollElement.querySelector(".contact-status") : null;
+        const scrollMaximum = scrollElement ? scrollElement.scrollHeight - window.innerHeight : window.innerHeight;
 
         useFrame(({ camera, mouse }) => {
-            camera.position.set(mouse.x * 5, camera.position.y, camera.position.z);
-            controls.current && (controls.current as any).dispose();
-            controls.current && (controls.current as any).update();
+            if (oControls.current) {
+                (oControls.current as any).dispose();
+                (oControls.current as any).update();
+            }
+            const newScrollMultiplier = scrollElement ? scrollElement.scrollTop / scrollMaximum : 0;
+            const newZoomValue = 200 - newScrollMultiplier * 140;
+            const newZoomAngle = 50 - newScrollMultiplier * 40;
+
+            if (opacityElement1) (opacityElement1 as HTMLElement).style.backgroundColor = `rgba(255, 255, 255, ${newScrollMultiplier * 0.5})`;
+            if (opacityElement2) (opacityElement2 as HTMLElement).style.backgroundColor = `rgba(255, 255, 255, ${newScrollMultiplier * 0.5})`;
+            if (opacityElement3) (opacityElement3 as HTMLElement).style.backgroundColor = `rgba(255, 255, 255, ${newScrollMultiplier * 0.5})`;
+
+            let deviceOrientationOffset = 0;
+            if (doControls.current) {
+                (doControls.current as any).update();
+
+                const gamma = (doControls.current as any).deviceOrientation.gamma || 0;
+                deviceOrientationOffset = gamma / 5;
+            }
+
+            const newCameraX = mouse.x * 5 - deviceOrientationOffset;
+            camera.position.lerp(dummyVec.set(newCameraX, newZoomAngle, newZoomValue), 0.05);
+
+            if (cam.current) {
+                (cam.current as any).position.copy(camera.position);
+                (cam.current as any).updateMatrixWorld();
+                gl.render(scene, cam.current);
+            }
         });
 
-        // @ts-ignore
-        return <orbitControls ref={controls} args={[camera, domElement]} />;
+        return <React.Fragment>
+            <perspectiveCamera ref={cam} />
+            {// @ts-ignore
+                <orbitControls ref={oControls} args={[camera, domElement]} />}
+        </React.Fragment>;
     };
 
     return (
@@ -39,6 +80,7 @@ const City: React.FunctionComponent = () => {
         // THREE.Raycaster
         // Resize observer
         <Canvas
+            className="city-canvas"
             camera={{ fov: 20, near: 1, far: 1000, position: [0, 50, 200] }} // THREE.Perspective camera props
             orthographic={false} // THREE.Orthographic camera
             shadows={true} // THREE.PCFSoftShadowMap

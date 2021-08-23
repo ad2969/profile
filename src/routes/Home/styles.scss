@@ -1,75 +1,93 @@
 .Home {
-    overflow: visible !important;
+    min-height: 100vh;
+
+    .hero, .parallax {
+        max-height: 1000px;
+    }
 
     .hero {
-        position: absolute;
-        top: 50vh;
-        left: 50%;
-        max-width: 100vw;
-        transform: translate(-50%, -60%);
-
-        @media (min-height: 1500px) {
-            top: 750px;
-        }
-
-        @include flex-row;
-        align-items: center;
+        margin: 0 auto;
+        width: fit-content;
+        max-width: 90%;
 
         @include for-phone-only {
-            width: 60%;
+            max-width: 60%;
         }
 
-        .hero__image {
-            display: none;
+        padding-top: 10vh;
 
-            @include for-tablet-landscape-up {
-                margin-right: 2rem;
-                display: block;
-            }
-
-            @include for-laptop-up {
-                margin-right: 4rem;
-            }
-
-            img {
-                height: 10rem;
-                width: 10rem;
-            }
+        @media (min-height: 1000px) {
+            padding-top: 15vh;
         }
 
-        .hero__text {
-            list-style-position: outside;
-            list-style-type: "/  ";
-            padding-left: 0;
+        @media (min-height: 1500px) {
+            padding-top: 250px;
+        }
 
-            li {
-                font-size: 0.8em;
-                margin-bottom: 0.25em;
-                margin-left: 1em;
+        @include flex-col;
+        align-items: center;
 
-                @include for-tablet-up {
-                    white-space: nowrap;
+        &-title {
+            font-size: 1.3em;
+            margin-bottom: 1em;
+            text-align: center;
+            @extend .t--uppercase;
+        }
+
+        &-content {
+            @include flex-row;
+            align-items: center;
+
+            &__image {
+                display: none;
+    
+                @include for-tablet-landscape-up {
+                    margin-right: 2rem;
+                    display: block;
+                }
+    
+                @include for-laptop-up {
+                    margin-right: 3rem;
+                }
+    
+                img {
+                    height: 9rem;
+                    width: 9rem;
                 }
             }
-
-            .hero__text-title {
-                font-size: 1.3em;
-                margin-bottom: 1em;
-            }
-
-            a {
-                color: $color-primary;
-                transition: all 0.1s ease;
+    
+            &__text {
+                list-style-position: outside;
+                list-style-type: "/  ";
+                padding-left: 0;
+                flex-grow: 1;
+    
+                li {
+                    font-size: 0.8em;
+                    margin-bottom: 0.25em;
+                    margin-left: 1em;
+    
+                    @include for-tablet-up {
+                        white-space: nowrap;
+                    }
+                }
+    
+                a {
+                    color: $color-primary;
+                    transition: all 0.1s ease;
+                }
             }
         }
+
 
     }
 
     .parallax {
+        position: absolute;
         height: calc(100vh - 7rem);
         width: 100%;
 
-        max-height: 1000px;
+        z-index: -1;
 
         .layer {
             height: 100%;

@@ -1,9 +1,7 @@
 import React, { useLayoutEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import Logo from "../../assets/svg/logo";
 import BREAKPOINTS from "../../styles/mixins/_breakpoints.module.scss";
-
 import "./styles.scss";
 
 const Header: React.FunctionComponent = () => {
@@ -21,10 +19,7 @@ const Header: React.FunctionComponent = () => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div className="Header flex-center">
-            <div className="header__logo">
-                <Logo className="button--scale"/>
-            </div>
+        <div className="Header-fixed flex-center">
             <div className="header__links">
                 {doShowAll && <span className="header__link button--scale">
                     <NavLink
