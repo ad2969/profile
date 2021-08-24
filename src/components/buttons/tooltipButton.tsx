@@ -22,7 +22,16 @@ const TooltipButton: React.FunctionComponent<Props> = ({
 
     return (
         <div className="tooltip-button">
-            <span className={`tooltip-button__tooltip ${isHover ? "active" : ""}`}>{tooltipText}</span>
+            <span
+                className={`tooltip-button__tooltip ${isHover ? "active" : ""}`}
+                style={{
+                    background: strokeColor,
+                    color: hoverColor,
+                    // @ts-ignore
+                    "--background": strokeColor
+                }}
+            >
+                {tooltipText}</span>
             <Icon
                 color={isHover ? hoverColor : strokeColor}
                 className="tooltip-button__icon button"
