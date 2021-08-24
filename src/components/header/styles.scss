@@ -1,12 +1,14 @@
-.Header-logo {
-    @include flex-col;
-    justify-content: center;
-    
+.Header-logo, .Header-fixed {
     margin: 2.5rem 5rem;
 
     @include for-phone-only {
         margin: 2.5rem 3rem;
     }
+}
+
+.Header-logo {
+    @include flex-col;
+    justify-content: center;
 
     svg {
         height: 2em;
@@ -21,25 +23,30 @@
     right: 0;
     top: 0;
     @include flex-row;
+    align-items: center;
+    margin: 1.5rem 5rem;
 
     z-index: 999;
 
-    .header__links {
-        margin: 3rem 5rem;
 
-        @include for-phone-only {
-            margin: 3rem 3rem;
-        }
+    .header__link {
+        font-size: 1rem;
+        padding-left: 3rem;
+        margin-left: auto;
+        white-space: nowrap;
 
-        .header__link {
-            font-size: 1rem;
-            padding: 1rem 0 1rem 3rem;
-            margin-left: auto;
-            white-space: nowrap;
+        display: inline-block;
+    }
+    .header__link.current {
+        display: none;
+    }
 
-            .selected {
-                color: $color-primary;
-            }
+    .header__link-menu {
+        display: inline-block;
+
+        svg {
+            width: 4em;
+            height: 4em;
         }
     }
 }

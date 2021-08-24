@@ -1,0 +1,28 @@
+#menu-button {
+    path {
+        fill: none;
+        transition: all 0.5s cubic-bezier(0.250,-0.250, 0.750, 1.250);
+        stroke-width: 2em;
+        stroke-linecap: round;
+        stroke: $color-primary;
+        stroke-dashoffset: 0px;
+    }
+
+    #top, #bottom {
+        stroke-dasharray: 240px 950px;
+    }
+
+    #middle {
+        stroke-dasharray: 240px 240px;
+    }
+}
+
+#menu-button.cross {
+    #top, .cross #bottom {
+        stroke-dashoffset: -650px;
+    }
+    .cross #middle {
+        stroke-dashoffset: -115px;
+        stroke-dasharray: 1px 220px;
+    }
+}
