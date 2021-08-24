@@ -24,6 +24,7 @@
 
     .contact-info {
         margin-top: 7rem;
+        height: calc(100vh - 7rem);
 
         @include flex-col;
         justify-content: center;
@@ -32,8 +33,7 @@
         &__hero {
             max-width: 60%;
             text-align: center;
-            margin-top: 5rem;
-            margin-bottom: 5rem;
+            margin-bottom: 10rem;
 
             @media (min-height: 1500px) {
                 margin-top: 750px;
@@ -69,10 +69,19 @@
             }
         }
 
+        &__mouse-scroll {
+            font-size: 0.4rem;
+            color: $color-black;
+            position: fixed;
+            bottom: 2rem;
+        }
+
         &__more-links {
             @include flex-col;
             justify-content: flex-end;
             align-self: flex-end;
+            position: fixed;
+            bottom: 2rem;
 
             .tooltip-button {
                 margin: 0.5em 4em;

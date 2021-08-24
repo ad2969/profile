@@ -2,6 +2,7 @@ import React from "react";
 
 import IconButton from "../../components/buttons/iconButton";
 import TooltipButton from "../../components/buttons/tooltipButton";
+import MouseScroll from "../../components/ui/mouseScroll";
 
 import InstagramLogo from "../../assets/svg/instagram";
 import LinkedinLogo from "../../assets/svg/linkedin";
@@ -38,6 +39,8 @@ const ContactInfo: React.FunctionComponent = () => {
                     />
                 </div>
             </div>
+
+            <div className="contact-info__mouse-scroll"><MouseScroll /></div>
 
             <div className="contact-info__more-links">
                 <TooltipButton
