@@ -2,10 +2,10 @@
     path {
         fill: none;
         transition: all 0.5s cubic-bezier(0.250,-0.250, 0.750, 1.250);
-        stroke-width: 2em;
+        stroke-width: 35px;
         stroke-linecap: round;
         stroke: $color-primary;
-        stroke-dashoffset: 0px;
+        stroke-dashoffset: 0;
     }
 
     #top, #bottom {
@@ -18,10 +18,10 @@
 }
 
 #menu-button.cross {
-    #top, .cross #bottom {
+    #top, #bottom {
         stroke-dashoffset: -650px;
     }
-    .cross #middle {
+    #middle {
         stroke-dashoffset: -115px;
         stroke-dasharray: 1px 220px;
     }

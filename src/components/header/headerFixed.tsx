@@ -26,6 +26,7 @@ const LINK_VARIATIONS = {
 
 const Header: React.FunctionComponent<Props> = ({ variation = "home" }) => {
     const [doShowAll, setDoShowAll] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useLayoutEffect(() => {
         // dont show any of the stuff if variation = 0
@@ -51,8 +52,11 @@ const Header: React.FunctionComponent<Props> = ({ variation = "home" }) => {
                     to={link.url} exact
                 >{link.text}</NavLink>
             ))}
-            <span className="header__link header__link-menu button--scale t--default t--lowercase t--unselectable">
-                <MenuButton color={COLORS.primary} active={false}/>
+            <span
+                className="header__link header__link-menu button--scale t--default t--lowercase t--unselectable"
+                onClick={() => { setMenuOpen(!menuOpen); }}
+            >
+                <MenuButton color={COLORS.primary} active={menuOpen}/>
             </span>
         </div>
     );

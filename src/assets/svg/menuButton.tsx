@@ -10,7 +10,7 @@ interface Props {
 const MenuButton: React.FunctionComponent<Props> = ({ color, active }) => {
     return (
         <svg version="1.1" id="menu-button" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 500 600" xmlSpace="preserve" className={active ? "cross" : ""}>
+            viewBox="0 100 750 400" xmlSpace="preserve" className={active ? "cross" : ""}>
             {/* <linearGradient id="menubutton_paint" gradientUnits="userSpaceOnUse" x1="150" y1="300" x2="650" y2="300" gradientTransform="matrix(1 0 0 -1 0 600)">
                 <stop offset="0" stopColor={color1}/>
                 <stop offset="1" stopColor={color2}/>
