@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { onValue } from "firebase/database";
 import { statusDbRef } from "../../services/firebase";
@@ -20,14 +20,16 @@ const Contact: React.FunctionComponent = () => {
     const [statusLoaded, setStatusLoaded] = useState(false);
     const [status, setStatus] = useState(false);
 
-    onValue(statusDbRef, (snapshot) => {
-        if (!statusLoaded) setStatusLoaded(true);
+    useEffect(() => {
+        onValue(statusDbRef, (snapshot) => {
+            if (!statusLoaded) setStatusLoaded(true);
 
-        const newStatus = snapshot.val();
-        // eslint-disable-next-line
-        console.log("status change detected! update to:", newStatus);
-        if (newStatus !== status) setStatus(newStatus);
-    });
+            const newStatus = snapshot.val();
+            // eslint-disable-next-line
+            console.log("status change detected! update to:", newStatus);
+            setStatus(newStatus);
+        });
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     useLayoutEffect(() => {
         // don't initialize if status not loaded
