@@ -33,11 +33,14 @@ const TooltipButton: React.FunctionComponent<Props> = ({
             >
                 {tooltipText}</span>
             <Icon
-                color={isHover ? hoverColor : strokeColor}
+                color={strokeColor}
                 className="tooltip-button__icon button"
                 style={{
                     borderColor: strokeColor,
-                    backgroundColor: isHover ? strokeColor : "transparent"
+                    // @ts-ignore
+                    "--stroke-hover": hoverColor,
+                    // @ts-ignore
+                    "--background-hover": strokeColor
                 }}
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}

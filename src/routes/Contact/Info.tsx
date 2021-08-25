@@ -3,6 +3,7 @@ import React from "react";
 import IconButton from "../../components/buttons/iconButton";
 import TooltipButton from "../../components/buttons/tooltipButton";
 import MouseScroll from "../../components/ui/mouseScroll";
+import LoadSpinner from "../../components/ui/loadSpinner";
 
 import InstagramLogo from "../../assets/svg/instagram";
 import LinkedinLogo from "../../assets/svg/linkedin";
@@ -14,7 +15,11 @@ import SpotifyLogo from "../../assets/svg/spotify";
 import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
 
-const ContactInfo: React.FunctionComponent = () => {
+interface Props {
+    statusLoaded: boolean
+}
+
+const ContactInfo: React.FunctionComponent<Props> = ({ statusLoaded }) => {
     return (
         <div className="contact-info">
             <div className="contact-info__hero">
@@ -22,25 +27,27 @@ const ContactInfo: React.FunctionComponent = () => {
                 <div className="contact-info__hero-text">Want to work with me? Have a project in mind? Simply want to chat?</div>
                 <div className="contact-info__hero-buttons">
                     <IconButton
-                        icon={MailLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        icon={MailLogo} strokeColor={COLORS.primary} strokeHoverColor={COLORS.white}
                         url="mailto:clarenceadrian@alumni.ubc.ca"
                     />
                     <IconButton
-                        icon={LinkedinLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        icon={LinkedinLogo} strokeColor={COLORS.primary} strokeHoverColor={COLORS.white}
                         url="https://www.linkedin.com/in/clarence-adrian/"
                     />
                     <IconButton
-                        icon={TwitterLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        icon={TwitterLogo} strokeColor={COLORS.primary} strokeHoverColor={COLORS.white}
                         url="https://twitter.com/ad2969"
                     />
                     <IconButton
-                        icon={InstagramLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        icon={InstagramLogo} strokeColor={COLORS.primary} strokeHoverColor={COLORS.white}
                         url="https://www.instagram.com/ad2969_/"
                     />
                 </div>
             </div>
 
-            <div className="contact-info__mouse-scroll"><MouseScroll /></div>
+            <div className="contact-info__mouse-scroll" id="contact-mouse-scroll">
+                {statusLoaded ? <MouseScroll /> : <LoadSpinner />}
+            </div>
 
             <div className="contact-info__more-links">
                 <TooltipButton

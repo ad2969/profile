@@ -29,7 +29,7 @@ const City: React.FunctionComponent<Props> = ({ status }) => {
         const doControls = useRef();
         doControls.current = new DeviceOrientationControls(new THREE.PerspectiveCamera());
 
-        const scrollElement = document.querySelector(".Contact");
+        const scrollElement = document.documentElement;
         const scrollMaximum = scrollElement ? scrollElement.scrollHeight - window.innerHeight : window.innerHeight;
 
         useFrame(({ camera, mouse }) => {
@@ -37,7 +37,7 @@ const City: React.FunctionComponent<Props> = ({ status }) => {
                 (oControls.current as any).dispose();
                 (oControls.current as any).update();
             }
-            const newScrollMultiplier = scrollElement ? scrollElement.scrollTop / scrollMaximum : 0;
+            const newScrollMultiplier = scrollElement ? scrollElement.scrollTop / scrollMaximum || 0 : 0;
             const newZoomValue = CAMERA_DEFAULT.Z - newScrollMultiplier * (CAMERA_DEFAULT.Z * 0.85);
             const newZoomAngle = CAMERA_DEFAULT.Y - newScrollMultiplier * (CAMERA_DEFAULT.Y * 0.85);
 
@@ -98,9 +98,7 @@ const City: React.FunctionComponent<Props> = ({ status }) => {
                     <CityGrid status={status}/>
                 </Suspense>
                 <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -10, 0]}>
-                    <planeGeometry
-                        args={[200, 200]}
-                    />
+                    <planeGeometry args={[200, 200]} />
                     <meshStandardMaterial
                         color="#aaa"
                         metalness={0}
