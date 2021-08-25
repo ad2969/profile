@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { SvgProps } from "../../assets/svg/svgtypes";
+import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const TooltipButton: React.FunctionComponent<Props> = ({
-    strokeColor = "#000", hoverColor = "#fff", icon: Icon, url = "", tooltipText
+    strokeColor = COLORS.black, hoverColor = COLORS.white, icon: Icon, url = "", tooltipText
 }) => {
     const [isHover, setIsHover] = useState(false);
 
