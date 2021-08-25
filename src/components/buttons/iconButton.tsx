@@ -1,6 +1,7 @@
 import React from "react";
 
 import { SvgProps } from "../../assets/svg/svgtypes";
+import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const IconButton: React.FunctionComponent<Props> = ({
-    strokeColor = "#000", strokeHoverColor = "#fff", icon: Icon, url = "", direction = "ttb"
+    strokeColor = COLORS.white, strokeHoverColor = COLORS.white, icon: Icon, url = "", direction = "ttb"
 }) => {
     const mouseClickHandler = () => {
         window.open(url, "_blank");
