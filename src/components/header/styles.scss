@@ -1,14 +1,16 @@
 .Header-logo, .Header-fixed {
-    margin: 2.5rem 5rem;
-
-    @include for-phone-only {
-        margin: 2.5rem 3rem;
-    }
+    max-height: 7rem;
 }
 
 .Header-logo {
     @include flex-col;
     justify-content: center;
+
+    padding: 2.5rem 5rem;
+
+    @include for-phone-only {
+        padding: 2.5rem 3rem;
+    }
 
     svg {
         height: 2em;
@@ -20,33 +22,36 @@
 
 .Header-fixed {
     position: fixed;
-    right: 0;
     top: 0;
     @include flex-row;
+    width: 100%;
+    place-content: flex-end;
     align-items: center;
-    margin: 1.5rem 5rem;
+    pointer-events: none;
 
     z-index: 999;
 
-
     .header__link {
         font-size: 1rem;
-        padding-left: 3rem;
-        margin-left: auto;
         white-space: nowrap;
-
         display: inline-block;
-    }
-    .header__link.current {
-        display: none;
+        pointer-events: all;
+
+        &.current {
+            display: none;
+        }
     }
 
     .header__link-menu {
-        display: inline-block;
-
-        svg {
-            width: 4em;
-            height: 4em;
+        padding: 2.5rem 5rem 2.5rem 2rem;
+    
+        @include for-phone-only {
+            padding: 2.5rem 3rem;
         }
+    }
+
+    svg {
+        width: 4em;
+        height: 4em;
     }
 }

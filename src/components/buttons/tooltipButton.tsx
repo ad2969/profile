@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { SvgProps } from "../../assets/svg/svgtypes";
+import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const TooltipButton: React.FunctionComponent<Props> = ({
-    strokeColor = "#000", hoverColor = "#fff", icon: Icon, url = "", tooltipText
+    strokeColor = COLORS.black, hoverColor = COLORS.white, icon: Icon, url = "", tooltipText
 }) => {
     const [isHover, setIsHover] = useState(false);
 
@@ -22,13 +23,25 @@ const TooltipButton: React.FunctionComponent<Props> = ({
 
     return (
         <div className="tooltip-button">
-            <span className={`tooltip-button__tooltip ${isHover ? "active" : ""}`}>{tooltipText}</span>
+            <span
+                className={`tooltip-button__tooltip ${isHover ? "active" : ""}`}
+                style={{
+                    background: strokeColor,
+                    color: hoverColor,
+                    // @ts-ignore
+                    "--background": strokeColor
+                }}
+            >
+                {tooltipText}</span>
             <Icon
-                color={isHover ? hoverColor : strokeColor}
+                color={strokeColor}
                 className="tooltip-button__icon button"
                 style={{
                     borderColor: strokeColor,
-                    backgroundColor: isHover ? strokeColor : "transparent"
+                    // @ts-ignore
+                    "--stroke-hover": hoverColor,
+                    // @ts-ignore
+                    "--background-hover": strokeColor
                 }}
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}

@@ -4,6 +4,11 @@ import Routes from "./routes";
 import reportWebVitals from "./reportWebVitals";
 import "./index.scss";
 
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 ReactDOM.render(
     <React.StrictMode>
         <Routes />

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Layout from "../../components/layouts/magazine";
+import HeaderLogo from "../../components/header/headerLogo";
 import Parallax from "./Parallax";
 import Hero from "./Hero";
 
@@ -8,10 +8,11 @@ import "./styles.scss";
 
 const Home: React.FunctionComponent = () => {
     return (
-        <Layout className="Home">
+        <div className="Home">
+            <HeaderLogo />
             <Parallax />
             <Hero />
-        </Layout>
+        </div>
     );
 };
 
