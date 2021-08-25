@@ -60,17 +60,18 @@ body {
 
 #root {
   width: 100%;
+  
+  .Header-fixed, .Home .parallax {
+    max-width: 100vw;
+  }
 
   @include for-widescreen-up {
     max-width: $breakpoint-widelimit;
     margin: 0 auto;
 
-    .Header-fixed {
+    .Header-fixed, .Home .parallax {
       max-width: $breakpoint-widelimit;
-    }
-
-    .Home .parallax {
-      max-width: $breakpoint-widelimit;
+      overflow: hidden;
     }
   }
 }
