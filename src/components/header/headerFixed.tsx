@@ -52,12 +52,12 @@ const Header: React.FunctionComponent<Props> = ({ variation = "home" }) => {
                     to={link.url} exact
                 >{link.text}</NavLink>
             ))}
-            <span
+            {false && <span
                 className="header__link header__link-menu button--scale t--default t--lowercase t--unselectable"
                 onClick={() => { setMenuOpen(!menuOpen); }}
             >
                 <MenuButton color={COLORS.primary} active={menuOpen}/>
-            </span>
+            </span>}
         </div>
     );
 };

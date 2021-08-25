@@ -52,6 +52,16 @@
         }
     }
 
+    // TEMPORARY __
+    .header__link {
+        padding: 3rem 5rem;
+    
+        @include for-phone-only {
+            padding: 3rem;
+        }
+    } 
+    // TEMPORARY ^^
+
     svg {
         width: 5em;
         height: 5em;
