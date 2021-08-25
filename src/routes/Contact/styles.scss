@@ -1,8 +1,8 @@
-.Contact {
+.Contact{
 
     .Header-logo {
         position: fixed;
-        transform: translateY(-7rem);
+        top: 0;
     }
 
     .Content {
@@ -24,6 +24,7 @@
 
     .contact-info {
         margin-top: 7rem;
+        height: calc(100vh - 7rem);
 
         @include flex-col;
         justify-content: center;
@@ -32,12 +33,7 @@
         &__hero {
             max-width: 60%;
             text-align: center;
-            margin-top: 5rem;
-            margin-bottom: 5rem;
-
-            @media (min-height: 1500px) {
-                margin-top: 750px;
-            }
+            margin-bottom: 10rem;
 
             @include flex-col;
             align-items: center;
@@ -66,23 +62,47 @@
                 .icon-button {
                     margin: 0 0.5em;
                 }
+
+                svg {
+                    min-width: 2.5rem;
+                    min-height: 2.5rem;
+                }
             }
+        }
+
+        &__mouse-scroll {
+            font-size: 0.4rem;
+            position: fixed;
+            bottom: 2.5rem;
         }
 
         &__more-links {
             @include flex-col;
             justify-content: flex-end;
             align-self: flex-end;
+            position: fixed;
+            bottom: 2rem;
 
             .tooltip-button {
                 margin: 0.5em 4em;
+                margin-bottom: 0;
+
+                @include for-phone-only {
+                    margin: 0.5em 2em;
+                    margin-bottom: 0;
+
+                    svg {
+                        width: 3rem;
+                        height: 3rem;
+                    }
+                }
             }
         }
     }
 
     .contact-divider {
         height: 50vh;
-        width: 100vw;
+        width: 100%;
     }
     
     .contact-status {
@@ -91,11 +111,13 @@
         align-items: center;
         height: 100vh;
         text-align: center;
+        color: $color-white;
 
         &__location {
             font-size: 1em;
             margin-bottom: 0.5em;
             max-width: 60%;
+            margin-top: 16em;
         }
         
         &__text {
@@ -103,6 +125,7 @@
             font-size: 2em;
             font-weight: bold;
             max-width: 60%;
+            margin-bottom: 4em;
             
             span {
                 text-decoration: underline;
@@ -124,10 +147,9 @@
 
         .city-canvas {
             position: fixed !important;
-            top: 7rem;
+            top: 0;
             left: 0;
-            height: calc(100vh - 7rem);
+            height: 100vh;
         }
     }
-    
 }

@@ -1,11 +1,14 @@
+.Header-logo, .Header-fixed {
+    max-height: 7rem;
+}
 .Header-logo {
     @include flex-col;
     justify-content: center;
     
-    margin: 2.5rem 5rem;
+    padding: 2.5rem 5rem;
 
     @include for-phone-only {
-        margin: 2.5rem 3rem;
+        padding: 2.5rem 3rem;
     }
 
     svg {
@@ -18,22 +21,23 @@
 
 .Header-fixed {
     position: fixed;
-    right: 0;
     top: 0;
     @include flex-row;
+    width: 100%;
+    place-content: flex-end;
 
     z-index: 999;
 
     .header__links {
-        margin: 3rem 5rem;
+        padding: 3rem 5rem;
 
         @include for-phone-only {
-            margin: 3rem 3rem;
+            padding: 3rem 3rem;
         }
 
         .header__link {
             font-size: 1rem;
-            padding: 1rem 0 1rem 3rem;
+            padding-left: 3rem;
             margin-left: auto;
             white-space: nowrap;
 

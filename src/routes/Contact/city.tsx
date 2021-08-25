@@ -8,11 +8,17 @@ import CityGrid from "./cityGrid";
 
 import "./styles.scss";
 
+interface Props {
+    status: boolean;
+}
+
+const CAMERA_DEFAULT = { X: 0, Y: 50, Z: 250 };
+
 // Extend will make OrbitControls available as a JSX element called orbitControls for us to use.
 extend({ OrbitControls });
 const dummyVec = new THREE.Vector3();
 
-const City: React.FunctionComponent = () => {
+const City: React.FunctionComponent<Props> = ({ status }) => {
     const MouseMoveControl = () => {
         const { camera, gl } = useThree();
         const { domElement } = gl;
@@ -23,10 +29,7 @@ const City: React.FunctionComponent = () => {
         const doControls = useRef();
         doControls.current = new DeviceOrientationControls(new THREE.PerspectiveCamera());
 
-        const scrollElement = document.querySelector(".Contact");
-        const opacityElement1 = scrollElement ? scrollElement.querySelector(".contact-info") : null;
-        const opacityElement2 = scrollElement ? scrollElement.querySelector(".contact-divider") : null;
-        const opacityElement3 = scrollElement ? scrollElement.querySelector(".contact-status") : null;
+        const scrollElement = document.documentElement;
         const scrollMaximum = scrollElement ? scrollElement.scrollHeight - window.innerHeight : window.innerHeight;
 
         useFrame(({ camera, mouse }) => {
@@ -34,13 +37,9 @@ const City: React.FunctionComponent = () => {
                 (oControls.current as any).dispose();
                 (oControls.current as any).update();
             }
-            const newScrollMultiplier = scrollElement ? scrollElement.scrollTop / scrollMaximum : 0;
-            const newZoomValue = 200 - newScrollMultiplier * 140;
-            const newZoomAngle = 50 - newScrollMultiplier * 40;
-
-            if (opacityElement1) (opacityElement1 as HTMLElement).style.backgroundColor = `rgba(255, 255, 255, ${newScrollMultiplier * 0.5})`;
-            if (opacityElement2) (opacityElement2 as HTMLElement).style.backgroundColor = `rgba(255, 255, 255, ${newScrollMultiplier * 0.5})`;
-            if (opacityElement3) (opacityElement3 as HTMLElement).style.backgroundColor = `rgba(255, 255, 255, ${newScrollMultiplier * 0.5})`;
+            const newScrollMultiplier = scrollElement ? scrollElement.scrollTop / scrollMaximum || 0 : 0;
+            const newZoomValue = CAMERA_DEFAULT.Z - newScrollMultiplier * (CAMERA_DEFAULT.Z * 0.85);
+            const newZoomAngle = CAMERA_DEFAULT.Y - newScrollMultiplier * (CAMERA_DEFAULT.Y * 0.85);
 
             let deviceOrientationOffset = 0;
             if (doControls.current) {
@@ -81,27 +80,25 @@ const City: React.FunctionComponent = () => {
         // Resize observer
         <Canvas
             className="city-canvas"
-            camera={{ fov: 20, near: 1, far: 1000, position: [0, 50, 200] }} // THREE.Perspective camera props
+            camera={{ fov: 20, near: 1, far: 1000, position: [CAMERA_DEFAULT.X, CAMERA_DEFAULT.Y, CAMERA_DEFAULT.Z] }} // THREE.Perspective camera props
             orthographic={false} // THREE.Orthographic camera
             shadows={true} // THREE.PCFSoftShadowMap
         >
             {/* EFFECTS */}
-            <fog attach="fog" args={["#fff", 1, 300]} />
+            <fog attach="fog" args={["#fff", 1, 270]} />
 
             <group>
                 {/* LIGHTS */}
                 <ambientLight intensity={0.01} />
                 <spotLight args={["#fff", 1]} position={[0, 100, -50]} angle={1} castShadow />
-                <pointLight args={["#f00", 0.01]} position={[0, 0, 0]} castShadow />
+                {/* <pointLight args={["#f00", 0.01]} position={[0, 0, 0]} castShadow /> */}
 
                 {/* BUILDINGSs */}
                 <Suspense fallback={<mesh></mesh>}>
-                    <CityGrid />
+                    <CityGrid status={status}/>
                 </Suspense>
                 <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -10, 0]}>
-                    <planeGeometry
-                        args={[200, 200]}
-                    />
+                    <planeGeometry args={[200, 200]} />
                     <meshStandardMaterial
                         color="#aaa"
                         metalness={0}

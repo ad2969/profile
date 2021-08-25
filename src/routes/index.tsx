@@ -6,13 +6,13 @@ import Home from "./Home";
 import Contact from "./Contact";
 import NotFound from "./NotFound";
 
-interface Props {
+// import components
+import HeaderFixed from "../components/header/headerFixed";
 
-}
-
-const Routes: React.FunctionComponent<Props> = () => {
+const Routes: React.FunctionComponent = () => {
     return (
         <BrowserRouter>
+            <HeaderFixed />
             <Switch>
                 {/* AUTHENTICATED ROUTES */}
 
