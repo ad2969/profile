@@ -1,25 +1,21 @@
 import React from "react";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 
-// import pages
-import Home from "./Home";
-import Contact from "./Contact";
-import NotFound from "./NotFound";
+// import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-// import components
-import HeaderFixed from "../components/header/headerFixed";
+// import groups of other routes
+import MainRoutes from "./MainRoutes";
+import AdminRoutes from "./Admin";
 
 const Routes: React.FunctionComponent = () => {
     return (
         <BrowserRouter>
-            <HeaderFixed />
             <Switch>
                 {/* AUTHENTICATED ROUTES */}
+                <Route path="/admin" component={AdminRoutes} />
 
                 {/* PUBLIC ROUTES */}
-                <Route exact path="/contact" component={Contact} />
-                <Route exact path="/" component={Home} />
-                <Route path="*" component={NotFound} />
+                <Route path="/" component={MainRoutes} />
             </Switch>
         </BrowserRouter>
     );

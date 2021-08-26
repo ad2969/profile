@@ -1,0 +1,8 @@
+.Admin, .NotFound {
+    .content {
+        @include flex-col;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}

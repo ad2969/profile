@@ -1,5 +1,7 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { onValue } from "firebase/database";
+import { statusDbRef } from "../../services/firebase";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -15,10 +17,17 @@ const Contact: React.FunctionComponent = () => {
     const history = useHistory();
     const doScroll = history.location.search.includes("status");
 
-    // TODO: Get actual db data
-    // eslint-disable-next-line
-    const [statusLoaded, setStatusLoaded] = useState(true);
+    const [statusLoaded, setStatusLoaded] = useState(false);
     const [status, setStatus] = useState(false);
+
+    useEffect(() => {
+        onValue(statusDbRef, (snapshot) => {
+            if (!statusLoaded) setStatusLoaded(true);
+
+            const newStatus = snapshot.val();
+            setStatus(newStatus);
+        });
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     useLayoutEffect(() => {
         // don't initialize if status not loaded
@@ -73,7 +82,7 @@ const Contact: React.FunctionComponent = () => {
             </div>
             <ContactInfo statusLoaded={statusLoaded} />
             {statusLoaded && <div className="contact-divider" id="contact-divider"></div>}
-            {statusLoaded && <ContactStatus status={status} setStatus={setStatus} doScroll={doScroll}/>}
+            {statusLoaded && <ContactStatus status={status} doScroll={doScroll}/>}
         </div>
     );
 };
