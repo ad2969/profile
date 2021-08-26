@@ -25,8 +25,6 @@ const Contact: React.FunctionComponent = () => {
             if (!statusLoaded) setStatusLoaded(true);
 
             const newStatus = snapshot.val();
-            // eslint-disable-next-line
-            console.log("status change detected! update to:", newStatus);
             setStatus(newStatus);
         });
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
