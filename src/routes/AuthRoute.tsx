@@ -6,8 +6,8 @@ import Forbidden from "./Forbidden";
 
 interface Props {
     isAuthenticated?: boolean;
-    component?: React.FunctionComponent;
-    altComponent?: React.FunctionComponent;
+    component?: React.ReactNode;
+    altComponent?: React.ReactNode;
 
     path: string | string[];
     exact?: boolean;

@@ -1,0 +1,14 @@
+.Admin {
+    .on {
+        color: $color-primary;
+    }
+    .off {
+        color: $color-accent;
+    }
+    
+    .input {
+        &.error {
+            border-color: $color-accent;
+        }
+    }
+}
