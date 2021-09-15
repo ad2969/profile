@@ -10,7 +10,7 @@ import AdminNotLoggedIn from "./notLoggedIn";
 // import components
 import HeaderFixed from "components/header/headerFixed";
 
-const MainRoutes: React.FunctionComponent = () => {
+const AdminRoutes: React.FunctionComponent = () => {
     return (
         <React.Fragment>
             <HeaderFixed variation="none" />
@@ -27,4 +27,4 @@ const MainRoutes: React.FunctionComponent = () => {
     );
 };
 
-export default MainRoutes;
+export default AdminRoutes;

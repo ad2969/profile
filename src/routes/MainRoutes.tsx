@@ -16,7 +16,7 @@ const MainRoutes: React.FunctionComponent = () => {
             <Switch>
                 <Route exact path="/contact" component={Contact} />
                 <Route exact path="/" component={Home} />
-                <Route path="*" component={NotFound} />MainRoutes
+                <Route path="*" component={NotFound} />
             </Switch>
         </React.Fragment>
     );
