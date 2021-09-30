@@ -5,7 +5,6 @@ import { statusDbRef } from "../../services/firebase";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-import HeaderLogo from "../../components/header/headerLogo";
 import City from "./city";
 import ContactInfo from "./Info";
 import ContactStatus from "./Status";
@@ -76,7 +75,6 @@ const Contact: React.FunctionComponent = () => {
 
     return (
         <div className="Contact">
-            <HeaderLogo />
             <div className="city">
                 <City status={status}/>
             </div>

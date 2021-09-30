@@ -1,7 +1,5 @@
 import React from "react";
 
-import HeaderLogo from "../../components/header/headerLogo";
-
 const AdminNotLoggedIn: React.FunctionComponent = () => {
     const handleSignIn = async () => {
         // eslint-disable-next-line
@@ -10,7 +8,6 @@ const AdminNotLoggedIn: React.FunctionComponent = () => {
 
     return (
         <div className="Admin">
-            <HeaderLogo />
             <div className="content">
                 <h1>Not logged in.</h1>
                 <input type="text"/>

@@ -1,35 +1,27 @@
-.Header-logo, .Header-fixed {
-    max-height: 7rem;
-}
-
-.Header-logo {
-    @include flex-col;
-    justify-content: center;
-
-    padding: 2.5rem 5rem;
-
-    @include for-phone-only {
-        padding: 2.5rem 3rem;
-    }
-
-    svg {
-        height: 2em;
-        width: 3rem;
-    }
-
-    z-index: 998;
-}
-
 .Header-fixed {
+    max-height: 7rem;
+    
     position: fixed;
     top: 0;
     @include flex-row;
     width: 100%;
-    place-content: flex-end;
+    place-content: space-between;
     align-items: center;
     pointer-events: none;
 
     z-index: 999;
+
+    .header-logo {
+        pointer-events: all;
+        padding: 2.5rem 5rem;
+
+        @include for-phone-only {
+            padding: 2.5rem 3rem;
+        }
+
+        height: 1.6em;
+        width: 3rem;
+    }
 
     .header__link {
         font-size: 1rem;
@@ -62,8 +54,10 @@
     } 
     // TEMPORARY ^^
 
-    svg {
-        width: 5em;
-        height: 5em;
+    .header__link-menu button {
+        svg {
+            width: 5em;
+            height: 5em;
+        }
     }
 }

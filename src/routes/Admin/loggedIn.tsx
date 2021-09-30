@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { onValue, set } from "firebase/database";
 import { statusDbRef } from "../../services/firebase";
 
-import HeaderLogo from "../../components/header/headerLogo";
-
 import "./styles.scss";
 
 const AdminLoggedIn: React.FunctionComponent = () => {
@@ -35,7 +33,6 @@ const AdminLoggedIn: React.FunctionComponent = () => {
 
     return (
         <div className="Admin">
-            <HeaderLogo />
             <div className="content">
                 <h1>Welcom, Admin!</h1>
 
