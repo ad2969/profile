@@ -1,7 +1,7 @@
 import React from "react";
 
 import IconButton from "../../components/buttons/iconButton";
-import TooltipButton from "../../components/buttons/tooltipButton";
+// import TooltipButton from "../../components/buttons/tooltipButton";
 import MouseScroll from "../../components/ui/mouseScroll";
 import LoadSpinner from "../../components/ui/loadSpinner";
 
@@ -9,8 +9,8 @@ import InstagramLogo from "../../assets/svg/instagram";
 import LinkedinLogo from "../../assets/svg/linkedin";
 import MailLogo from "../../assets/svg/mail";
 import TwitterLogo from "../../assets/svg/twitter";
-import CalendarLogo from "../../assets/svg/calendar";
-import SpotifyLogo from "../../assets/svg/spotify";
+// import CalendarLogo from "../../assets/svg/calendar";
+// import SpotifyLogo from "../../assets/svg/spotify";
 
 import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
