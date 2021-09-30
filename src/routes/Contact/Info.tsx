@@ -49,7 +49,7 @@ const ContactInfo: React.FunctionComponent<Props> = ({ statusLoaded }) => {
                 {statusLoaded ? <MouseScroll /> : <LoadSpinner />}
             </div>
 
-            <div className="contact-info__more-links">
+            {/* <div className="contact-info__more-links">
                 <TooltipButton
                     icon={SpotifyLogo} strokeColor={COLORS.black} hoverColor={COLORS.primary}
                     url="https://open.spotify.com/user/21zjm64qokoaly5je5kostekq" tooltipText="My Playlists"
@@ -58,7 +58,7 @@ const ContactInfo: React.FunctionComponent<Props> = ({ statusLoaded }) => {
                     icon={CalendarLogo} strokeColor={COLORS.black} hoverColor={COLORS.primary}
                     url="https://calendar.google.com/calendar/embed?src=clarence.ad29@gmail.com&ctz=America/Vancouver&mode=WEEK&title=Clarence%27s%20Schedule" tooltipText="My Calendar"
                 />
-            </div>
+            </div> */}
 
         </div>
     );

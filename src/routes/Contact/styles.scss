@@ -17,7 +17,7 @@
             pointer-events: all;
         }
 
-        div {
+        div, a {
             pointer-events: all;
         }
     }
@@ -76,28 +76,28 @@
             bottom: 2.5rem;
         }
 
-        &__more-links {
-            @include flex-col;
-            justify-content: flex-end;
-            align-self: flex-end;
-            position: fixed;
-            bottom: 2rem;
+        // &__more-links {
+        //     @include flex-col;
+        //     justify-content: flex-end;
+        //     align-self: flex-end;
+        //     position: fixed;
+        //     bottom: 2rem;
 
-            .tooltip-button {
-                margin: 0.5rem 5rem;
-                margin-bottom: 0;
+        //     .tooltip-button {
+        //         margin: 0.5rem 5rem;
+        //         margin-bottom: 0;
 
-                @include for-phone-only {
-                    margin: 0.5rem 3rem;
-                    margin-bottom: 0;
+        //         @include for-phone-only {
+        //             margin: 0.5rem 3rem;
+        //             margin-bottom: 0;
 
-                    svg {
-                        width: 3rem;
-                        height: 3rem;
-                    }
-                }
-            }
-        }
+        //             svg {
+        //                 width: 3rem;
+        //                 height: 3rem;
+        //             }
+        //         }
+        //     }
+        // }
     }
 
     .contact-divider {
@@ -125,7 +125,6 @@
             font-size: 2em;
             font-weight: bold;
             max-width: 60%;
-            margin-bottom: 4em;
             
             span {
                 text-decoration: underline;
@@ -137,6 +136,21 @@
             span.inactive {
                 color: $color-accent;
             }
+        }
+
+        &__availability {
+            text-decoration: inherit;
+            color: var(--text-color);
+            font-size: 1em;
+            margin-bottom: 0.5em;
+            max-width: 60%;
+            margin-top: 2em;
+            margin-bottom: 8em;
+
+            &:hover {
+                color: $color-white;
+            }
+
         }
     }
 

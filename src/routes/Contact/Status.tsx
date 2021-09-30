@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 
+import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
 
 interface Props {
@@ -9,8 +10,10 @@ interface Props {
 
 const ContactStatus: React.FunctionComponent<Props> = ({ status, doScroll }) => {
     const statusDiv = status
-        ? <span className="active button">ONLINE</span>
-        : <span className="inactive button">AFK</span>;
+        ? <span className="active">ONLINE</span>
+        : <span className="inactive">AFK</span>;
+
+    const availabilityTextStyle = { "--text-color": status ? COLORS.primary : COLORS.accent };
 
     useEffect(() => {
         if (!doScroll) return;
@@ -22,6 +25,12 @@ const ContactStatus: React.FunctionComponent<Props> = ({ status, doScroll }) => 
         <div className="contact-status" id="contact-status">
             <div className="contact-status__location">&#128205;Vancouver, Canada</div>
             <div className="contact-status__text">Currently {statusDiv}</div>
+            <a className="contact-status__availability button"
+                // @ts-ignore
+                style={availabilityTextStyle}
+                href="https://calendar.google.com/calendar/embed?src=clarence.ad29@gmail.com&ctz=America/Vancouver&mode=WEEK&title=Clarence%27s%20Schedule"
+                target="_blank" rel="noreferrer"
+            >See when I&apos;m available</a>
         </div>
     );
 };
