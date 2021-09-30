@@ -67,7 +67,7 @@ const Header: React.FunctionComponent<Props> = ({ variation = "home" }) => {
     };
 
     return (
-        <div className="Header-fixed flex-center">
+        <div className="Header Header-fixed flex-center">
             <Logo className="header-logo button--scale" onClick={() => { history.push("/"); }} />
             {renderMenu(menuType)}
         </div>

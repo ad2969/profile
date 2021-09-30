@@ -7,9 +7,11 @@ import "./styles.scss";
 
 const Home: React.FunctionComponent = () => {
     return (
-        <div className="Home">
+        <div className="Route Home">
             <Parallax />
-            <Hero />
+            <div className="Home-content">
+                <Hero />
+            </div>
         </div>
     );
 };

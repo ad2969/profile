@@ -47,20 +47,20 @@
             }
 
             &-text {
-                font-size: 0.8em;
+                font-size: 0.8rem;
             }
 
             &-title {
-                font-size: 1.3em;
-                margin-bottom: 1em;
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
                 @extend .t--uppercase;
             }
 
             &-buttons {
-                margin-top: 2em;
+                margin-top: 2rem;
 
                 .icon-button {
-                    margin: 0 0.5em;
+                    margin: 0 0.5rem;
                 }
 
                 svg {
@@ -114,21 +114,21 @@
         color: $color-white;
 
         &__location {
-            font-size: 1em;
-            margin-bottom: 0.5em;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
             max-width: 60%;
-            margin-top: 16em;
+            margin-top: 16rem;
         }
         
         &__text {
             @extend .t--uppercase;
-            font-size: 2em;
+            font-size: 2rem;
             font-weight: bold;
             max-width: 60%;
             
             span {
                 text-decoration: underline;
-                text-decoration-thickness: 0.2em;
+                text-decoration-thickness: 0.2rem;
             }
             span.active {
                 color: $color-primary;
@@ -142,10 +142,10 @@
             text-decoration: inherit;
             color: var(--text-color);
             font-size: 1em;
-            margin-bottom: 0.5em;
+            margin-bottom: 0.5rem;
             max-width: 60%;
-            margin-top: 2em;
-            margin-bottom: 8em;
+            margin-top: 2rem;
+            margin-bottom: 8rem;
 
             &:hover {
                 color: $color-white;

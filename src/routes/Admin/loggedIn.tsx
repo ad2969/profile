@@ -32,7 +32,7 @@ const AdminLoggedIn: React.FunctionComponent = () => {
     };
 
     return (
-        <div className="Admin">
+        <div className="Route Admin">
             <div className="content">
                 <h1>Welcom, Admin!</h1>
 

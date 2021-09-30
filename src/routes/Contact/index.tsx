@@ -74,7 +74,7 @@ const Contact: React.FunctionComponent = () => {
     }, [status, statusLoaded]);
 
     return (
-        <div className="Contact">
+        <div className="Route Contact">
             <div className="city">
                 <City status={status}/>
             </div>

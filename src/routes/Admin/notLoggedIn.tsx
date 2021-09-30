@@ -7,7 +7,7 @@ const AdminNotLoggedIn: React.FunctionComponent = () => {
     };
 
     return (
-        <div className="Admin">
+        <div className="Route Admin">
             <div className="content">
                 <h1>Not logged in.</h1>
                 <input type="text"/>
