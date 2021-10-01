@@ -1,11 +1,10 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 
 import Logo from "../../assets/svg/logo";
 import MenuButton from "../../assets/svg/menuButton";
 
 import COLORS from "../../styles/themes/_default.module.scss";
-import BREAKPOINTS from "../../styles/mixins/_breakpoints.module.scss";
 import "./styles.scss";
 
 interface Props {
@@ -13,7 +12,7 @@ interface Props {
 }
 
 const LINK_VARIATIONS = {
-    home: [
+    main: [
         {
             text: "at a glance",
             url: "/"
@@ -25,51 +24,35 @@ const LINK_VARIATIONS = {
     ]
 };
 
-const Header: React.FunctionComponent<Props> = ({ variation = "home" }) => {
+const Header: React.FunctionComponent<Props> = ({ variation = "main" }) => {
     const history = useHistory();
 
-    const [menuType, setMenuType] = useState("text");
     const [menuOpen, setMenuOpen] = useState(false);
 
-    useLayoutEffect(() => {
-        // dont show any of the stuff if variation = 0
-        if (variation === "none") return;
+    return (
+        <div className="Header Header-fixed">
+            <Logo className="header-logo button--scale" onClick={() => { history.push("/"); }} />
 
-        const updateHeader = () => {
-            const breakpoint = parseInt(BREAKPOINTS.tablet.replace("px", ""));
-            if (window.innerWidth < breakpoint) setMenuType("none");
-            else if (window.innerWidth >= breakpoint) setMenuType("text");
-        };
-        window.addEventListener("resize", updateHeader);
-        updateHeader();
-        return () => window.removeEventListener("resize", updateHeader);
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-    const renderMenu = (type) => {
-        switch (type) {
-            case "button":
-                return <span
-                    className="header__link header__link-menu button--scale t--default t--lowercase t--unselectable"
-                    onClick={() => { setMenuOpen(!menuOpen); }}
-                >
-                    <MenuButton color={COLORS.primary} active={menuOpen}/>
-                </span>;
-            default:
-                return LINK_VARIATIONS[variation] && LINK_VARIATIONS[variation].map((link) => (
+            <span className="header-links">
+                {LINK_VARIATIONS[variation] && LINK_VARIATIONS[variation].map((link) => (
                     <NavLink
                         key={link.url}
                         className="header__link button--scale t--default t--lowercase t--unselectable"
                         activeClassName="current"
                         to={link.url} exact
                     >{link.text}</NavLink>
-                ));
-        }
-    };
+                ))}
 
-    return (
-        <div className="Header Header-fixed flex-center">
-            <Logo className="header-logo button--scale" onClick={() => { history.push("/"); }} />
-            {renderMenu(menuType)}
+                <NavLink
+                    className="header__link button--scale t--default t--lowercase t--unselectable"
+                    activeClassName="current"
+                    to="/portfolios" exact
+                >portfolios</NavLink>
+            </span>
+
+            <span className="header-links--mobile header__link header__link-menu button--scale" onClick={() => { setMenuOpen(!menuOpen); }}>
+                <MenuButton color={COLORS.primary} active={menuOpen}/>
+            </span>
         </div>
     );
 };
