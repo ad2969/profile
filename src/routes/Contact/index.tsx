@@ -43,7 +43,7 @@ const Contact: React.FunctionComponent = () => {
             trigger: "#contact-divider",
             start: "top center",
             end: "bottom top",
-            id: "divider-scroll",
+            id: "contact-divider-scroll",
             scrub: true
         };
 

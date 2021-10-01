@@ -30,7 +30,7 @@ const ContactStatus: React.FunctionComponent<Props> = ({ status, doScroll }) => 
                 style={availabilityTextStyle}
                 href="https://calendar.google.com/calendar/embed?src=clarence.ad29@gmail.com&ctz=America/Vancouver&mode=WEEK&title=Clarence%27s%20Schedule"
                 target="_blank" rel="noreferrer"
-            >See when I&apos;m available</a>
+            >&gt; See my public schedule &lt;</a>
         </div>
     );
 };

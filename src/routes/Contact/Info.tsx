@@ -24,7 +24,15 @@ const ContactInfo: React.FunctionComponent<Props> = ({ statusLoaded }) => {
         <div className="contact-info">
             <div className="contact-info__hero">
                 <div className="contact-info__hero-title">Get in touch</div>
-                <div className="contact-info__hero-text">Want to work with me? Have a project in mind? Simply want to chat?</div>
+                <div className="contact-info__hero-text">
+                    Want to work with me? Have a project in mind? Simply want to chat?
+                    <br/>
+                    Contact me at <a className="t--default button" href="mailto:clarenceadrian@alumni.ubc.ca">clarenceadrian@alumni.ubc.ca</a>
+                </div>
+                <div className="contact-info__hiring-bubble button">
+                    <a className="t--default contact-info__hiring-bubble__text" href="https://drive.google.com/file/d/1Joy0TLwtRjUDR-ELOJdS9ZibIYoAIMcI/view">Hiring? Download <span>my resume</span> here</a>
+                    <a className="t--default contact-info__hiring-bubble__text-mobile" href="https://drive.google.com/file/d/1Joy0TLwtRjUDR-ELOJdS9ZibIYoAIMcI/view">Hiring?</a>
+                </div>
                 <div className="contact-info__hero-buttons">
                     <IconButton
                         icon={MailLogo} strokeColor={COLORS.primary} strokeHoverColor={COLORS.white}

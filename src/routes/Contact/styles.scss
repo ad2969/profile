@@ -1,4 +1,4 @@
-.Contact{
+.Contact {
 
     .Header-logo {
         position: fixed;
@@ -24,7 +24,7 @@
 
     .contact-info {
         margin-top: 7rem;
-        height: calc(100vh - 7rem);
+        min-height: calc(100vh - 7rem);
 
         @include flex-col;
         justify-content: center;
@@ -33,12 +33,16 @@
         &__hero {
             max-width: 60%;
             text-align: center;
-            margin-bottom: 10rem;
+            margin-bottom: 17rem;
+            margin-top: 7rem;
+            position: relative;
 
             @include flex-col;
             align-items: center;
 
             @include for-tablet-up {
+                margin-top: unset;
+                margin-bottom: 10rem;
                 max-width: 50%;
             }
 
@@ -48,6 +52,10 @@
 
             &-text {
                 font-size: 0.8rem;
+
+                a {
+                    color: $color-primary;
+                }
             }
 
             &-title {
@@ -70,34 +78,118 @@
             }
         }
 
+        &__hiring-bubble {
+            position: absolute;
+            font-size: 0.8rem;
+            width: 4rem;
+            left: calc(50% + 3rem);
+            top: -6rem;
+            padding: 1.2rem;
+            border-style: solid;
+            border-color: $color-black;
+            border-radius: 5rem;
+            
+            transform: scale(0) rotate(0deg);
+            border-width: 1px;
+
+            transform-origin: 0% 100%;
+            animation-name: scale-popout-mobile;
+            animation-fill-mode: forwards;
+            animation-duration: 0.8s;
+            animation-delay: 0.5s;
+            transition: background-color 0.3s, color 0.3s;
+
+            @include for-tablet-up {
+                width: 8rem;
+                left: unset;
+                right: -20%;
+                top: -45%;
+
+                animation-name: scale-popout;
+            }
+            
+            &:before {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                left: 2rem;
+                bottom: -1.85rem;
+                border-style: solid;
+                border-width: 1.2rem;
+                border-color: $color-black transparent transparent $color-black;
+                transform: scaleY(0.5);
+            }
+            
+            &:after {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                left: 2.08rem;
+                bottom: -1.72rem;
+                border-style: solid;
+                border-width: 1.22rem;
+                border-color: $color-white transparent transparent $color-white;  
+                transform: scaleY(0.5);
+                transition: border-color 0.3s;
+            }
+
+            @keyframes scale-popout {
+                from {
+                    transform: scale(0) rotate(0deg);
+                }
+                to {
+                    transform: scale(100%) rotate(20deg);
+                }
+            }
+
+            @keyframes scale-popout-mobile {
+                from {
+                    transform: scale(0);
+                }
+                to {
+                    transform: scale(100%);
+                }
+            }
+
+            span {
+                color: $color-primary;
+                transition: color 0.3s;
+            }
+
+            &__text {
+                display: none;
+                @include for-tablet-up {
+                    display: inline;
+                }
+
+            }
+            &__text-mobile {
+                @include for-tablet-up {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                background-color: $color-primary;
+                color: $color-white;
+
+                &:after {
+                    border-color: $color-primary transparent transparent $color-primary;
+                }
+
+                span {
+                    color: $color-white;
+                }
+            }
+        }
+
         &__mouse-scroll {
             font-size: 0.4rem;
             position: fixed;
             bottom: 2.5rem;
         }
-
-        // &__more-links {
-        //     @include flex-col;
-        //     justify-content: flex-end;
-        //     align-self: flex-end;
-        //     position: fixed;
-        //     bottom: 2rem;
-
-        //     .tooltip-button {
-        //         margin: 0.5rem 5rem;
-        //         margin-bottom: 0;
-
-        //         @include for-phone-only {
-        //             margin: 0.5rem 3rem;
-        //             margin-bottom: 0;
-
-        //             svg {
-        //                 width: 3rem;
-        //                 height: 3rem;
-        //             }
-        //         }
-        //     }
-        // }
     }
 
     .contact-divider {
