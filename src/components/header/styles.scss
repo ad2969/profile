@@ -74,11 +74,13 @@
 
 .Header-zero {
     @include flex-center;
+    justify-content: flex-start;
     pointer-events: none;
+    position: absolute;
 
     .header-logo {
         pointer-events: all;
-        padding: 2.5rem;
+        padding: 2.5rem 5rem;
 
         height: 1.6em;
         width: 3rem;

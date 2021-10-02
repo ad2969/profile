@@ -14,3 +14,15 @@
       overflow: hidden;
     }
 }
+
+@mixin page-content-margins {
+  max-width: 70%;
+
+  @include for-tablet-up {
+    max-width: 60%;
+  }
+
+  @include for-laptop-up {
+    max-width: 60%;
+  }
+}
