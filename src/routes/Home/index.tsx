@@ -16,12 +16,12 @@ const Home: React.FunctionComponent = () => {
     useLayoutEffect(() => {
         // timeline for pinning
         const stMatchCriteria: {[key: string]: any} = {};
-        stMatchCriteria[`(max-width: ${BREAKPOINTS.laptop})`] = () => {
+        stMatchCriteria[`(max-width: ${BREAKPOINTS.tablet})`] = () => {
             ScrollTrigger.create({
                 trigger: "#humanoid-image-wrapper",
                 start: "center center",
-                endTrigger: "#home-info__strengths-text",
-                end: "center+=160px center",
+                endTrigger: "#humanoid-divider",
+                end: "top center",
                 pin: true,
                 pinSpacing: false
             });
@@ -31,7 +31,7 @@ const Home: React.FunctionComponent = () => {
                 trigger: "#humanoid-image-wrapper",
                 start: "center center",
                 endTrigger: "#home-info__strengths-text",
-                end: "center center",
+                end: "center+=100px center",
                 pin: true,
                 pinSpacing: false
             });
