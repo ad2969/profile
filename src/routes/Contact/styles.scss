@@ -209,6 +209,7 @@
             font-size: 2rem;
             font-weight: bold;
             max-width: 60%;
+            margin-bottom: 2rem;
             
             span {
                 text-decoration: underline;
@@ -223,18 +224,18 @@
         }
 
         &__availability {
-            text-decoration: inherit;
-            color: var(--text-color);
-            font-size: 1em;
-            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
             max-width: 60%;
-            margin-top: 2rem;
-            margin-bottom: 8rem;
+            margin-bottom: 0.2rem;
 
-            &:hover {
-                color: $color-white;
+            &.button {
+                color: var(--text-color);
+                margin-bottom: 8rem;
+
+                &:hover {
+                    color: $color-white;
+                }
             }
-
         }
     }
 

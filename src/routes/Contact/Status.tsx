@@ -25,7 +25,8 @@ const ContactStatus: React.FunctionComponent<Props> = ({ status, doScroll }) => 
         <div className="contact-status" id="contact-status">
             <div className="contact-status__location">&#128205;Vancouver, Canada</div>
             <div className="contact-status__text">Currently {statusDiv}</div>
-            <a className="contact-status__availability button"
+            <div className="contact-status__availability">My Working Hours are Mon to Fri: 0900 - 1800</div>
+            <a className="contact-status__availability t--default button"
                 // @ts-ignore
                 style={availabilityTextStyle}
                 href="https://calendar.google.com/calendar/embed?src=clarence.ad29@gmail.com&ctz=America/Vancouver&mode=WEEK&title=Clarence%27s%20Schedule"

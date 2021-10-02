@@ -9,7 +9,6 @@ import City from "./city";
 import ContactInfo from "./Info";
 import ContactStatus from "./Status";
 
-import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
 
 const Contact: React.FunctionComponent = () => {
@@ -50,25 +49,6 @@ const Contact: React.FunctionComponent = () => {
         gsap.to("#contact-mouse-scroll", {
             opacity: 0,
             duration: 2,
-            scrollTrigger
-        });
-
-        gsap.to(".contact-info__more-links .tooltip-button__tooltip", {
-            background: status ? COLORS.primary : COLORS.accent,
-            "--background": status ? COLORS.primary : COLORS.accent,
-            color: COLORS.white,
-            scrollTrigger
-        });
-
-        gsap.to(".contact-info__more-links .tooltip-button__icon", {
-            borderColor: status ? COLORS.primary : COLORS.accent,
-            "--background-hover": status ? COLORS.primary : COLORS.accent,
-            "--stroke-hover": COLORS.white,
-            scrollTrigger
-        });
-
-        gsap.to(".contact-info__more-links .tooltip-button__icon path", {
-            stroke: status ? COLORS.primary : COLORS.accent,
             scrollTrigger
         });
     }, [status, statusLoaded]);
