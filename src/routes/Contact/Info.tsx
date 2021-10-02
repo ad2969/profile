@@ -1,7 +1,7 @@
 import React from "react";
 
-import IconButton from "../../components/buttons/iconButton";
-// import TooltipButton from "../../components/buttons/tooltipButton";
+// import IconButton from "../../components/buttons/iconButton";
+import TooltipButton from "../../components/buttons/tooltipButton";
 import MouseScroll from "../../components/ui/mouseScroll";
 import LoadSpinner from "../../components/ui/loadSpinner";
 
@@ -34,21 +34,21 @@ const ContactInfo: React.FunctionComponent<Props> = ({ statusLoaded }) => {
                     <a className="t--default contact-info__hiring-bubble__text-mobile" href="https://drive.google.com/file/d/1Joy0TLwtRjUDR-ELOJdS9ZibIYoAIMcI/view">Hiring?</a>
                 </div>
                 <div className="contact-info__hero-buttons">
-                    <IconButton
-                        icon={MailLogo} strokeColor={COLORS.primary} strokeHoverColor={COLORS.white}
-                        url="mailto:clarenceadrian@alumni.ubc.ca"
+                    <TooltipButton
+                        icon={MailLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        url="mailto:clarenceadrian@alumni.ubc.ca" tooltipText="Mail" direction="right"
                     />
-                    <IconButton
-                        icon={LinkedinLogo} strokeColor={COLORS.primary} strokeHoverColor={COLORS.white}
-                        url="https://www.linkedin.com/in/clarence-adrian/"
+                    <TooltipButton
+                        icon={LinkedinLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        url="https://www.linkedin.com/in/clarence-adrian/" tooltipText="Linkedin" direction="right"
                     />
-                    <IconButton
-                        icon={TwitterLogo} strokeColor={COLORS.primary} strokeHoverColor={COLORS.white}
-                        url="https://twitter.com/ad2969"
+                    <TooltipButton
+                        icon={TwitterLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        url="https://twitter.com/ad2969" tooltipText="Twitter" direction="right"
                     />
-                    <IconButton
-                        icon={InstagramLogo} strokeColor={COLORS.primary} strokeHoverColor={COLORS.white}
-                        url="https://www.instagram.com/ad2969_/"
+                    <TooltipButton
+                        icon={InstagramLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        url="https://www.instagram.com/ad2969_/" tooltipText="Instagram" direction="right"
                     />
                 </div>
             </div>

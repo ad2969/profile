@@ -31,7 +31,7 @@
         align-items: center;
 
         &__hero {
-            max-width: 60%;
+            @include page-content-margins;
             text-align: center;
             margin-bottom: 17rem;
             margin-top: 7rem;
@@ -43,11 +43,6 @@
             @include for-tablet-up {
                 margin-top: unset;
                 margin-bottom: 10rem;
-                max-width: 50%;
-            }
-
-            @include for-laptop-up {
-                max-width: 40%;
             }
 
             &-text {
@@ -66,14 +61,11 @@
 
             &-buttons {
                 margin-top: 2rem;
+                @include flex-row;
 
-                .icon-button {
+                .tooltip-button {
                     margin: 0 0.5rem;
-                }
-
-                svg {
-                    min-width: 2.5rem;
-                    min-height: 2.5rem;
+                    font-size: 1rem;
                 }
             }
         }

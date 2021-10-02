@@ -86,11 +86,32 @@
             border-bottom: calc(1em * 0.8660254) solid var(--background);
             transform: rotate(90deg);
         }
+
+        &.right {
+            transform: translate(50%, -200%) rotate(-90deg);
+
+            &::after {
+                right: unset;
+                left: -0.75em;
+                transform: rotate(-90deg);
+            }
+        }
     }
 
-    &__tooltip.active {
+    &__tooltip.left.active {
         opacity: 1; 
-        transform: translate(-110%, 0%) rotate(0deg);
+        transform: translate(-120%, 0%) rotate(0deg);
+    }
+
+    &__tooltip.right.active {
+        opacity: 1;
+        transform: translate(5em, 0%) rotate(0deg);
+    }
+
+    svg {
+        // set font-size
+        min-width: 3em;
+        min-height: 3em;
     }
 
     &__icon {        
