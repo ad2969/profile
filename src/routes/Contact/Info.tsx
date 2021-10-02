@@ -5,10 +5,10 @@ import TooltipButton from "../../components/buttons/tooltipButton";
 import MouseScroll from "../../components/ui/mouseScroll";
 import LoadSpinner from "../../components/ui/loadSpinner";
 
-import InstagramLogo from "../../assets/svg/instagram";
-import LinkedinLogo from "../../assets/svg/linkedin";
-import MailLogo from "../../assets/svg/mail";
-import TwitterLogo from "../../assets/svg/twitter";
+import InstagramLogo from "../../assets/svg/icons/instagram";
+import LinkedinLogo from "../../assets/svg/icons/linkedin";
+import MailLogo from "../../assets/svg/icons/mail";
+import TwitterLogo from "../../assets/svg/icons/twitter";
 // import CalendarLogo from "../../assets/svg/calendar";
 // import SpotifyLogo from "../../assets/svg/spotify";
 

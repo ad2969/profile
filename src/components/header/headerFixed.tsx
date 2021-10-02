@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 
 import Logo from "../../assets/svg/logo";
-import MenuButton from "../../assets/svg/menuButton";
+import MenuButton from "../../assets/svg/buttons/menuButton";
 
 import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";

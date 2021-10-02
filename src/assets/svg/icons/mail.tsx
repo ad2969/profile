@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SvgProps } from "./svgtypes";
+import { SvgProps } from "../svgtypes";
 
 const MailLogo: React.FunctionComponent<SvgProps> = ({ color = "#000", ...rest }) => {
     return (
