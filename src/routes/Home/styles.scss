@@ -241,7 +241,11 @@
     }
 
     .home-divider {
-        height: 15rem;
+        height: 6rem;
+
+        &.extended {
+            height: 15rem;
+        }
     }
 
     .home-content-divider {

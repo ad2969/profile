@@ -65,6 +65,7 @@ const Info: React.FunctionComponent<Props> = ({ selectedAccordionIndex, setSelec
                 </div>
             </div>
 
+            <div className="accordion-staller" id="accordion-staller-0"></div>
             <div className="accordion-staller" id="accordion-staller-1"></div>
             <div className="accordion-staller" id="accordion-staller-2"></div>
             <div className="accordion-staller" id="accordion-staller-3"></div>

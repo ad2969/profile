@@ -44,8 +44,25 @@ const Home: React.FunctionComponent = () => {
                 start: `${startTrigger} center`,
                 endTrigger: "#humanoid-divider",
                 end: "top bottom",
-                pin: true,
-                onLeaveBack: () => { setSelectedAccordionIndex(0); },
+                pin: true
+            });
+            ScrollTrigger.create({
+                trigger: "#accordion-staller-1",
+                start: "top bottom",
+                endTrigger: "#accordion-staller-1",
+                end: "bottom bottom",
+                onLeave: () => { setSelectedAccordionIndex(0); },
+                onEnterBack: () => { setSelectedAccordionIndex(0); }
+            });
+            ScrollTrigger.create({
+                trigger: "#accordion-staller-1",
+                start: "top bottom",
+                endTrigger: "#accordion-staller-1",
+                end: "bottom bottom",
+                onEnter: () => { setSelectedAccordionIndex(0); },
+                onLeave: () => { setSelectedAccordionIndex(1); },
+                onEnterBack: () => { setSelectedAccordionIndex(1); },
+                onLeaveBack: () => { setSelectedAccordionIndex(0); }
             });
             ScrollTrigger.create({
                 trigger: "#accordion-staller-2",
@@ -98,9 +115,13 @@ const Home: React.FunctionComponent = () => {
             <br /><br />
             <Title main="about me" sub="who i am" />
             <Info selectedAccordionIndex={selectedAccordionIndex} setSelectedAccordionIndex={setSelectedAccordionIndex} />
-            <div className="home-divider"></div>
+            <div className="home-divider extended"></div>
             <Title main="my toolbox" sub="what i can do" />
             <Toolbox />
+            <div className="home-divider"></div>
+            <Title main="my work" sub="what i'm working on" />
+            {/* <Works /> */}
+
         </div>
     </>);
 };

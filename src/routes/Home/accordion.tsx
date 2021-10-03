@@ -21,7 +21,13 @@ const Accordion: React.FunctionComponent<Props> = ({ entries, selectedIndex, set
                 >
                     <div
                         className="home-accordion-entry__title button--darken"
-                        onClick={() => { selectedIndex === i ? setSelectedIndex(null) : setSelectedIndex(i); }}
+                        onClick={() => {
+                            selectedIndex === i ? setSelectedIndex(null) : setSelectedIndex(i);
+                            let scrollToIndex = i;
+                            if (selectedIndex !== null && i < selectedIndex) scrollToIndex -= 1;
+                            if (scrollToIndex < 0) scrollToIndex = 0;
+                            document.getElementById(`accordion-staller-${scrollToIndex}`)?.scrollIntoView(false);
+                        }}
                     >{title}</div>
                     <div className="home-accordion-entry__indicator t--unselectable">&gt;</div>
                     <div className="home-accordion-entry__content">
