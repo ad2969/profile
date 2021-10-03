@@ -18,7 +18,7 @@ const Leenk: React.FunctionComponent<LeenkProps> = ({ href = "", to = "/", child
         );
     } else {
         return (
-            <Link className="t--default button--darken leenk" to={to}>
+            <Link className="t--default button--darken leenk" to={to} target="_blank" rel="noopener noreferrer">
                 {children}
             </Link>
         );

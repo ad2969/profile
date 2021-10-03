@@ -18,7 +18,7 @@ const ContactStatus: React.FunctionComponent<Props> = ({ status, doScroll }) => 
     useEffect(() => {
         if (!doScroll) return;
         const scrollNode = document.getElementById("contact-status");
-        if (scrollNode) scrollNode.scrollIntoView();
+        if (scrollNode) scrollNode.scrollIntoView({ behavior: "smooth" });
     }, [doScroll]);
 
     return (

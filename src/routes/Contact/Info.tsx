@@ -7,10 +7,10 @@ import LoadSpinner from "../../components/ui/loadSpinner";
 
 import InstagramLogo from "../../assets/svg/icons/instagram";
 import LinkedinLogo from "../../assets/svg/icons/linkedin";
-import MailLogo from "../../assets/svg/icons/mail";
+// import MailLogo from "../../assets/svg/icons/mail";
 import TwitterLogo from "../../assets/svg/icons/twitter";
 // import CalendarLogo from "../../assets/svg/calendar";
-// import SpotifyLogo from "../../assets/svg/spotify";
+import SpotifyLogo from "../../assets/svg/icons/spotify";
 
 import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
@@ -27,17 +27,13 @@ const ContactInfo: React.FunctionComponent<Props> = ({ statusLoaded }) => {
                 <div className="contact-info__hero-text">
                     Want to work with me? Have a project in mind? Simply want to chat?
                     <br/>
-                    Contact me at <a className="t--default button" href="mailto:clarenceadrian@alumni.ubc.ca">clarenceadrian@alumni.ubc.ca</a>
+                    <a className="t--default button" href="mailto:clarenceadrian@alumni.ubc.ca">Send me a message</a> or get to know me on social media!
                 </div>
                 <div className="contact-info__hiring-bubble button">
                     <a className="t--default contact-info__hiring-bubble__text" href="https://drive.google.com/file/d/1Joy0TLwtRjUDR-ELOJdS9ZibIYoAIMcI/view">Hiring? Download <span>my resume</span> here</a>
                     <a className="t--default contact-info__hiring-bubble__text-mobile" href="https://drive.google.com/file/d/1Joy0TLwtRjUDR-ELOJdS9ZibIYoAIMcI/view">Hiring?</a>
                 </div>
                 <div className="contact-info__hero-buttons">
-                    <TooltipButton
-                        icon={MailLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
-                        url="mailto:clarenceadrian@alumni.ubc.ca" tooltipText="Mail" direction="right"
-                    />
                     <TooltipButton
                         icon={LinkedinLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
                         url="https://www.linkedin.com/in/clarence-adrian/" tooltipText="Linkedin" direction="right"
@@ -49,6 +45,10 @@ const ContactInfo: React.FunctionComponent<Props> = ({ statusLoaded }) => {
                     <TooltipButton
                         icon={InstagramLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
                         url="https://www.instagram.com/ad2969_/" tooltipText="Instagram" direction="right"
+                    />
+                    <TooltipButton
+                        icon={SpotifyLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        url="https://open.spotify.com/user/21zjm64qokoaly5je5kostekq" tooltipText="Spotify" direction="right"
                     />
                 </div>
             </div>
