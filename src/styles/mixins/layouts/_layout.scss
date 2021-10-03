@@ -16,7 +16,7 @@
 }
 
 @mixin page-content-margins {
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto;
 
   @include for-tablet-up {
