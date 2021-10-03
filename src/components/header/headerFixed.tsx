@@ -43,11 +43,11 @@ const Header: React.FunctionComponent<Props> = ({ variation = "main" }) => {
                     >{link.text}</NavLink>
                 ))}
 
-                <NavLink
+                {/* <NavLink
                     className="header__link button--scale t--default t--lowercase t--unselectable"
                     activeClassName="current"
                     to="/portfolios" exact
-                >portfolios</NavLink>
+                >portfolios</NavLink> */}
             </span>
 
             <span className="header-links--mobile header__link header__link-menu button--scale" onClick={() => { setMenuOpen(!menuOpen); }}>
