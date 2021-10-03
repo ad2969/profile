@@ -216,6 +216,25 @@
         }
     }
 
+    .home-footer {
+        text-align: center;
+        width: 100%;
+        padding-top: 5rem;
+
+        hr {
+            border-color: rgba($color-black, 0.05);
+        }
+
+        &__content {
+            @include page-content-margins;
+
+            p {
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+        }
+    }
+
     .accordion-staller {
         // height: calc(70vw * 1.5);
 

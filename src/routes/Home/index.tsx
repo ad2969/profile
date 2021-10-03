@@ -6,6 +6,7 @@ import Parallax from "./Parallax";
 import Hero from "./Hero";
 import Info from "./Info";
 import Toolbox from "./Toolbox";
+import Footer from "./Footer";
 
 import Title from "./title";
 import HeaderZero from "../../components/header/headerZero";
@@ -121,6 +122,7 @@ const Home: React.FunctionComponent = () => {
             <div className="home-divider"></div>
             <Title main="my work" sub="what i'm working on" />
             {/* <Works /> */}
+            <Footer />
 
         </div>
     </>);
