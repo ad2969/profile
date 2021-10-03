@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./ui.scss";
+
 interface Props {
     main: string;
     sub: string;

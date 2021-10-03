@@ -1,17 +1,15 @@
 .About {
-    .about {
+    .about-timeline {
         @include page-content-margins;
+        
+        list-style-position: outside;
+        list-style-type: "/  ";
+        padding-left: 0;
+        margin: 0 auto;
         margin-top: 7rem;
 
-        &__timeline {
-            list-style-position: outside;
-            list-style-type: "/  ";
-            padding-left: 0;
-            margin: 0 auto;
-
-            li {
-                margin-bottom: 1rem;
-            }
+        li {
+            margin-bottom: 1rem;
         }
     }
 }
