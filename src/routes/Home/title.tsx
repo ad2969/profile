@@ -8,8 +8,9 @@ interface Props {
 const Title: React.FunctionComponent<Props> = ({ main, sub }) => {
     return (
         <div className="home-title">
-            <span className="home-title__main-text t--uppercase t--bold">{main}</span>
-            <span className="home-title__sub-text">{sub}</span>
+            <div className="home-title__main-text t--uppercase t--bold">{main}</div>
+            <div className="home-title__sub-text">{sub}</div>
+            <div className="home-title__line"><hr/></div>
         </div>
     );
 };

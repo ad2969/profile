@@ -14,26 +14,25 @@ import "./styles.scss";
 
 const Home: React.FunctionComponent = () => {
     useLayoutEffect(() => {
+        // reset all scroll trigger stuff
+        const allTriggers = ScrollTrigger.getAll();
+        allTriggers.forEach((trigger) => {
+            trigger.kill(true);
+        });
+
+        const imageWrapper = document.getElementById("humanoid-image-wrapper")?.children[0];
+        const offsetHeight = (imageWrapper as HTMLElement)?.offsetWidth * 9 / 14 || 0; // h/w ratio
+        const startTrigger = offsetHeight ? `top+=${offsetHeight}px` : "center";
+
         // timeline for pinning
         const stMatchCriteria: {[key: string]: any} = {};
-        stMatchCriteria[`(max-width: ${BREAKPOINTS.tablet})`] = () => {
-            ScrollTrigger.create({
-                trigger: "#humanoid-image-wrapper",
-                start: "center center",
-                endTrigger: "#humanoid-divider",
-                end: "top center",
-                pin: true,
-                pinSpacing: false
-            });
-        };
         stMatchCriteria[`(min-width: ${BREAKPOINTS.laptop})`] = () => {
             ScrollTrigger.create({
                 trigger: "#humanoid-image-wrapper",
-                start: "center center",
-                endTrigger: "#home-info__strengths-text",
-                end: "center+=100px center",
-                pin: true,
-                pinSpacing: false
+                start: `${startTrigger} center`,
+                endTrigger: "#home-about__strengths",
+                end: "center center",
+                pin: true
             });
         };
 
@@ -44,19 +43,18 @@ const Home: React.FunctionComponent = () => {
             scrollTrigger: {
                 trigger: "#humanoid-divider",
                 start: "top center",
-                endTrigger: "#home-info__strengths-text",
+                endTrigger: "#home-about__strengths",
                 end: "center center",
                 scrub: true
             }
         });
         humanoidTl.to(
-            ".home-info__image--muscles", { transform: "skew(0, 30deg) scale(0.8)" }
-        ).to(".home-info__image--circulatory", { transform: "skew(0, 30deg) scale(0.8)" }, "<"
-        ).to(".home-info__image--skeleton", { transform: "skew(0, 30deg) scale(0.8)" }, "<"
-        ).to(".home-info__image--muscles", { transform: "skew(0, 30deg) scale(0.8) translate3d(-12rem, 12rem, 0px)" }
-        ).to(".home-info__image--circulatory", { transform: "skew(0, 30deg) scale(0.8) translate3d(-4rem, 4rem, 0px)" }, "<"
-        ).to(".home-info__image--skeleton", { transform: "skew(0, 30deg) scale(0.8) translate3d(4rem, -4rem, 0px)" }, "<"
-        ).to("#home-info__strengths-text", { opacity: 1 }, "<");
+            ".home-about__humanoid-image--muscles", { transform: "skew(0, 30deg) scale(0.8)" }
+        ).to(".home-about__humanoid-image--circulatory", { transform: "skew(0, 30deg) scale(0.8)" }, "<"
+        ).to(".home-about__humanoid-image--skeleton", { transform: "skew(0, 30deg) scale(0.8)" }, "<"
+        ).to(".home-about__humanoid-image--muscles", { transform: "skew(0, 30deg) scale(0.8) translate3d(-12rem, 12rem, 0px)" }
+        ).to(".home-about__humanoid-image--circulatory", { transform: "skew(0, 30deg) scale(0.8) translate3d(-4rem, 4rem, 0px)" }, "<"
+        ).to(".home-about__humanoid-image--skeleton", { transform: "skew(0, 30deg) scale(0.8) translate3d(4rem, -4rem, 0px)" }, "<");
     }, []);
 
     return (<>
@@ -65,19 +63,9 @@ const Home: React.FunctionComponent = () => {
             <Parallax />
             <Hero />
             <br /><br />
-            <Title main="about me" sub="who i am and where i've been" />
+            <Title main="about me" sub="who i am" />
             <Info />
             <div className="home-divider"></div>
-            <div> NEXT CONTENT --</div>
-            <div className="home-divider"> NEXT CONTENT --</div>
-            <div className="home-divider"> NEXT CONTENT --</div>
-            <div className="home-divider"> NEXT CONTENT --</div>
-            <div className="home-divider"> NEXT CONTENT --</div>
-            <div className="home-divider"> NEXT CONTENT --</div>
-            <div className="home-divider"> NEXT CONTENT --</div>
-            <div className="home-divider"> NEXT CONTENT --</div>
-            <div className="home-divider"> NEXT CONTENT --</div>
-            <div className="home-divider"> NEXT CONTENT --</div>
 
         </div>
     </>);

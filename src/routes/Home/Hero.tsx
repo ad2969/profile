@@ -15,7 +15,7 @@ const Hero: React.FunctionComponent = () => {
                 <div className="home-hero__title">Hello, I&apos;m <span className="">Clarence Adrian</span></div>
                 <div className="home-hero__subtitle">
                     {/* I like to build things. <br/> */}
-                    Curently building things in <Leenk to="/">&#128205;Vancouver, Canada</Leenk><br/>
+                    Curently building things in <Leenk to="/contact?status">&#128205;Vancouver, Canada</Leenk><br/>
                     Working at <Leenk href="https://skyrocket.is/"><CustomIcon img={skyrocketLogo} /> Skyrocket Digital</Leenk>, previously at <Leenk href="https://semios.com/"><CustomIcon img={semiosLogo} /> Semios</Leenk>
                 </div>
 
