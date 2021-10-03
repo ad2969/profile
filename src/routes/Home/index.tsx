@@ -66,7 +66,6 @@ const Home: React.FunctionComponent = () => {
             <Title main="about me" sub="who i am" />
             <Info />
             <div className="home-divider"></div>
-
         </div>
     </>);
 };

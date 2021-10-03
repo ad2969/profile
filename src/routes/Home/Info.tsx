@@ -41,7 +41,7 @@ const Info: React.FunctionComponent = () => {
             <div className="home-about__strengths-content" id="home-about__strengths">
                 <div className="home-about__humanoid-image strengths"></div>
                 <ul className="home-about__strengths">
-                    <div className="home-about__strengths__title">How I&apos;d describe myself:</div>
+                    <div className="home-about__strengths__title">People have described me as:</div>
 
                     <br/>
 
