@@ -21,13 +21,13 @@ const Info: React.FunctionComponent = () => {
         <div className="home-about">
             <div className="home-about__my-story">
                 <div className="home-about__my-story__col tagline">
-                    <div className="home-about__my-story__col-title t--bold">My Story</div>
                     <p>I’m an engineering student interested in utilizing innovative technology to improve the quality of human life. Simply put, <span className="t--c3 t--bold">I like to build things.</span></p>
+                    <div className="home-about__my-story__col-title t--bold">My Story</div>
                 </div>
                 <div className="home-about__my-story__col">
                     <p>&#127470;&#127465;&#127464;&#127462; Born and raised in Indonesia, I came to Canada to pursue a higher education and explore a side of the world I had not seen before.</p>
                     <p>&#128187;&#128736; I fell in love with code in my second year of university, when I built my first program to help me manage my financial expenses. Ever since, I&apos;ve developed a love for developing applications and turning them into useful products.</p>
-                    <p>&#128104;&#8205;&#128187;&#127912; However, I believe that technology is not any more important than the need to bridge technology and the user experience. I aspire to be a technologist who is always on the forefront of technological advances and their applications to our daily lives.</p>
+                    <p>&#128104;&#8205;&#128187;&#127912; However, I believe that technology is not any more important than the need to bridge technology and user experience. I aspire to be a technologist who is always on the forefront of technological advances and is able to apply them to real world problems.</p>
                     <p>&#127938;&#127836; When I am not working, you will likely find me at the gym or in the comforts of my own home - building something cool or cooking up the latest meals.</p>
                 </div>
             </div>
@@ -60,10 +60,10 @@ const Info: React.FunctionComponent = () => {
 
                     <br/>
 
-                    <div>Volunteer Activities:</div>
+                    <div>Volunteer-Based Activities:</div>
                     <br/>
                     <li>Mentor for Hack the North (2021)</li>
-                    <li>Developer Leads at VIBEVENT (2020)</li>
+                    <li>Lead Developer at VIBEVENT (2020)</li>
                     <li>Software Developer at UBC Biztech (2020)</li>
                     <li>Mobile Developer at Code the Change Foundation (2020)</li>
                     <li>Unity Developer at Emerging Media Lab (2019)</li>
@@ -84,7 +84,7 @@ const Info: React.FunctionComponent = () => {
                             },
                             {
                                 title: "TECHNOLOGY & PRODUCT",
-                                content: <>&#128104;&#8205;&#128187;&#127912; However, I believe that technology is not any more important than the need to bridge technology and the user experience. I aspire to be a technologist who is always on the forefront of technological advances and their applications to our daily lives.</>
+                                content: <>&#128104;&#8205;&#128187;&#127912; However, I believe that technology is not any more important than the need to bridge technology and user experience. I aspire to be a technologist who is always on the forefront of technological advances and is able to apply them to real world problems.</>
                             },
                             {
                                 title: "FUN",
