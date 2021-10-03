@@ -1,10 +1,11 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 import Parallax from "./Parallax";
 import Hero from "./Hero";
 import Info from "./Info";
+import Toolbox from "./Toolbox";
 
 import Title from "./title";
 import HeaderZero from "../../components/header/headerZero";
@@ -13,6 +14,8 @@ import BREAKPOINTS from "../../styles/mixins/_breakpoints.module.scss";
 import "./styles.scss";
 
 const Home: React.FunctionComponent = () => {
+    const [selectedAccordionIndex, setSelectedAccordionIndex] = useState<number | null>(0);
+
     useLayoutEffect(() => {
         // reset all scroll trigger stuff
         const allTriggers = ScrollTrigger.getAll();
@@ -24,15 +27,45 @@ const Home: React.FunctionComponent = () => {
         const offsetHeight = (imageWrapper as HTMLElement)?.offsetWidth * 9 / 14 || 0; // h/w ratio
         const startTrigger = offsetHeight ? `top+=${offsetHeight}px` : "center";
 
-        // timeline for pinning
         const stMatchCriteria: {[key: string]: any} = {};
         stMatchCriteria[`(min-width: ${BREAKPOINTS.laptop})`] = () => {
+            // timeline for pinning
             ScrollTrigger.create({
                 trigger: "#humanoid-image-wrapper",
                 start: `${startTrigger} center`,
                 endTrigger: "#home-about__strengths",
                 end: "center center",
                 pin: true
+            });
+
+            // timeline for scrolling through accordion
+            ScrollTrigger.create({
+                trigger: "#home-about__introduction",
+                start: `${startTrigger} center`,
+                endTrigger: "#humanoid-divider",
+                end: "top bottom",
+                pin: true,
+                onLeaveBack: () => { setSelectedAccordionIndex(0); },
+            });
+            ScrollTrigger.create({
+                trigger: "#accordion-staller-2",
+                start: "top bottom",
+                endTrigger: "#accordion-staller-2",
+                end: "bottom bottom",
+                onEnter: () => { setSelectedAccordionIndex(1); },
+                onLeave: () => { setSelectedAccordionIndex(2); },
+                onEnterBack: () => { setSelectedAccordionIndex(2); },
+                onLeaveBack: () => { setSelectedAccordionIndex(1); },
+            });
+            ScrollTrigger.create({
+                trigger: "#accordion-staller-3",
+                start: "top bottom",
+                endTrigger: "#accordion-staller-3",
+                end: "bottom bottom",
+                onEnter: () => { setSelectedAccordionIndex(2); },
+                onLeave: () => { setSelectedAccordionIndex(3); },
+                onEnterBack: () => { setSelectedAccordionIndex(3); },
+                onLeaveBack: () => { setSelectedAccordionIndex(2); }
             });
         };
 
@@ -64,8 +97,10 @@ const Home: React.FunctionComponent = () => {
             <Hero />
             <br /><br />
             <Title main="about me" sub="who i am" />
-            <Info />
+            <Info selectedAccordionIndex={selectedAccordionIndex} setSelectedAccordionIndex={setSelectedAccordionIndex} />
             <div className="home-divider"></div>
+            <Title main="my toolbox" sub="what i can do" />
+            <Toolbox />
         </div>
     </>);
 };
