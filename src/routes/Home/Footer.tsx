@@ -4,7 +4,7 @@ const Footer: React.FunctionComponent = () => {
     return (
         <div className="home-footer">
             <hr />
-            <div className="home-footer__content">
+            <div className="home-footer-content">
                 <p>Designed and built by Clarence Adrian, 2020</p>
             </div>
         </div>);
