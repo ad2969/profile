@@ -11,7 +11,7 @@ import Footer from "./Footer";
 
 import Title from "./title";
 import HeaderFixed from "../../components/header/headerFixed";
-import Leenk from "../../components/buttons/leenk";
+import SolidButton from "../../components/buttons/solid";
 
 import BREAKPOINTS from "../../styles/mixins/_breakpoints.module.scss";
 import "./styles.scss";
@@ -154,8 +154,9 @@ const Home: React.FunctionComponent = () => {
             <Title main="moving forward" sub="what you should do" />
             <div className="home-call-to-action">
                 Interested in contributing to any of my ongoing projects?<br/>
-                Want to collaborate on new projects?<br/>
-                <Leenk to="/contact">contact me</Leenk>
+                Want to collaborate on new projects?<br/><br/><br/>
+                <SolidButton to="/contact">contact me</SolidButton>
+                <SolidButton href="https://drive.google.com/file/d/1Joy0TLwtRjUDR-ELOJdS9ZibIYoAIMcI/view" accent>download my resume</SolidButton>
             </div>
             <Footer />
         </div>

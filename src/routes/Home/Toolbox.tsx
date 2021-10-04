@@ -42,7 +42,7 @@ const Toolbox: React.FunctionComponent = () => {
                 </div>
                 <div className="home-toolbox__icon">
                     <PMIcon color="currentColor"/>
-                    <span>Product Management</span>
+                    <span>Project Management</span>
                 </div>
             </div>
             <div className="home-toolbox__icons tiny scrollTrigger-fadeUp">

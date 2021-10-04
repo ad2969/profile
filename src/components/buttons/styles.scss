@@ -136,4 +136,39 @@
 
 .leenk {
     color: $color-primary !important;
+
+    &.accent {
+        color: $color-accent !important;
+    }
+
+    &:hover {
+        color: inherit !important;
+    }
+}
+
+.solid {
+    display: block;
+    width: max-content;
+    margin: 1rem auto;
+    
+    padding: 1rem 1.5rem;
+    color: $color-white !important;
+    background: $color-primary;
+    border-radius: 2rem;
+    transition: all 0.2s;
+
+    &:hover {
+        color: $color-black !important;
+        background: rgba($color-primary, 0.3);
+    }
+
+    &.accent {
+        background: $color-accent;
+
+        &:hover {
+            color: $color-black !important;
+            background: rgba($color-accent, 0.3);
+
+        }
+    }
 }

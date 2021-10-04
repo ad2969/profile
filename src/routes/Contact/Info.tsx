@@ -4,6 +4,7 @@ import React from "react";
 import TooltipButton from "../../components/buttons/tooltipButton";
 import MouseScroll from "../../components/ui/mouseScroll";
 import LoadSpinner from "../../components/ui/loadSpinner";
+import Leenk from "../../components/buttons/leenk";
 
 import InstagramLogo from "../../assets/svg/icons/instagram";
 import LinkedinLogo from "../../assets/svg/icons/linkedin";
@@ -27,7 +28,7 @@ const ContactInfo: React.FunctionComponent<Props> = ({ statusLoaded }) => {
                 <div className="contact-info__hero-text">
                     Want to work with me? Have a project in mind? Simply want to chat?
                     <br/>
-                    <a className="t--default button" href="mailto:clarenceadrian@alumni.ubc.ca">Send me a message</a> or get to know me on social media!
+                    <Leenk href="mailto:clarenceadrian@alumni.ubc.ca">Send me a message</Leenk> or get to know me on social media!
                 </div>
                 <div className="contact-info__hiring-bubble button">
                     <a className="t--default contact-info__hiring-bubble__text" href="https://drive.google.com/file/d/1Joy0TLwtRjUDR-ELOJdS9ZibIYoAIMcI/view">Hiring? Download <span>my resume</span> here</a>

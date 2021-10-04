@@ -138,7 +138,7 @@ const Works: React.FunctionComponent = () => {
                                 <li key={dIndex}>{desc}</li>
                             ))}
                             <br/>
-                            {PROJECTS_LIST[selectedProjectIndex].hiring && <Leenk href={PROJECTS_LIST[selectedProjectIndex].hiringLink}>&gt; [LOOKING FOR CONTRIBUTORS] &lt;</Leenk>}
+                            {PROJECTS_LIST[selectedProjectIndex].hiring && <Leenk href={PROJECTS_LIST[selectedProjectIndex].hiringLink}>** LOOKING FOR CONTRIBUTORS **</Leenk>}
                         </ul>
                     </div>
                 </div>
