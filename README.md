@@ -18,7 +18,7 @@ Some libraries used in this app:
 
 **Things to make:**
 - [x] Introductory
-- [ ] "At a Glance"
+- [x] "At a Glance"
 - [x] Contact and Socials
 - [ ] IoT "AFK" Switch
 - [ ] Tech Projects Showcase
