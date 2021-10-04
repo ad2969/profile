@@ -19,7 +19,7 @@ const Info: React.FunctionComponent = () => {
 
     return (
         <div className="home-about">
-            <div className="home-about__my-story">
+            <div className="home-about__my-story scrollTrigger-fadeUp">
                 <div className="home-about__my-story__col tagline">
                     <p>I’m an engineering student interested in utilizing innovative technology to improve the quality of human life. Simply put, <span className="t--c3 t--bold">I like to build things.</span></p>
                     <div className="home-about__my-story__col-title t--bold">My Story</div>
@@ -46,7 +46,7 @@ const Info: React.FunctionComponent = () => {
                         src={SkeletonImage} alt="humanoid-3" draggable="false"
                         onMouseEnter={() => imageLayerHover("skeleton")} onMouseLeave={() => imageLayerHover("skeleton")}/>
                 </div>
-                <ul className="home-about__introduction" id="home-about__introduction">
+                <ul className="home-about__introduction scrollTrigger-fadeUp" id="home-about__introduction">
                     <div className="home-about__introduction__title t--bold">Recent Highlights</div>
 
                     <br/>
@@ -105,29 +105,35 @@ const Info: React.FunctionComponent = () => {
 
             <div className="home-about__strengths-content" id="home-about__strengths">
                 <div className="home-about__humanoid-image strengths"></div>
-                <ul className="home-about__strengths">
+                <ul className="home-about__strengths" >
                     <div className="home-about__strengths__title t--bold">People Describe Me To Be</div>
 
                     <br/>
 
-                    <li id="home-about__strengths--skeleton">
-                        <span className="taitul t--bold">CURIOUS.</span>&nbsp;
+                    <div className="scrollTrigger-fadeRight">
+                        <li id="home-about__strengths--skeleton">
+                            <span className="taitul t--bold">CURIOUS.</span>&nbsp;
                         I love learning new things and gaining new perspectives. I believe that curiosity is what drives human achievement and I am always in a constant search to establish a deeper understanding of the world and how it works.
-                    </li>
+                        </li>
+                    </div>
 
                     <br />
 
-                    <li id="home-about__strengths--circulatory">
-                        <span className="taitul t--bold">DEDICATED.</span>&nbsp;
+                    <div className="scrollTrigger-fadeRight">
+                        <li id="home-about__strengths--circulatory">
+                            <span className="taitul t--bold">DEDICATED.</span>&nbsp;
                         I am willing to go the extra mile to ensure that the challenges I take on are completed to satisfaction. I take pride in the work I do and strive to exceed the average.
-                    </li>
+                        </li>
+                    </div>
 
                     <br />
 
-                    <li id="home-about__strengths--muscles">
-                        <span className="taitul t--bold">ORGANIZED.</span>&nbsp;
+                    <div className="scrollTrigger-fadeRight">
+                        <li id="home-about__strengths--muscles">
+                            <span className="taitul t--bold">ORGANIZED.</span>&nbsp;
                         I am exceptionally great at planning and maintaining organization. I enjoy streamlining processes to optimize efficiency.
-                    </li>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div>);

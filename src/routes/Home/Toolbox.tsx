@@ -25,7 +25,7 @@ import "./styles.scss";
 const Toolbox: React.FunctionComponent = () => {
     return (
         <div className="home-toolbox">
-            <div className="home-toolbox__icons">
+            <div className="home-toolbox__icons scrollTrigger-fadeUp">
                 {/* TODO: LINK TO EACH SECTION HIGHLIGHTS */}
 
                 <div className="home-toolbox__icon">
@@ -45,7 +45,7 @@ const Toolbox: React.FunctionComponent = () => {
                     <span>Product Management</span>
                 </div>
             </div>
-            <div className="home-toolbox__icons tiny">
+            <div className="home-toolbox__icons tiny scrollTrigger-fadeUp">
                 <div className="home-toolbox__icon-tiny">
                     <WebApplicationsIcon color="currentColor"/>
                     <span>Web Applications</span>
@@ -107,6 +107,10 @@ const Toolbox: React.FunctionComponent = () => {
                     <span>Market Research</span>
                 </div>
             </div>
+
+            {/* <div className="home-toolbox__button scrollTrigger-fadeUp">
+                <Leenk to="/skills">&gt; See a full list of my skills &lt;</Leenk>
+            </div> */}
         </div>);
 };
 

@@ -26,6 +26,31 @@ const Home: React.FunctionComponent = () => {
             trigger.kill(true);
         });
 
+        // simple fade animations
+        const fadeUp = gsap.utils.toArray(".scrollTrigger-fadeUp");
+
+        (fadeUp as Element[]).forEach((el) => {
+            const anim = gsap.fromTo(el, { autoAlpha: 0, y: 100 }, { delay: 0.2, duration: 1, autoAlpha: 1, y: 0 });
+            ScrollTrigger.create({
+                trigger: el,
+                animation: anim,
+                toggleActions: "play none none none",
+                once: true,
+            });
+        });
+
+        const fadeRight = gsap.utils.toArray(".scrollTrigger-fadeRight");
+
+        (fadeRight as Element[]).forEach((el) => {
+            const anim = gsap.fromTo(el, { autoAlpha: 0, x: -100 }, { delay: 0.2, duration: 1, autoAlpha: 1, x: 0 });
+            ScrollTrigger.create({
+                trigger: el,
+                animation: anim,
+                toggleActions: "play none none none",
+                once: true
+            });
+        });
+
         const imageWrapper = document.getElementById("humanoid-image-wrapper")?.children[0];
         const offsetHeight = (imageWrapper as HTMLElement)?.offsetWidth * 9 / 14 || 0; // h/w ratio
         const startTrigger = offsetHeight ? `top+=${offsetHeight}px` : "center";

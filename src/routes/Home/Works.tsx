@@ -106,7 +106,7 @@ const Works: React.FunctionComponent = () => {
                         PROJECTS_LIST.map((list, index) => (
                             <div
                                 key={index}
-                                className={`home-works__title button ${selectedProjectIndex === index && "active"}`}
+                                className={`home-works__title button  ${selectedProjectIndex === index && "active"}`}
                                 onClick={() => { setSelectedProjectIndex(index); }}
                             >
                                 {list.title} {list.hiring && "*"}
@@ -114,7 +114,7 @@ const Works: React.FunctionComponent = () => {
                         ))
                     }
                 </div>
-                <div className="home-works__description">
+                <div className="home-works__description scrollTrigger-fadeRight">
                     <div className="home-works__description__top-wrapper">
                         <img src={PROJECTS_LIST[selectedProjectIndex].image} alt={`home-works__description-top-image ${selectedProjectIndex}`} />
                         <div className="home-works__description__top-text">
