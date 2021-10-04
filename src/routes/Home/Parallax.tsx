@@ -4,7 +4,7 @@ import Parallax from "parallax-js";
 import SunImage from "../../assets/images/cover/sun-silhouette.png";
 import BirdsImage from "../../assets/images/cover/birds-silhouette.png";
 
-import "./styles.scss";
+import "./parallax.scss";
 
 interface LayerProps {
     depth: Number;

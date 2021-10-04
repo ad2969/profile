@@ -10,10 +10,11 @@ interface Props {
     icon: React.ComponentType<SvgProps>;
     url?: string;
     tooltipText: string;
+    direction?: "left" | "right"
 }
 
 const TooltipButton: React.FunctionComponent<Props> = ({
-    strokeColor = COLORS.black, hoverColor = COLORS.white, icon: Icon, url = "", tooltipText
+    strokeColor = COLORS.black, hoverColor = COLORS.white, icon: Icon, url = "", tooltipText, direction = "left"
 }) => {
     const [isHover, setIsHover] = useState(false);
 
@@ -24,7 +25,7 @@ const TooltipButton: React.FunctionComponent<Props> = ({
     return (
         <div className="tooltip-button">
             <span
-                className={`tooltip-button__tooltip ${isHover ? "active" : ""}`}
+                className={`tooltip-button__tooltip ${direction} ${isHover ? "active" : ""}`}
                 style={{
                     background: strokeColor,
                     color: hoverColor,

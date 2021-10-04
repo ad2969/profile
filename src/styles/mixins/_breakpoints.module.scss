@@ -1,16 +1,20 @@
 // Variables for sizes
 $breakpoint-phone: 576px;
 $breakpoint-tablet: 768px;
-$breakpoint-laptop: 1024px;
-$breakpoint-widescreen: 1200px;
-$breakpoint-widelimit: 3840px;
+$breakpoint-laptop: 1024px; // lq monitors
+$breakpoint-widescreen: 1200px; // hq monitors
+$breakpoint-widelimit: 3840px; // 4K screens
+
+$breakpoint-widthlimit: 1500px;
+$breakpoint-widthlimit-2: 2000px;
 
 :export {
     phone: $breakpoint-phone;
     tablet: $breakpoint-tablet;
     laptop: $breakpoint-laptop;
     widescreen: $breakpoint-widescreen;
-    widelimit: $breakpoint-widelimit;
+
+    widthlimit: $breakpoint-widthlimit;
 }
 
 // Mixins for sizes

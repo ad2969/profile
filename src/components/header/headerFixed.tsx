@@ -1,10 +1,10 @@
-import React, { useLayoutEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
 
-import MenuButton from "../../assets/svg/menuButton";
+import Logo from "../../assets/svg/logo";
+import MenuButton from "../../assets/svg/buttons/menuButton";
 
 import COLORS from "../../styles/themes/_default.module.scss";
-import BREAKPOINTS from "../../styles/mixins/_breakpoints.module.scss";
 import "./styles.scss";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const LINK_VARIATIONS = {
-    home: [
+    main: [
         {
             text: "at a glance",
             url: "/"
@@ -24,40 +24,35 @@ const LINK_VARIATIONS = {
     ]
 };
 
-const Header: React.FunctionComponent<Props> = ({ variation = "home" }) => {
-    const [doShowAll, setDoShowAll] = useState(false);
+const Header: React.FunctionComponent<Props> = ({ variation = "main" }) => {
+    const history = useHistory();
+
     const [menuOpen, setMenuOpen] = useState(false);
 
-    useLayoutEffect(() => {
-        // dont show any of the stuff if variation = 0
-        if (variation === "none") return;
-
-        const updateHeader = () => {
-            const breakpoint = parseInt(BREAKPOINTS.tablet.replace("px", ""));
-            if (window.innerWidth < breakpoint) setDoShowAll(false);
-            else if (window.innerWidth >= breakpoint) setDoShowAll(true);
-        };
-        window.addEventListener("resize", updateHeader);
-        updateHeader();
-        return () => window.removeEventListener("resize", updateHeader);
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
     return (
-        <div className="Header-fixed flex-center">
-            {doShowAll && LINK_VARIATIONS[variation] && LINK_VARIATIONS[variation].map((link) => (
-                <NavLink
-                    key={link.url}
+        <div className="Header Header-fixed">
+            <Logo className="header-logo button--scale" onClick={() => { history.push("/"); }} />
+
+            <span className="header-links">
+                {LINK_VARIATIONS[variation] && LINK_VARIATIONS[variation].map((link) => (
+                    <NavLink
+                        key={link.url}
+                        className="header__link button--scale t--default t--lowercase t--unselectable"
+                        activeClassName="current"
+                        to={link.url} exact
+                    >{link.text}</NavLink>
+                ))}
+
+                {/* <NavLink
                     className="header__link button--scale t--default t--lowercase t--unselectable"
                     activeClassName="current"
-                    to={link.url} exact
-                >{link.text}</NavLink>
-            ))}
-            {false && <span
-                className="header__link header__link-menu button--scale t--default t--lowercase t--unselectable"
-                onClick={() => { setMenuOpen(!menuOpen); }}
-            >
+                    to="/portfolios" exact
+                >portfolios</NavLink> */}
+            </span>
+
+            <span className="header-links--mobile header__link header__link-menu button--scale" onClick={() => { setMenuOpen(!menuOpen); }}>
                 <MenuButton color={COLORS.primary} active={menuOpen}/>
-            </span>}
+            </span>
         </div>
     );
 };

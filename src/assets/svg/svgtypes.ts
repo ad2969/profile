@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface SvgProps {
-    color: string;
+    color?: string;
     className?: string;
     style?: React.CSSProperties;
     onMouseEnter?: () => void;

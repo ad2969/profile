@@ -1,3 +1,5 @@
+@import "../themes/default.module";
+
 // interactivity
 .t--unselectable {
     user-select: none;
@@ -24,4 +26,15 @@
 }
 .t--lowercase {
     text-transform: lowercase;
+}
+
+// colors
+.t--c1 {
+    color: $color-primary;
+}
+.t--c2 {
+    color: $color-secondary;
+}
+.t--c3 {
+    color: $color-accent;
 }

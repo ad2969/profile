@@ -1,0 +1,29 @@
+@import "../breakpoints.module";
+
+@mixin width-limiter {
+    max-width: 100vw;
+    margin: 0 auto;
+
+    @include for-widescreen-up {
+      max-width: $breakpoint-widthlimit;
+      overflow: hidden;
+    }
+
+    @include for-widelimit-up {
+      max-width: $breakpoint-widthlimit-2;
+      overflow: hidden;
+    }
+}
+
+@mixin page-content-margins {
+  max-width: 80%;
+  margin: 0 auto;
+
+  @include for-tablet-up {
+    max-width: 70%;
+  }
+
+  @include for-laptop-up {
+    max-width: 60%;
+  }
+}

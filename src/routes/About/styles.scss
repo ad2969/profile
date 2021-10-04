@@ -1,0 +1,29 @@
+.About {
+    .about__timeline {
+        @include page-content-margins;
+        margin: 0 auto;
+        margin-top: 7rem;
+        margin-bottom: 7rem;
+
+        &__era {
+            @include flex-row;
+            &__year {
+                font-size: 1.2rem;
+                line-height: 1.5rem;
+            }
+
+            &__content {
+                list-style-position: outside;
+                list-style-type: "/  ";
+                padding-left: 0;
+                margin-top: 0;
+                margin-left: 3rem;
+
+                li {
+                    margin-bottom: 0.75rem;
+                }
+            }
+        }
+
+    }
+}

@@ -5,12 +5,10 @@ import { statusDbRef } from "../../services/firebase";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-import HeaderLogo from "../../components/header/headerLogo";
 import City from "./city";
 import ContactInfo from "./Info";
 import ContactStatus from "./Status";
 
-import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
 
 const Contact: React.FunctionComponent = () => {
@@ -44,7 +42,7 @@ const Contact: React.FunctionComponent = () => {
             trigger: "#contact-divider",
             start: "top center",
             end: "bottom top",
-            id: "divider-scroll",
+            id: "contact-divider-scroll",
             scrub: true
         };
 
@@ -53,30 +51,10 @@ const Contact: React.FunctionComponent = () => {
             duration: 2,
             scrollTrigger
         });
-
-        gsap.to(".contact-info__more-links .tooltip-button__tooltip", {
-            background: status ? COLORS.primary : COLORS.accent,
-            "--background": status ? COLORS.primary : COLORS.accent,
-            color: COLORS.white,
-            scrollTrigger
-        });
-
-        gsap.to(".contact-info__more-links .tooltip-button__icon", {
-            borderColor: status ? COLORS.primary : COLORS.accent,
-            "--background-hover": status ? COLORS.primary : COLORS.accent,
-            "--stroke-hover": COLORS.white,
-            scrollTrigger
-        });
-
-        gsap.to(".contact-info__more-links .tooltip-button__icon path", {
-            stroke: status ? COLORS.primary : COLORS.accent,
-            scrollTrigger
-        });
     }, [status, statusLoaded]);
 
     return (
-        <div className="Contact">
-            <HeaderLogo />
+        <div className="Route Contact">
             <div className="city">
                 <City status={status}/>
             </div>
