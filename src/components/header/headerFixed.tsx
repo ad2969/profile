@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 
 import Logo from "../../assets/svg/logo";
-import MenuButton from "../../assets/svg/buttons/menuButton";
+// import MenuButton from "../../assets/svg/buttons/menuButton";
 
-import COLORS from "../../styles/themes/_default.module.scss";
+// import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
 
 interface Props {
@@ -51,7 +51,7 @@ const Header: React.FunctionComponent<Props> = ({ variation = "main" }) => {
             </span>
 
             <span className="header-links--mobile header__link header__link-menu button--scale" onClick={() => { setMenuOpen(!menuOpen); }}>
-                <MenuButton color={COLORS.primary} active={menuOpen}/>
+                {/* <MenuButton color={COLORS.primary} active={menuOpen}/> */}
             </span>
         </div>
     );
