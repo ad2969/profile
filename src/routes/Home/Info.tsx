@@ -25,10 +25,10 @@ const Info: React.FunctionComponent = () => {
                     <div className="home-about__my-story__col-title t--bold">My Story</div>
                 </div>
                 <div className="home-about__my-story__col">
-                    <p>&#127470;&#127465;&#127464;&#127462; Born and raised in Indonesia, I came to Canada to pursue a higher education and explore a side of the world I had not seen before.</p>
-                    <p>&#128187;&#128736; I fell in love with code in my second year of university, when I built my first program to help me manage my financial expenses. Ever since, I&apos;ve developed a love for developing applications and turning them into useful products.</p>
-                    <p>&#128104;&#8205;&#128187;&#127912; However, I believe that technology is not any more important than the need to bridge technology and user experience. I aspire to be a technologist who is always on the forefront of technological advances and is able to apply them to real world problems.</p>
-                    <p>&#127938;&#127836; When I am not working, you will likely find me at the gym or in the comforts of my own home - building something cool or cooking up the latest meals.</p>
+                    <p>&#127470;&#127465; &#127464;&#127462; Born and raised in Indonesia, I came to Canada to pursue a higher education and explore a side of the world I had not seen before.</p>
+                    <p>&#128187; &#128736; I fell in love with code in my second year of university, when I built my first program to help me manage my financial expenses. Ever since, I&apos;ve developed a love for developing applications and turning them into useful products.</p>
+                    <p>&#128104;&#8205;&#128187; &#127912; However, I believe that technology is not any more important than the need to bridge technology and user experience. I aspire to be a technologist who is always on the forefront of technological advances and is able to apply them to real world problems.</p>
+                    <p>&#127938; &#127836; When I am not working, you will likely find me at the gym or in the comforts of my own home - building something cool or cooking up the latest meals.</p>
                 </div>
             </div>
 
