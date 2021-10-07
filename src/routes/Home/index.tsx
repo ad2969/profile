@@ -152,7 +152,7 @@ const Home: React.FunctionComponent = () => {
             <Works />
             <div className="home-divider"></div>
             <Title main="moving forward" sub="what you should do" />
-            <div className="home-call-to-action">
+            <div className="home-call-to-action scrollTrigger-fadeUp">
                 Interested in contributing to any of my ongoing projects?<br/>
                 Want to collaborate on new projects?<br/><br/><br/>
                 <SolidButton to="/contact">contact me</SolidButton>
