@@ -3,18 +3,18 @@ require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 
 const API_KEY = process.env.API_KEY;
 
-module.exports = async (req, res, next) => {
-    const { api_key: apiKey } = req.query;
+module.exports = async (queries) => {
+    const { api_key: apiKey } = queries;
 
     if (apiKey === API_KEY) {
-        return next();
+        return false;
     } else {
-        return res.status(401).json({
-            status: 401,
+        return {
+            statusCode: 401,
             name: "Unauthorized",
             message: "API_KEY not recognized!",
             date: new Date(),
             stack: (new Error()).stack
-        });
+        };
     }
 };
