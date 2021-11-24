@@ -4,7 +4,11 @@ const authError = require("./services/authError");
 
 exports.handler = async (event) => {
     try {
-        const error = authError();
+        if (event.httpMethod !== "POST") {
+            return { statusCode: 405, body: "Method Not Allowed" };
+        }
+
+        const error = authError(event.queryStringParameters);
         if (error) throw error;
 
         const body = JSON.parse(event.body);

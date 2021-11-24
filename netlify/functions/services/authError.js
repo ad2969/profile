@@ -3,7 +3,7 @@ require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 
 const API_KEY = process.env.API_KEY;
 
-module.exports = async (queries) => {
+module.exports = (queries) => {
     const { api_key: apiKey } = queries;
 
     if (apiKey === API_KEY) {
