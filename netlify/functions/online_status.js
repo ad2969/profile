@@ -4,6 +4,10 @@ const authError = require("./services/authError");
 
 exports.handler = async (event) => {
     try {
+        const clientIp = event.headers["client-ip"] || "Unknown";
+        const userAgent = event.headers["user-agent"] || "Unknown";
+        console.log("Recieved", event.httpMethod, "request for", event.path, "\n", "Connection from:", clientIp, "\n", "User Agent:", userAgent);
+
         if (event.httpMethod !== "POST") {
             return { statusCode: 405, body: "Method Not Allowed" };
         }
