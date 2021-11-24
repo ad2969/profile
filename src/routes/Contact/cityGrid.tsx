@@ -121,6 +121,7 @@ const CityGrid: React.FunctionComponent<Props> = ({ status }) => {
         <group position={[-GRID_LENGTH * 2.5, -10, -GRID_DEPTH * 2]}>
             <mesh receiveShadow castShadow>
                 {buildingGrid.map((row, i) => (
+                    // @ts-ignore
                     <a.group key={i} scale={rowTrail[i].scale}>
                         {row.map((building, j) => (
                             <a.primitive
