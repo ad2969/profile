@@ -61,9 +61,9 @@ const About: React.FunctionComponent = () => {
                     <span className="about__timeline__era__year t--bold">&apos;20</span>
                     <ul className="about__timeline__era__content">
                         <li>Interned at <Leenk href="https://semios.com/"><CustomIcon img={semiosLogo} /> Semios</Leenk> as a full-stack-developer</li>
-                        <li>Founded and ran <Leenk href="https://semios.com/">&#x1f4c8;VIBEVENT</Leenk> to help student-run clubs migrate to virtual events</li>
-                        <li>Built and launched an Drug Overdose Prevention mobile app for <Leenk href="https://www.ubcbiztech.com/"><CustomIcon img={ctcfLogo} /> CTCT</Leenk> (valued at &gt;USD 60,000)</li>
-                        <li>Refactored <Leenk href="https://www.akpsiubc.com/"><CustomIcon img={biztechLogo} /> UBC Biztech</Leenk>&apos;s applications and development process</li>
+                        <li>Founded and ran <Leenk href="https://onlinker-prod.netlify.app/">&#x1f4c8;VIBEVENT</Leenk> to help student-run clubs migrate to virtual events</li>
+                        <li>Built and launched an Drug Overdose Prevention mobile app for <Leenk href="http://codethechange.ca/"><CustomIcon img={ctcfLogo} /> CTCF</Leenk> (valued at &gt;USD 60,000)</li>
+                        <li>Refactored <Leenk href="https://www.ubcbiztech.com/"><CustomIcon img={biztechLogo} /> UBC Biztech</Leenk>&apos;s applications and development process</li>
                         <li>Participated in some competitions and hackathons, including&nbsp;
                             <Leenk href="https://www.facebook.com/BizTechUBC/posts/-we-are-excited-to-announce-the-winning-teams-for-deloitte-thinktech-2020-congra/3797002770330706/">Deloitte ThinkTECH</Leenk> (1st place),&nbsp;
                             <Leenk href="https://devpost.com/software/university-path-explorer">OakHacks</Leenk> (1st place), and&nbsp;
