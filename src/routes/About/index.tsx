@@ -1,25 +1,107 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
-import CustomIcon from "../../components/media/customImageIcon";
-import Leenk from "../../components/buttons/leenk";
+import Info from "./Info";
+// import CustomIcon from "../../components/media/customImageIcon";
+// import Leenk from "../../components/buttons/leenk";
 
-import akpsiLogo from "../../assets/images/logos/akpsi-logo.png";
-import biztechLogo from "../../assets/images/logos/biztech-logo.png";
-import ctcfLogo from "../../assets/images/logos/ctcf-logo.png";
-import emlLogo from "../../assets/images/logos/eml-logo.png";
-import hackthenorthLogo from "../../assets/images/logos/hackthenorth-logo.png";
-import jtoonLogo from "../../assets/images/logos/jtoon-logo.png";
-import semiosLogo from "../../assets/images/logos/semios-logo.png";
-import skyrocketLogo from "../../assets/images/logos/skyrocket-logo.png";
-import turingLogo from "../../assets/images/logos/turing-logo.png";
-import ubcLogo from "../../assets/images/logos/ubc-logo.png";
+// import akpsiLogo from "../../assets/images/logos/akpsi-logo.png";
+// import biztechLogo from "../../assets/images/logos/biztech-logo.png";
+// import ctcfLogo from "../../assets/images/logos/ctcf-logo.png";
+// import emlLogo from "../../assets/images/logos/eml-logo.png";
+// import hackthenorthLogo from "../../assets/images/logos/hackthenorth-logo.png";
+// import jtoonLogo from "../../assets/images/logos/jtoon-logo.png";
+// import semiosLogo from "../../assets/images/logos/semios-logo.png";
+// import skyrocketLogo from "../../assets/images/logos/skyrocket-logo.png";
+// import turingLogo from "../../assets/images/logos/turing-logo.png";
+// import ubcLogo from "../../assets/images/logos/ubc-logo.png";
 
+import BREAKPOINTS from "../../styles/mixins/_breakpoints.module.scss";
 import "./styles.scss";
 
 const About: React.FunctionComponent = () => {
+    useLayoutEffect(() => {
+        // reset all scroll trigger stuff
+        const allTriggers = ScrollTrigger.getAll();
+        allTriggers.forEach((trigger) => {
+            trigger.kill(true);
+        });
+
+        // simple fade animations
+        const fadeUp = gsap.utils.toArray(".scrollTrigger-fadeUp");
+
+        (fadeUp as Element[]).forEach((el) => {
+            const anim = gsap.fromTo(el, { autoAlpha: 0, y: 100 }, { delay: 0.2, duration: 1, autoAlpha: 1, y: 0 });
+            ScrollTrigger.create({
+                trigger: el,
+                animation: anim,
+                toggleActions: "play none none none",
+                once: true,
+            });
+        });
+
+        const fadeRight = gsap.utils.toArray(".scrollTrigger-fadeRight");
+
+        (fadeRight as Element[]).forEach((el) => {
+            const anim = gsap.fromTo(el, { autoAlpha: 0, x: -100 }, { delay: 0.2, duration: 1, autoAlpha: 1, x: 0 });
+            ScrollTrigger.create({
+                trigger: el,
+                animation: anim,
+                toggleActions: "play none none none",
+                once: true
+            });
+        });
+
+        const imageWrapper = document.getElementById("humanoid-image-wrapper")?.children[0];
+        const offsetHeight = (imageWrapper as HTMLElement)?.offsetWidth * 9 / 14 || 0; // h/w ratio
+        const startTrigger = offsetHeight ? `top+=${offsetHeight}px` : "center";
+
+        const stMatchCriteria: {[key: string]: any} = {};
+        stMatchCriteria[`(min-width: ${BREAKPOINTS.tablet})`] = () => {
+            // timeline for pinning
+            ScrollTrigger.create({
+                trigger: "#humanoid-image-wrapper",
+                start: `${startTrigger} center`,
+                endTrigger: "#about-me__strengths",
+                end: "center center",
+                pin: true
+            });
+        };
+
+        ScrollTrigger.matchMedia(stMatchCriteria);
+
+        // timeline for transformations
+        const humanoidTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#about-me__strengths",
+                start: "top center",
+                endTrigger: "#about-me__strengths",
+                end: "center center",
+                scrub: true
+            }
+        });
+        humanoidTl.to(
+            ".about-me__humanoid-image--muscles", { transform: "skew(0, 30deg) scale(0.8)" }
+        ).to(".about-me__humanoid-image--circulatory", { transform: "skew(0, 30deg) scale(0.8)" }, "<"
+        ).to(".about-me__humanoid-image--skeleton", { transform: "skew(0, 30deg) scale(0.8)" }, "<"
+        ).to(".about-me__humanoid-image--muscles", { transform: "skew(0, 30deg) scale(0.8) translate3d(-12rem, 12rem, 0px)" }
+        ).to(".about-me__humanoid-image--circulatory", { transform: "skew(0, 30deg) scale(0.8) translate3d(-4rem, 4rem, 0px)" }, "<"
+        ).to(".about-me__humanoid-image--skeleton", { transform: "skew(0, 30deg) scale(0.8) translate3d(4rem, -4rem, 0px)" }, "<");
+    }, []);
+
     return (
         <div className="Route About">
-            <div className="about__timeline">
+            <div className="about-header">
+                <h1>ABOUT ME</h1>
+            </div>
+
+            <Info />
+
+            <div className="about-timeline">
+                <h1>TIMELINE</h1>
+            </div>
+            {/* <div className="about__timeline">
                 <div className="about__timeline__era">
                     <span className="about__timeline__era__year t--bold">&apos;16</span>
                     <ul className="about__timeline__era__content">
@@ -79,7 +161,7 @@ const About: React.FunctionComponent = () => {
                         <li>Joined <Leenk href="https://skyrocket.is/"><CustomIcon img={skyrocketLogo} /> Skyrocket Digital</Leenk> as a frontend developer</li>
                     </ul>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

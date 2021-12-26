@@ -1,29 +1,125 @@
 .About {
-    .about__timeline {
+    .about-header {
         @include page-content-margins;
-        margin: 0 auto;
         margin-top: 7rem;
         margin-bottom: 7rem;
+        width: 100vw;
+        height: 75vh;
+        @include flex-center;
+    }
 
-        &__era {
-            @include flex-row;
-            &__year {
-                font-size: 1.2rem;
-                line-height: 1.5rem;
+    .about-me {
+        @include page-content-margins;
+
+        &__humanoid-image {
+            position: relative;
+            width: 100%;
+            @include flex-center;
+
+            img {
+                position: absolute;
+                top: 0;
+                max-width: 100%;
+                width: 80%;
+                height: auto;
+                user-select: none;
+                transform-style: preserve-3d;
+                background: rgba(#C7C7C7, 0.1);
+
+                &:hover {
+                    background: rgba($color-secondary, 0.5);
+                }
             }
 
-            &__content {
-                list-style-position: outside;
-                list-style-type: "/  ";
-                padding-left: 0;
-                margin-top: 0;
-                margin-left: 3rem;
+            @include for-tablet-up {
+                width: 40%;
 
-                li {
-                    margin-bottom: 0.75rem;
+                img {
+                    left: 0;
+                    width: 100%;
                 }
+            }
+
+            &.strengths {
+                pointer-events: none;
+                user-select: none;
             }
         }
 
+        &__introduction-content,
+        &__strengths-content {
+            @include flex-row;
+            flex-direction: column-reverse;
+
+            @include for-tablet-up {
+                flex-direction: row;
+            }
+        }
+
+        &__introduction,
+        &__strengths {
+            padding-left: 0;
+            margin: 0 auto;
+
+            p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+
+                .taitul {
+                    transition: color 0.2s;
+                }
+
+                &.active {
+                    .taitul {
+                        color: $color-primary;
+                    }
+                }
+            }
+
+            @include for-tablet-up {
+                padding: 0 2rem;
+                margin-bottom: 3rem;
+            }
+        }
+
+        &__introduction {
+            margin-bottom: 4rem;
+            line-height: 1.5rem;
+
+            @include for-tablet-up {
+                flex: 40%;
+                min-height: calc(70vw * 0.5);
+                margin: unset;
+                margin-left: 2rem;
+                width: calc(60% - 2rem);
+            }
+
+            @include for-widescreen-up {
+                min-height: calc(1500px * 0.7 * 0.5);
+            }
+        }
+
+        &__strengths {
+            line-height: 1.5rem;
+
+            @include for-tablet-up {
+                margin: unset;
+                margin-left: 5%;
+                flex: 40%;
+            }
+
+            @include for-laptop-up {
+                flex: unset;
+                width: 50%;
+            }
+        }
+    }
+
+    .about-timeline {
+        @include page-content-margins;
+        margin-top: 7rem;
+        margin-bottom: 7rem;
+        width: 100vw;
+        height: 75vh;
     }
 }
