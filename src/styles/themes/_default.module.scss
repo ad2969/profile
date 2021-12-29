@@ -1,10 +1,14 @@
 // default colors
 $color-primary: #77a6f7;      // dominant color
-$color-secondary: #d3e3fc;    // secondary color
+$color-primary-small: #3973be;
+$color-primary-dark: #aac7ea;
+$color-primary-bg: #D3E3FC;
+$color-primary-bg-dark: #aac7ea;
+
 $color-accent: #ff9790;       // accent (highlights), can have multiple
 
-$color-error: #53beae;          // error color - usually red
-$color-confirm: #00887a;        // approval color - usually green
+$color-error: #ff9790;          // error color - usually red
+$color-confirm: #77a6f7;        // approval color - usually green
 
 $color-black: #000;           // black
 $color-mono1: #a5a7bd;        // darker monochrome
@@ -14,7 +18,10 @@ $color-white: #fff;           // white
 
 :export {
     primary: $color-primary;
-    secondary: $color-secondary;
+    primary_small: $color-primary-small;
+    primary_dark: $color-primary-dark;
+    primary_bg: $color-primary-bg;
+    primar_bg_dark: $color-primary-bg-dark;
     accent: $color-accent;
     error: $color-error;
     confirm: $color-confirm;

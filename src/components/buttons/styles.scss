@@ -149,17 +149,18 @@
 .solid {
     display: block;
     width: max-content;
-    margin: 1rem auto;
     
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1rem;
     color: $color-white !important;
     background: $color-primary;
     border-radius: 2rem;
     transition: all 0.2s;
+    font-weight: 600;
 
     &:hover {
         color: $color-black !important;
         background: rgba($color-primary, 0.3);
+        transform: scale(1.1);
     }
 
     &.accent {

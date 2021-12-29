@@ -6,12 +6,10 @@ import MouseScroll from "../../components/ui/mouseScroll";
 import LoadSpinner from "../../components/ui/loadSpinner";
 import Leenk from "../../components/buttons/leenk";
 
-import InstagramLogo from "../../assets/svg/icons/instagram";
-import LinkedinLogo from "../../assets/svg/icons/linkedin";
-// import MailLogo from "../../assets/svg/icons/mail";
-import TwitterLogo from "../../assets/svg/icons/twitter";
-// import CalendarLogo from "../../assets/svg/calendar";
-import SpotifyLogo from "../../assets/svg/icons/spotify";
+import InstagramLogo from "../../assets/svg/logos/instagram";
+import LinkedinLogo from "../../assets/svg/logos/linkedin";
+import TwitterLogo from "../../assets/svg/logos/twitter";
+import SpotifyLogo from "../../assets/svg/logos/spotify";
 
 import COLORS from "../../styles/themes/_default.module.scss";
 import "./styles.scss";
@@ -57,18 +55,6 @@ const ContactInfo: React.FunctionComponent<Props> = ({ statusLoaded }) => {
             <div className="contact-info__mouse-scroll" id="contact-mouse-scroll">
                 {statusLoaded ? <MouseScroll /> : <LoadSpinner />}
             </div>
-
-            {/* <div className="contact-info__more-links">
-                <TooltipButton
-                    icon={SpotifyLogo} strokeColor={COLORS.black} hoverColor={COLORS.primary}
-                    url="https://open.spotify.com/user/21zjm64qokoaly5je5kostekq" tooltipText="My Playlists"
-                />
-                <TooltipButton
-                    icon={CalendarLogo} strokeColor={COLORS.black} hoverColor={COLORS.primary}
-                    url="https://calendar.google.com/calendar/embed?src=clarence.ad29@gmail.com&ctz=America/Vancouver&mode=WEEK&title=Clarence%27s%20Schedule" tooltipText="My Calendar"
-                />
-            </div> */}
-
         </div>
     );
 };

@@ -32,9 +32,18 @@
 .t--c1 {
     color: $color-primary;
 }
-.t--c2 {
-    color: $color-secondary;
+.t--c1s {
+    color: $color-primary-small;
 }
-.t--c3 {
+.t--c1d {
+    color: $color-primary-dark;
+}
+.t--c1bg {
+    color: $color-primary-bg;
+}
+.t--c1bgd {
+    color: $color-primary-bg-dark;
+}
+.t--cx {
     color: $color-accent;
 }

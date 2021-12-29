@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Parallax from "parallax-js";
 
+import HeroContent from "./Hero";
 import SunImage from "../../assets/images/cover/sun-silhouette.png";
 import BirdsImage from "../../assets/images/cover/birds-silhouette.png";
 
@@ -27,6 +28,7 @@ const ParallaxScene: React.FunctionComponent = () => {
             relativeInput: true,
             hoverOnly: false,
             limitY: 20,
+            selector: ".layer"
         });
 
         parallaxInstance.enable();
@@ -35,7 +37,7 @@ const ParallaxScene: React.FunctionComponent = () => {
     }, []);
 
     return (
-        <div ref={sceneRef} className="parallax">
+        <div ref={sceneRef} className="parallax" id="parallax-wrapper">
             <ParallaxLayer depth={0.1}><img className="sun" src={SunImage} alt="sun"/></ParallaxLayer>
             <ParallaxLayer depth={0.5}><img className="birds" src={BirdsImage} alt="sun"/></ParallaxLayer>
             <ParallaxLayer depth={0.2}><div className="layer-wide mountain1" /></ParallaxLayer>
@@ -43,6 +45,7 @@ const ParallaxScene: React.FunctionComponent = () => {
             <ParallaxLayer depth={0.3}><div className="layer-wide mountain3" /></ParallaxLayer>
             <ParallaxLayer depth={0.5}><div className="layer-wide forest" /></ParallaxLayer>
             <ParallaxLayer depth={1}><div className="layer-wide city" /></ParallaxLayer>
+            <HeroContent />
         </div>
     );
 };
