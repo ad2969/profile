@@ -1,7 +1,7 @@
 import React from "react";
 import COLORS from "../../styles/themes/_default.module.scss";
 
-const Logo = ({ color1 = COLORS.primary, color2 = COLORS.secondary, ...rest }) => {
+const Logo = ({ color1 = COLORS.primary, color2 = COLORS.primary_bg, ...rest }) => {
     return (
         <svg width="40" height="54" viewBox="0 0 75 54" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...rest}>
             <mask id="logomask" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="75" height="54">
