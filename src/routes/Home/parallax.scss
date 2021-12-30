@@ -11,7 +11,9 @@
 
     z-index: -1;
     overflow: hidden;
+    clip-path: inset(0 0 0 0);
 
+    // make sure no scope is created (so that fixed text is relative to viewpoint)
     transform: unset !important;
     transform-style: unset !important;
 
@@ -31,6 +33,10 @@
             @include for-tablet-up {
                 max-width: 50vw;
             }
+        }
+
+        .home-hero__title {
+            font-size: 1.3rem;
         }
     }
     
@@ -122,9 +128,9 @@
     }
 
     .city {
-        bottom: 0%;
+        bottom: -5%;
 
-        height: 35%;
+        height: 40%;
         background-image: url("../../assets/images/cover/city-outline.png");
         z-index: 999;
     }

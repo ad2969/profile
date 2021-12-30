@@ -110,8 +110,9 @@ const Toolbox: React.FunctionComponent = () => {
                 </div>
             </div>
 
-            {/* <div className="home-divider"></div> */}
-            <p className="home-toolbox__end-text scrollTrigger-fadeUp">but I say our skills are only as useful as how we use them.</p>
+            <div className="home-divider"></div>
+
+            <h2 className="home-toolbox__end-text scrollTrigger-fadeUp">but I say our skills are only as useful as how we use them.</h2>
         </div>);
 };
 
