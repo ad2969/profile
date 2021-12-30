@@ -10,11 +10,13 @@ import HumanoidHome from "./humanoid";
 
 import BREAKPOINTS from "../../styles/mixins/_breakpoints.module.scss";
 import HeaderFixed from "../../components/header/headerFixed";
+import Leenk from "../../components/buttons/leenk";
 
 import BrainImage from "../../assets/images/brain.png";
 import RotatingGears from "../../assets/svg/images/rotatingGears";
 import ICPOne from "../../assets/svg/images/icp-1";
 import ICPTwo from "../../assets/svg/images/icp-2";
+import Connect from "../../assets/svg/images/connect";
 import "./styles.scss";
 
 const Home: React.FunctionComponent = () => {
@@ -206,11 +208,13 @@ const Home: React.FunctionComponent = () => {
             <Projects />
 
             <div className="home-divider"></div>
-            <div className="home-divider"></div>
-
-            <div className="home-divider"></div>
 
             <div className="home-call-to-action">
+                <h2>If that&apos;s it, here&apos;s a <span className="t--c1">call to action</span></h2>
+                <Connect className="home-call-to-action-title"/>
+                <div className="home-call-to-action__cta">If you have <strong>an opportunity</strong> for me, take a peek at <Leenk href="https://drive.google.com/file/d/1Joy0TLwtRjUDR-ELOJdS9ZibIYoAIMcI/view" >my resume</Leenk></div>
+                <div className="home-call-to-action__cta">Have <strong>a project</strong> that you think I might be interested in? <Leenk to="/contact" >let’s talk!</Leenk></div>
+                <div className="home-call-to-action__extra-text">Otherwise, let’s share our ideas about interesting topics. Here are some things that are currently big in my world: <strong>applications of blockchain, music production, human psychology</strong>, and anything business!</div>
             </div>
             <Footer />
         </div>

@@ -512,7 +512,7 @@
                         }
                         
                         @include for-laptop-up {
-                            min-height: 130vh;
+                            min-height: 120vh;
                         }
                     }
 
@@ -526,7 +526,7 @@
                         }
                         
                         @include for-laptop-up {
-                            min-height: 130vh;
+                            min-height: 120vh;
                         }
                     }
                 }
@@ -534,8 +534,27 @@
         }
     }
 
-
     .home-call-to-action {
+        @include page-content-margins;
+        @include flex-center;
+        flex-direction: column;
+        
+        text-align: center;
+        line-height: 140%;
+
+        &-title {
+            max-width: 75%;
+            margin-bottom: 2rem;
+        }
+
+        &__cta {
+            margin-bottom: 0.5rem;
+        }
+
+        &__extra-text {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
     }
 
     .home-footer {
@@ -549,10 +568,27 @@
 
         &-content {
             @include page-content-margins;
+            @include flex-center;
+            flex-direction: column;
+            margin-top: 7.5rem;
+            margin-bottom: 7.5rem;
 
             p {
-                margin-top: 3rem;
-                margin-bottom: 3rem;
+                margin: 0.5em 0;
+            }
+        }
+
+        &-space {
+            margin-top: 1rem;
+        }
+
+        &__buttons {
+            @include flex-row;
+            margin: 0 auto;
+
+            .tooltip-button {
+                margin: 0 0.5rem;
+                font-size: 1rem;
             }
         }
     }
