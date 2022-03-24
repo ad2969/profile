@@ -1,5 +1,6 @@
 import React from "react";
 
+import ubcCCLaptop from "../../assets/images/projects/ubc-cc-laptop.png";
 import iacUI from "../../assets/images/projects/iac-ui.png";
 import iacLogo from "../../assets/images/projects/iac-logo.png";
 import vibeventLaptop from "../../assets/images/projects/vibevent-laptop.png";
@@ -9,7 +10,25 @@ import ctctPhonesOne from "../../assets/images/projects/ctcf-phones-1.png";
 import ctctPhonesTwo from "../../assets/images/projects/ctcf-phones-2.png";
 import "./styles.scss";
 
+// remember to change the 'nth-child' z-index index number on the '.home-projects__project-wrapper' styles
 const PROJECTS_LIST = [
+    {
+        slug: "ubc-cc",
+        assets: [
+            ubcCCLaptop
+        ],
+        color: "#4F46E5",
+        textColor: "#fff",
+        title: "(WIP) UBC Coursecrawler",
+        subtitle: "OPEN TO CONTRIBUTIONS",
+        date: "March 2022",
+        description: "Data Structures & Algorithms Project",
+        technologies: [
+            "Django, NextJS, Redis, Heroku",
+            "Web scraping, REST API, Memoization"
+        ],
+        link: "https://ubc-coursecrawler.netlify.app/"
+    },
     {
         slug: "iac",
         assets: [
@@ -77,11 +96,9 @@ const Projects: React.FunctionComponent = () => {
             <div className="home-projects-wrapper" id="home-projects-wrapper">
                 {PROJECTS_LIST.map((list, index) => (
                     <div key={`project-${index}`} className="home-projects__project-wrapper">
-                        <div className={`home-projects__project ${list.slug}
-                        ${index === PROJECTS_LIST.length - 1 ? " --last" : ""}
-                        ${index === 0 ? " --first" : ""}`}
-                        style={{ background: list.color, color: list.textColor }}
-                        id={`home-projects-project-${list.slug}`}
+                        <div className={`home-projects__project ${list.slug} ${index === PROJECTS_LIST.length - 1 ? " --last" : ""} ${index === 0 ? " --first" : ""}`}
+                            style={{ background: list.color, color: list.textColor }}
+                            id={`home-projects-project-${list.slug}`}
                         >
                             <div className="home-projects__project-content-wrapper">
                                 <div className="home-projects__project-content">
@@ -99,13 +116,21 @@ const Projects: React.FunctionComponent = () => {
                                 </div>
                                 <div className={`home-projects__project-content-images ${list.slug}`}>
                                     {list.assets.map((source, index) => (
-                                        <img key={list.slug}
+                                        <img key={`${list.slug}-cimage-${index}`}
                                             className={`${list.slug}-image-${index}`}
                                             id={`${list.slug}-image-${index}`}
                                             src={source}
                                             alt={`${list.slug}-${index}`} />
                                     ))}
                                 </div>
+                                {list.link && <a
+                                    className="home-projects__project-link button--scale"
+                                    href={list.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    LIVE PREVIEW
+                                </a>}
                             </div>
                         </div>
                     </div>
