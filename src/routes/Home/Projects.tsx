@@ -49,7 +49,7 @@ const PROJECTS_LIST = [
             "Web scraping, GeoJSON, REST API, Firebase"
         ],
         link: {
-            name: "VISIT MAINTAINED SITE",
+            name: "VISIT PREVIEW SITE",
             url: "https://india-against-covid-app.netlify.app/"
         }
     },
@@ -68,7 +68,11 @@ const PROJECTS_LIST = [
         technologies: [
             "Vue, React, AWS, Docker, Express, MongoDB",
             "Framer, Figma, Zoom API"
-        ]
+        ],
+        link: {
+            name: "VISIT PREVIEW SITE",
+            url: "https://vibevent-stage.netlify.app/"
+        }
     },
     {
         slug: "ctcf-drug",
