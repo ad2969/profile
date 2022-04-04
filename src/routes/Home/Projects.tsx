@@ -27,7 +27,10 @@ const PROJECTS_LIST = [
             "Django, NextJS, Redis, Heroku",
             "Web scraping, REST API, Memoization"
         ],
-        link: "https://ubc-coursecrawler.netlify.app/"
+        link: {
+            name: "VISIT LIVE SITE",
+            url: "https://ubc-coursecrawler.netlify.app/"
+        }
     },
     {
         slug: "iac",
@@ -44,7 +47,11 @@ const PROJECTS_LIST = [
         technologies: [
             "React, MaterialUI, Leaflet.Js",
             "Web scraping, GeoJSON, REST API, Firebase"
-        ]
+        ],
+        link: {
+            name: "VISIT MAINTAINED SITE",
+            url: "https://india-against-covid-app.netlify.app/"
+        }
     },
     {
         slug: "vibevent",
@@ -125,11 +132,11 @@ const Projects: React.FunctionComponent = () => {
                                 </div>
                                 {list.link && <a
                                     className="home-projects__project-link button--scale"
-                                    href={list.link}
+                                    href={list.link.url}
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    LIVE PREVIEW
+                                    {list.link.name}
                                 </a>}
                             </div>
                         </div>

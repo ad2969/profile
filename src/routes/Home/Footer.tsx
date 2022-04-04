@@ -9,6 +9,8 @@ import TwitterLogo from "../../assets/svg/logos/twitter";
 import SpotifyLogo from "../../assets/svg/logos/spotify";
 import Logo from "../../assets/svg/logo";
 
+import { LINKEDIN, TWITTER, INSTAGRAM, SPOTIFY } from "../../assets/links";
+
 import COLORS from "../../styles/themes/_default.module.scss";
 
 const Footer: React.FunctionComponent = () => {
@@ -23,19 +25,19 @@ const Footer: React.FunctionComponent = () => {
                 <div className="home-footer__buttons">
                     <TooltipButton
                         icon={LinkedinLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
-                        url="https://www.linkedin.com/in/clarence-adrian/" tooltipText="Linkedin" direction="right"
+                        url={LINKEDIN} tooltipText="Linkedin" direction="right"
                     />
                     <TooltipButton
                         icon={TwitterLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
-                        url="https://twitter.com/ad2969" tooltipText="Twitter" direction="right"
+                        url={TWITTER} tooltipText="Twitter" direction="right"
                     />
                     <TooltipButton
                         icon={InstagramLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
-                        url="https://www.instagram.com/ad2969_/" tooltipText="Instagram" direction="right"
+                        url={INSTAGRAM} tooltipText="Instagram" direction="right"
                     />
                     <TooltipButton
                         icon={SpotifyLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
-                        url="https://open.spotify.com/user/21zjm64qokoaly5je5kostekq" tooltipText="Spotify" direction="right"
+                        url={SPOTIFY} tooltipText="Spotify" direction="right"
                     />
                 </div>
                 <div className="home-footer-space"></div>
