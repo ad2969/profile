@@ -82,77 +82,57 @@ const Home: React.FunctionComponent = () => {
         ).to(".home-about__humanoid-image--circulatory", { transform: "skew(0, 30deg) scale(0.8) translate3d(-4rem, 4rem, 0px)" }, "<"
         ).to(".home-about__humanoid-image--skeleton", { transform: "skew(0, 30deg) scale(0.8) translate3d(4rem, -4rem, 0px)" }, "<");
 
-        setTimeout(() => {
-            // animations for zigzag text
+        // animations for zigzag text
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: "#home-situation-bg-text-right",
+                start: "top bottom",
+                endTrigger: "#home-situation-bg-text-left",
+                end: "bottom top",
+                scrub: true
+            },
+            defaults: {
+                ease: "none"
+            }
+        }).from("#home-situation-bg-text-left", { x: "-30%" }
+        ).from("#home-situation-bg-text-right", { x: "30%" }, "<"
+        ).to("#home-situation-bg-text-left", { x: "20%" }
+        ).to("#home-situation-bg-text-right", { x: "-20%" }, "<");
+
+        // parallax effects for projects section (PHONE)
+        const stMatchCriteria: {[key: string]: any} = {};
+        // parallax effects for projects section (TABLET AND UP)
+        stMatchCriteria[`(min-width: ${BREAKPOINTS.tablet})`] = () => {
             gsap.timeline({
                 scrollTrigger: {
-                    trigger: "#home-situation-bg-text-right",
-                    start: "top bottom",
-                    endTrigger: "#home-situation-bg-text-left",
-                    end: "bottom top",
-                    scrub: true
-                }
-            }).from("#home-situation-bg-text-left", { x: "-30%" }
-            ).from("#home-situation-bg-text-right", { x: "30%" }, "<"
-            ).to("#home-situation-bg-text-left", { x: "20%" }
-            ).to("#home-situation-bg-text-right", { x: "-20%" }, "<");
-
-            // pinning recent projects title
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#home-recent-projects-title",
-                    start: "center center",
-                    endTrigger: "#home-projects-wrapper",
-                    end: "bottom 90%",
-                    scrub: true,
-                    pin: true,
-                    pinSpacing: false
-                }
-            });
-
-            let tabletMinusOne:string|number = BREAKPOINTS.tablet.replace("px", "");
-            tabletMinusOne = parseInt(tabletMinusOne) - 1;
-
-            // parallax effects for projects section (PHONE)
-            const stMatchCriteria: {[key: string]: any} = {};
-            stMatchCriteria[`(max-width: ${tabletMinusOne}px)`] = () => {
-                gsap.timeline({
-                    scrollTrigger: {
-                        trigger: "#home-projects-project-vibevent",
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: true
-                    }
-                }).from("#vibevent-image-1", { x: "10%" }
-                ).to("#vibevent-image-1", { x: "-10%" });
-            };
-            // parallax effects for projects section (TABLET AND UP)
-            stMatchCriteria[`(min-width: ${BREAKPOINTS.tablet})`] = () => {
-                gsap.timeline({
-                    scrollTrigger: {
-                        trigger: "#home-projects-project-vibevent",
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: true
-                    }
-                }).from("#vibevent-image-1", { y: "10%" }
-                ).to("#vibevent-image-1", { y: "-10%" });
-            };
-
-            ScrollTrigger.matchMedia(stMatchCriteria);
-
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#home-projects-project-ctcf-drug",
+                    trigger: "#home-projects-project-vibevent",
                     start: "top bottom",
                     end: "bottom top",
-                    scrub: true
+                    scrub: 0.1
+                },
+                defaults: {
+                    ease: "none"
                 }
-            }).from("#ctcf-drug-image-0", { y: "-10%" }
-            ).from("#ctcf-drug-image-1", { y: "10%" }, "<"
-            ).to("#ctcf-drug-image-0", { y: "10%" }
-            ).to("#ctcf-drug-image-1", { y: "-10%" }, "<");
-        }, 1000);
+            }).from("#vibevent-image-1", { y: "10%" }
+            ).to("#vibevent-image-1", { y: "-10%" });
+        };
+
+        ScrollTrigger.matchMedia(stMatchCriteria);
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: "#home-projects-project-ctcf-drug",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.1
+            },
+            defaults: {
+                ease: "none"
+            }
+        }).from("#ctcf-drug-image-0", { y: "-10%" }
+        ).from("#ctcf-drug-image-1", { y: "10%" }, "<"
+        ).to("#ctcf-drug-image-0", { y: "10%" }
+        ).to("#ctcf-drug-image-1", { y: "-10%" }, "<");
     }, []);
 
     return (<>

@@ -99,10 +99,7 @@ const Projects: React.FunctionComponent = () => {
             <div className="home-projects__title-wrapper" id="home-projects-title-wrapper">
                 <div className="home-projects__title-wrapper__spacing"></div>
                 <RecentProjects className="home-projects__title" id="home-recent-projects-title"/>
-                <div className="home-projects__title-wrapper__spacing"></div>
             </div>
-
-            <div className="home-divider"></div>
 
             <div className="home-projects-wrapper" id="home-projects-wrapper">
                 {PROJECTS_LIST.map((list, index) => (
@@ -126,13 +123,16 @@ const Projects: React.FunctionComponent = () => {
                                     </div>
                                 </div>
                                 <div className={`home-projects__project-content-images ${list.slug}`}>
-                                    {list.assets.map((source, index) => (
-                                        <img key={`${list.slug}-cimage-${index}`}
-                                            className={`${list.slug}-image-${index}`}
-                                            id={`${list.slug}-image-${index}`}
-                                            src={source}
-                                            alt={`${list.slug}-${index}`} />
-                                    ))}
+                                    {list.assets.length
+                                        ? list.assets.map((source, index) => (
+                                            <img key={`${list.slug}-cimage-${index}`}
+                                                className={`${list.slug}-image-${index}`}
+                                                id={`${list.slug}-image-${index}`}
+                                                src={source}
+                                                alt={`${list.slug}-${index}`} />
+                                        ))
+                                        : <></>
+                                    }
                                 </div>
                                 {list.link && <a
                                     className="home-projects__project-link button--scale"
@@ -140,7 +140,7 @@ const Projects: React.FunctionComponent = () => {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    {list.link.name}
+                                    <span className="v--tablet-up">&gt;</span> {list.link.name}
                                 </a>}
                             </div>
                         </div>

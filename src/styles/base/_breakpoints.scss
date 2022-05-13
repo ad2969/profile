@@ -1,0 +1,9 @@
+@import "../mixins/breakpoints.module";
+
+.v--tablet-up {
+    display: none;
+
+    @include for-tablet-up {
+        display: unset;
+    }
+}

@@ -30,10 +30,10 @@ const ContactInfo: React.FunctionComponent<Props> = ({ statusLoaded }) => {
                     <br/>
                     <Leenk href="mailto:clarenceadrian@alumni.ubc.ca">Send me a message</Leenk> or get to know me on social media!
                 </div>
-                <div className="contact-info__hiring-bubble button">
+                {/* <div className="contact-info__hiring-bubble button">
                     <a className="t--default contact-info__hiring-bubble__text" href="https://drive.google.com/file/d/1eT5cDgOwDseLEzERlJJ7jEC1SJy54zGu/view?usp=sharing" target="_blacnk" rel="noreferrer">Hiring? Download <span>my resume</span> here</a>
                     <a className="t--default contact-info__hiring-bubble__text-mobile" href="https://drive.google.com/file/d/1eT5cDgOwDseLEzERlJJ7jEC1SJy54zGu/view?usp=sharing" target="_blacnk" rel="noreferrer">Hiring?</a>
-                </div>
+                </div> */}
                 <div className="contact-info__hero-buttons">
                     <TooltipButton
                         icon={LinkedinLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}

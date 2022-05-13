@@ -29,17 +29,17 @@ const HumanoidHome: React.FunctionComponent = () => {
                 <div className="home-about__humanoid-image strengths"></div>
                 <div className="home-about__strengths" >
                     <p className="scrollTrigger-fadeRight" id="home-about__strengths--skeleton">
-                        <span className="taitul t--bold">Electrical engineering</span>&nbsp;
-                        student at the University of British Columbia.
+                        <span className="taitul t--bold t--uppercase">Electrical engineering</span> student
+                        at the University of British Columbia. Expected to graduate in May 2023.
                     </p>
 
                     <p className="scrollTrigger-fadeRight" id="home-about__strengths--circulatory">
-                        <span className="taitul t--bold">Front-end Developer at Skyrocket Digital</span>,&nbsp;
-                        a digital branding agency. Previously a full-stack developer at Semios.
+                        <span className="taitul t--bold t--uppercase">Software Developer</span> with 2 years of experience in full stack development.
+                        Previously at Semios, Skyrocket Digital.
                     </p>
 
                     <p className="scrollTrigger-fadeRight" id="home-about__strengths--muscles">
-                        <span className="taitul t--bold">Learner of things</span>,&nbsp;
+                        <span className="taitul t--bold t--uppercase">Learner of things</span>,
                         currently studying various subjects such as UX Design, systems design, internet of things.
                     </p>
                 </div>

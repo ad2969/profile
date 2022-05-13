@@ -25,7 +25,7 @@ import "./styles.scss";
 const Toolbox: React.FunctionComponent = () => {
     return (
         <div className="home-toolbox">
-            <h2 className="home-toolbox__title scrollTrigger-fadeUp">Here are some things people say I&apos;m good at:</h2>
+            <h3 className="home-toolbox__title scrollTrigger-fadeUp">Here are some things people say I&apos;m good at:</h3>
 
             <div className="home-toolbox__icons">
                 {/* TODO: LINK TO EACH SECTION HIGHLIGHTS */}
@@ -112,7 +112,7 @@ const Toolbox: React.FunctionComponent = () => {
 
             <div className="home-divider"></div>
 
-            <h2 className="home-toolbox__end-text scrollTrigger-fadeUp">but I say our skills are only as useful as how we use them.</h2>
+            <h3 className="home-toolbox__end-text scrollTrigger-fadeUp">but I say our skills are only as useful as how we use them.</h3>
         </div>);
 };
 
