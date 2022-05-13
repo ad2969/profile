@@ -19,38 +19,17 @@ const PROJECTS_LIST = [
         ],
         color: "#4F46E5",
         textColor: "#fff",
-        title: "(WIP) UBC Coursecrawler",
-        subtitle: "OPEN TO CONTRIBUTIONS",
-        date: "March 2022",
-        description: "Data Structures & Algorithms Project",
+        title: "UBC Coursecrawler",
+        role: "Open-source Project // Developer",
+        subtitle: "Web Application and Scraping API",
+        description: "Experimented with graph-traversal algorithms",
         technologies: [
             "Django, NextJS, Redis, Heroku",
             "Web scraping, REST API, Memoization"
         ],
         link: {
-            name: "VISIT LIVE SITE",
-            url: "https://ubc-coursecrawler.netlify.app/"
-        }
-    },
-    {
-        slug: "iac",
-        assets: [
-            iacUI,
-            iacLogo
-        ],
-        color: "#2B2B2B",
-        textColor: "#FFF",
-        title: "India Against Covid",
-        subtitle: "Volunteer // Sole Developer",
-        date: "May 2021",
-        description: "Web Application",
-        technologies: [
-            "React, MaterialUI, Leaflet.Js",
-            "Web scraping, GeoJSON, REST API, Firebase"
-        ],
-        link: {
             name: "VISIT PREVIEW SITE",
-            url: "https://india-against-covid-app.netlify.app/"
+            url: "https://ubc-coursecrawler.netlify.app/"
         }
     },
     {
@@ -62,9 +41,9 @@ const PROJECTS_LIST = [
         color: "#F6F6F7",
         textColor: "#000",
         title: "Vibevent",
-        subtitle: "Personal Project // Lead Developer",
-        date: "June - December 2020",
-        description: "Web Application, Video Hosting",
+        role: "Personal Project // Lead Developer",
+        subtitle: "Web Application, Video Hosting",
+        description: "Helped UBC Clubs shift to virtual events",
         technologies: [
             "Vue, React, AWS, Docker, Express, MongoDB",
             "Framer, Figma, Zoom API"
@@ -72,6 +51,27 @@ const PROJECTS_LIST = [
         link: {
             name: "VISIT PREVIEW SITE",
             url: "https://vibevent-stage.netlify.app/"
+        }
+    },
+    {
+        slug: "iac",
+        assets: [
+            iacUI,
+            iacLogo
+        ],
+        color: "#2B2B2B",
+        textColor: "#FFF",
+        title: "India Against Covid",
+        role: "Volunteer // Sole Developer",
+        subtitle: "Web Application",
+        description: "Helped list charities for India's COVID response",
+        technologies: [
+            "React, MaterialUI, Leaflet.Js",
+            "Web scraping, GeoJSON, REST API, Firebase"
+        ],
+        link: {
+            name: "VISIT PREVIEW SITE",
+            url: "https://india-against-covid-app.netlify.app/"
         }
     },
     {
@@ -83,9 +83,9 @@ const PROJECTS_LIST = [
         color: "#3570AC",
         textColor: "#FFF",
         title: "Drug Overdose Prevention",
-        subtitle: "Non-profit // Mobile Developer",
-        date: "January - June 2020",
-        description: "Mobile Application",
+        role: "Non-profit // Mobile Developer",
+        subtitle: "Mobile Application",
+        description: "Built for Canada's University Health Network",
         technologies: [
             "React Native, Redux, Expo",
             "Express, PostgreSQL, Redis, MongoDB"
@@ -112,8 +112,8 @@ const Projects: React.FunctionComponent = () => {
                                 <div className="home-projects__project-content">
                                     <h1>{list.title}</h1>
                                     <div className="home-projects__project-content__role">
+                                        <h2>{list.role}</h2>
                                         <h2>{list.subtitle}</h2>
-                                        <h2>{list.date}</h2>
                                     </div>
                                     <div className="home-projects__project-content__description">
                                         <h2>{list.description}</h2>

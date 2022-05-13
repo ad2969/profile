@@ -35,6 +35,7 @@ const HumanoidHome: React.FunctionComponent = () => {
 
                     <p className="scrollTrigger-fadeRight" id="home-about__strengths--circulatory">
                         <span className="taitul t--bold t--uppercase">Software Developer</span> with 2 years of experience in full stack development.
+                        <br/>
                         Previously at Semios, Skyrocket Digital.
                     </p>
 

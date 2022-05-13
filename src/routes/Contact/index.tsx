@@ -5,6 +5,7 @@ import { statusDbRef } from "../../services/firebase";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+import HeaderFixed from "../../components/header/headerFixed";
 import City from "./city";
 import ContactInfo from "./Info";
 import ContactStatus from "./Status";
@@ -53,7 +54,8 @@ const Contact: React.FunctionComponent = () => {
         });
     }, [status, statusLoaded]);
 
-    return (
+    return (<>
+        <HeaderFixed/>
         <div className="Route Contact">
             <div className="city">
                 <City status={status}/>
@@ -62,7 +64,7 @@ const Contact: React.FunctionComponent = () => {
             {statusLoaded && <div className="contact-divider" id="contact-divider"></div>}
             {statusLoaded && <ContactStatus status={status} doScroll={doScroll}/>}
         </div>
-    );
+    </>);
 };
 
 export default Contact;

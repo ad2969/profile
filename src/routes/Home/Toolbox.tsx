@@ -36,7 +36,7 @@ const Toolbox: React.FunctionComponent = () => {
                 </div>
                 <div className="home-toolbox__icon scrollTrigger-fadeUp">
                     <ProductDesignIcon color="currentColor"/>
-                    <span>Product Design</span>
+                    <span>Product Development</span>
                 </div>
                 <div className="home-toolbox__icon scrollTrigger-fadeUp">
                     <EngineeringIcon color="currentColor"/>
