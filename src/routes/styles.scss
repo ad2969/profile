@@ -1,5 +1,7 @@
 .Admin, .NotFound {
     .content {
+        width: 100%;
+        height: 100vh;
         @include flex-col;
         align-items: center;
         justify-content: center;

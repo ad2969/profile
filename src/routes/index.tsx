@@ -4,7 +4,7 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 // import groups of other routes
-import MainRoutes from "./MainRoutes";
+import Contact from "./Contact";
 
 import AdminRoutes from "./Admin";
 import Home from "./Home";
@@ -19,8 +19,8 @@ const Routes: React.FunctionComponent = () => {
 
                 {/* PUBLIC ROUTES */}
                 <Route exact path="/" component={Home} />
-                <Route path="/" component={MainRoutes} />
-                <Route path="*" component={NotFound} />
+                <Route exact path="/contact" component={Contact} />
+                <Route path="/" component={NotFound} />
             </Switch>
         </BrowserRouter>
     );

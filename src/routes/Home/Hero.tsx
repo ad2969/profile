@@ -6,7 +6,7 @@ const Hero: React.FunctionComponent = () => {
         // <div className="home-hero">
         <div className="home-hero-content" id="home-hero-content-fixed">
             <div className="home-hero__image"><Hello /></div>
-            <div className="home-hero__title">I&apos;m Clarence.</div>
+            <div className="home-hero__title">I&apos;m Clarence. I like to build things.</div>
         </div>
         // </div>
     );

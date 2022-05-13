@@ -12,9 +12,9 @@ const NotFound: React.FunctionComponent = () => {
             <HeaderFixed />
             <div className="NotFound">
                 <div className="content">
-                    <h1>404: Page Not Found</h1>
-                    <p>Sorry! The current account does not have the necessary permissions to access the page.</p>
-                    <p><button color="primary" onClick={() => history.goBack()}>Go Back</button></p>
+                    <h1>404</h1>
+                    <p>Woops! The page you&apos;re trying to reach doesn&apos;t exist.</p>
+                    <p className="button--scale" onClick={() => history.goBack()}>&gt; Go Back</p>
                 </div>
             </div>
         </React.Fragment>

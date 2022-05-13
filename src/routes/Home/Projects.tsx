@@ -98,7 +98,7 @@ const Projects: React.FunctionComponent = () => {
         <div className="home-projects">
             <div className="home-projects__title-wrapper" id="home-projects-title-wrapper">
                 <div className="home-projects__title-wrapper__spacing"></div>
-                <RecentProjects className="home-projects__title" id="home-recent-projects-title"/>
+                <RecentProjects className="home-projects__title scrollTrigger-fadeUp" id="home-recent-projects-title"/>
             </div>
 
             <div className="home-projects-wrapper" id="home-projects-wrapper">
