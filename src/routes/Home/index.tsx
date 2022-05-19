@@ -156,8 +156,8 @@ const Home: React.FunctionComponent = () => {
                     <h1 className="home-brand__slogan slogan-line-2 scrollTrigger-fadeRight"><span className="t--c1">lifelong learning</span> &amp; building</h1>
                     <div className="home-brand__slogan slogan-line-3">
                         <h1 className="slogan-text scrollTrigger-fadeRight">things that matter</h1>
-                        <div className="slogan-subtext scrollTrigger-fadeLeft">I&apos;m interested in utilizing innovative technologies to engineer solutions that improve the quality of human life.
-                            <br /><span className="t--c1s">Simply put, I like to build things.</span>
+                        <div className="slogan-subtext scrollTrigger-fadeLeft"><span className="t--c1s">When you stop learning, you start dying.</span>
+                            &nbsp;I am passionate about learning new technologies and discovering how I can use them to engineer solutions that improve the quality of human life.
                         </div>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ const Home: React.FunctionComponent = () => {
                 <img className="home-brand-2__image" src={BrainImage} alt="brain" />
                 <div className="home-brand-2__content">
                     <h1 className="slogan-text scrollTrigger-fadeLeft">Constantly <span className="t--c1">curious</span> and <span className="t--c1">forward-thinking</span></h1>
-                    <div className="slogan-subtext scrollTrigger-fadeLeft">A tinkerer at heart, I enjoy learning about how things work, breaking things down into their most basic elements in order to gain even newer insights to solve future problems.</div>
+                    <div className="slogan-subtext scrollTrigger-fadeLeft">A tinkerer at heart, I enjoy breaking things down into their most basic elements in order to gain even newer insights that can help me solve future problems.</div>
                 </div>
                 {/* <div className="scrollTrigger-fadeUp"><SolidButton to="/about">More about me -&gt;</SolidButton></div> */}
             </div>

@@ -5,7 +5,7 @@ import iacUI from "../../assets/images/projects/iac-ui.png";
 import iacLogo from "../../assets/images/projects/iac-logo.png";
 import vibeventLaptop from "../../assets/images/projects/vibevent-laptop.png";
 import vibeventBG from "../../assets/images/projects/vibevent-bg.png";
-import RecentProjects from "../../assets/svg/images/rprojects";
+import ProjectsTitle from "../../assets/svg/images/projects-title";
 import ctctPhonesOne from "../../assets/images/projects/ctcf-phones-1.png";
 import ctctPhonesTwo from "../../assets/images/projects/ctcf-phones-2.png";
 import "./styles.scss";
@@ -98,7 +98,7 @@ const Projects: React.FunctionComponent = () => {
         <div className="home-projects">
             <div className="home-projects__title-wrapper" id="home-projects-title-wrapper">
                 <div className="home-projects__title-wrapper__spacing"></div>
-                <RecentProjects className="home-projects__title scrollTrigger-fadeUp" id="home-recent-projects-title"/>
+                <ProjectsTitle className="home-projects__title scrollTrigger-fadeUp"/>
             </div>
 
             <div className="home-projects-wrapper" id="home-projects-wrapper">
