@@ -20,6 +20,11 @@ const Routes: React.FunctionComponent = () => {
                 {/* PUBLIC ROUTES */}
                 <Route exact path="/" component={Home} />
                 <Route exact path="/contact" component={Contact} />
+                <Route exact path="/calendar" component={() => {
+                    const calendarUrl = process.env.REACT_APP_CALENDAR_URL;
+                    if (calendarUrl) { window.location.href = calendarUrl; }
+                    return null;
+                }} />
                 <Route path="/" component={NotFound} />
             </Switch>
         </BrowserRouter>
