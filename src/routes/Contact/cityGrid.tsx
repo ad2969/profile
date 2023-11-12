@@ -61,7 +61,7 @@ const CityGrid: React.FunctionComponent<Props> = ({ status }) => {
             let row: any[] = [];
 
             for (let j = 0; j < GRID_LENGTH; j++) {
-                let building = null;
+                let building: any = null;
                 let scaleNum = 0;
 
                 // pick special building
@@ -124,6 +124,7 @@ const CityGrid: React.FunctionComponent<Props> = ({ status }) => {
                     // @ts-ignore
                     <a.group key={i} scale={rowTrail[i].scale}>
                         {row.map((building, j) => (
+                            // @ts-ignore
                             <a.primitive
                                 object={building.model}
                                 key={j}

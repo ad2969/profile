@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Routes } from "react-router-dom";
 import AuthRoute from "../AuthRoute";
 
 // import pages
@@ -14,15 +14,15 @@ const AdminRoutes: React.FunctionComponent = () => {
     return (
         <React.Fragment>
             <HeaderFixed variation="none" />
-            <Switch>
+            <Routes>
                 <AuthRoute
                     isAuthenticated={true}
                     path="/admin"
                     component={<AdminLoggedIn />}
                     altComponent={<AdminNotLoggedIn />}
-                    exact
+                    caseSensitive
                 />
-            </Switch>
+            </Routes>
         </React.Fragment>
     );
 };

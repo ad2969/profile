@@ -39,6 +39,7 @@ module.exports = {
         "react-hooks/exhaustive-deps": 1, // Checks effect dependencies
         "react/prop-types": 0,
         "react/display-name": 0,
+        "react/no-unknown-property": 1,
 
         // Typescript fixes
         "no-unused-vars": 0,

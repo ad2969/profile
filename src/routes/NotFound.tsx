@@ -1,11 +1,11 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import HeaderFixed from "components/header/headerFixed";
 import "./styles.scss";
 
 const NotFound: React.FunctionComponent = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     return (
         <React.Fragment>
@@ -14,7 +14,7 @@ const NotFound: React.FunctionComponent = () => {
                 <div className="content">
                     <h1>404</h1>
                     <p>Woops! The page you&apos;re trying to reach doesn&apos;t exist.</p>
-                    <p className="button--scale" onClick={() => history.goBack()}>&gt; Go Back</p>
+                    <p className="button--scale" onClick={() => navigate(-1)}>&gt; Go Back</p>
                 </div>
             </div>
         </React.Fragment>

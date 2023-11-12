@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { SvgProps } from "../svgtypes";
 
@@ -9,11 +9,11 @@ interface Props extends SvgProps {
 }
 
 const ExternalLink: React.FunctionComponent<Props> = ({ color = "#000", href, to }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const clickHandler = () => {
         if (href) window.open(href);
-        else if (to) history.push(to);
+        else if (to) navigate(to);
     };
 
     return (

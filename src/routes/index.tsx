@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter, Switch } from "react-router-dom";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -9,26 +9,23 @@ import Contact from "./Contact";
 import AdminRoutes from "./Admin";
 import Home from "./Home";
 import NotFound from "./NotFound";
+import CustomRedirect from "components/CustomRedirect";
 
-const Routes: React.FunctionComponent = () => {
+const AppRoutes: React.FunctionComponent = () => {
     return (
         <BrowserRouter>
-            <Switch>
+            <Routes>
                 {/* AUTHENTICATED ROUTES */}
-                <Route path="/admin" component={AdminRoutes} />
+                <Route caseSensitive path="/admin" element={<AdminRoutes />} />
 
                 {/* PUBLIC ROUTES */}
-                <Route exact path="/" component={Home} />
-                <Route exact path="/contact" component={Contact} />
-                <Route exact path="/calendar" component={() => {
-                    const calendarUrl = process.env.REACT_APP_CALENDAR_URL;
-                    if (calendarUrl) { window.location.href = calendarUrl; }
-                    return null;
-                }} />
-                <Route path="/" component={NotFound} />
-            </Switch>
+                <Route caseSensitive path="/" element={<Home />} />
+                <Route caseSensitive path="/contact" element={<Contact />} />
+                <Route caseSensitive path="/calendar" element={<CustomRedirect url={process.env.REACT_APP_CALENDAR_URL} />} />
+                <Route path="/" element={<NotFound />} />
+            </Routes>
         </BrowserRouter>
     );
 };
 
-export default Routes;
+export default AppRoutes;

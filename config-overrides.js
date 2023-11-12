@@ -12,7 +12,7 @@ module.exports = (config) => {
         use: [
             {
                 loader: "sass-loader",
-                query: {
+                options: {
                     sourceMap: false,
                     additionalData: "@import \"src/styles/main.scss\";",
                 },

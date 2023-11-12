@@ -1,8 +1,8 @@
-import React, { useRef, Suspense } from "react";
+import React, { useRef, Suspense, RefObject } from "react";
 import * as THREE from "three";
 import { Canvas, useThree, useFrame, extend } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { DeviceOrientationControls } from "three/examples/jsm/controls/DeviceOrientationControls";
+import { DeviceOrientationControls } from "components/three/legacy/DeviceOrientationControls";
 
 import CityGrid from "./cityGrid";
 
@@ -23,10 +23,10 @@ const City: React.FunctionComponent<Props> = ({ status }) => {
         const { camera, gl } = useThree();
         const { domElement } = gl;
 
-        const cam = useRef();
+        const cam = useRef<THREE.PerspectiveCamera>() as RefObject<THREE.PerspectiveCamera>;
         const scene = new THREE.Scene();
         const oControls = useRef();
-        const doControls = useRef();
+        const doControls = useRef<DeviceOrientationControls>();
         doControls.current = new DeviceOrientationControls(new THREE.PerspectiveCamera());
 
         const scrollElement = document.documentElement;

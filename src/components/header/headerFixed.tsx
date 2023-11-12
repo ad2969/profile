@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import Logo from "../../assets/svg/logo";
 // import MenuButton from "../../assets/svg/buttons/menuButton";
@@ -25,21 +25,20 @@ const LINK_VARIATIONS = {
 };
 
 const Header: React.FunctionComponent<Props> = ({ variation = "main" }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
         <div className="Header Header-fixed">
-            <Logo className="header-logo button--scale" onClick={() => { history.push("/"); }} />
+            <Logo className="header-logo button--scale" onClick={() => { navigate("/"); }} />
 
             <span className="header-links">
                 {LINK_VARIATIONS[variation] && LINK_VARIATIONS[variation].map((link) => (
                     <NavLink
                         key={link.url}
-                        className="header__link button--scale t--default t--lowercase t--unselectable"
-                        activeClassName="current"
-                        to={link.url} exact
+                        className={({ isActive }) => "header__link button--scale t--default t--lowercase t--unselectable" + (isActive ? " current" : "")}
+                        to={link.url}
                     >{link.text}</NavLink>
                 ))}
 

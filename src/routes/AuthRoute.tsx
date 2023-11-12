@@ -9,8 +9,8 @@ interface Props {
     component?: React.ReactNode;
     altComponent?: React.ReactNode;
 
-    path: string | string[];
-    exact?: boolean;
+    path: string;
+    caseSensitive?: boolean;
     sensitive?: boolean;
     strict?: boolean;
 }
@@ -19,13 +19,13 @@ interface Props {
 const AuthRoute: React.FunctionComponent<Props> = ({
     isAuthenticated, component, altComponent, ...rest
 }) => {
-    return (
-        <Route {...rest} render={() => (
-            isAuthenticated === true
-                ? component || <NotFound />
-                : altComponent || <Forbidden />
-        )} />
-    );
+    if (isAuthenticated === true) {
+        if (component) return <Route {...rest} element={component} />;
+        else return <Route {...rest} element={<NotFound/>} />;
+    }
+
+    if (component) return <Route {...rest} element={altComponent} />;
+    else return <Route {...rest} element={<Forbidden/>} />;
 };
 
 export default AuthRoute;

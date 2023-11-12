@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { onValue } from "firebase/database";
 import { statusDbRef } from "../../services/firebase";
 import gsap from "gsap";
@@ -13,8 +13,8 @@ import ContactStatus from "./Status";
 import "./styles.scss";
 
 const Contact: React.FunctionComponent = () => {
-    const history = useHistory();
-    const doScroll = history.location.search.includes("status");
+    const location = useLocation();
+    const doScroll = location.search.includes("status");
 
     const [statusLoaded, setStatusLoaded] = useState(false);
     const [status, setStatus] = useState(false);
