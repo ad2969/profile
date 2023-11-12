@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import "./styles.scss";
+import Leenk from "components/buttons/leenk";
 
 interface Props {
     status: boolean;
@@ -23,10 +24,10 @@ const ContactStatus: React.FunctionComponent<Props> = ({ status, doScroll }) => 
             <div className="contact-status__location">&#128205;Vancouver, Canada</div>
             <div className="contact-status__text">Currently {statusDiv}</div>
             <div className="contact-status__availability">My working hours are Monday to Friday, 09:00 - 18:00 (PST)</div>
-            {/* <Leenk
+            <Leenk
                 accent={!status}
-                href="https://calendar.google.com/calendar/embed?src=clarence.ad29@gmail.com&ctz=America/Vancouver&mode=WEEK&title=Clarence%27s%20Schedule"
-            >&gt; See my public schedule &lt;</Leenk> */}
+                href={process.env.REACT_APP_DEVCALENDAR_URL}
+            >&gt; Book a Meeting &lt;</Leenk>
         </div>
     );
 };

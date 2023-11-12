@@ -21,7 +21,12 @@ const AppRoutes: React.FunctionComponent = () => {
                 {/* PUBLIC ROUTES */}
                 <Route caseSensitive path="/" element={<Home />} />
                 <Route caseSensitive path="/contact" element={<Contact />} />
+
+                {/* REDIRECTS */}
                 <Route caseSensitive path="/calendar" element={<CustomRedirect url={process.env.REACT_APP_CALENDAR_URL} />} />
+                <Route caseSensitive path="/devcal" element={<CustomRedirect url={process.env.REACT_APP_DEVCALENDAR_URL} />} />
+                <Route caseSensitive path="/booking" element={<CustomRedirect url={process.env.REACT_APP_BOOKING_URL} />} />
+
                 <Route path="/" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
