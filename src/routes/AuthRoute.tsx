@@ -1,31 +1,27 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React, { useContext } from "react";
 
 import NotFound from "./NotFound";
 import Forbidden from "./Forbidden";
+import { AuthContext } from "context/authContext";
 
 interface Props {
-    isAuthenticated?: boolean;
     component?: React.ReactNode;
     altComponent?: React.ReactNode;
-
-    path: string;
-    caseSensitive?: boolean;
-    sensitive?: boolean;
-    strict?: boolean;
 }
 
 // Route Wrapper that checks first if the user has been authenticated
 const AuthRoute: React.FunctionComponent<Props> = ({
-    isAuthenticated, component, altComponent, ...rest
+    component, altComponent
 }) => {
+    const { isAuthenticated } = useContext(AuthContext);
+
     if (isAuthenticated === true) {
-        if (component) return <Route {...rest} element={component} />;
-        else return <Route {...rest} element={<NotFound/>} />;
+        if (component) return component;
+        else return <NotFound/>;
     }
 
-    if (component) return <Route {...rest} element={altComponent} />;
-    else return <Route {...rest} element={<Forbidden/>} />;
+    if (component) return altComponent;
+    else return <Forbidden/>;
 };
 
 export default AuthRoute;

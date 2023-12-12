@@ -23,7 +23,7 @@ const AdminLoggedIn: React.FunctionComponent = () => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const changeStatus = async () => {
-        if (password !== "clarence") {
+        if (password !== process.env.REACT_APP_ADMIN_PW) {
             setError(true);
             return null;
         }
