@@ -18,6 +18,7 @@ import ICPOne from "../../assets/svg/images/icp-1";
 import ICPTwo from "../../assets/svg/images/icp-2";
 import Connect from "../../assets/svg/images/connect";
 import "./styles.scss";
+import { EMAIL__DEV } from "assets/links";
 
 const Home: React.FunctionComponent = () => {
     useLayoutEffect(() => {
@@ -193,8 +194,8 @@ const Home: React.FunctionComponent = () => {
                 <h2>If that&apos;s it, here&apos;s a <span className="t--c1">call to action</span></h2>
                 <Connect className="home-call-to-action-title"/>
                 {/* <div className="home-call-to-action__cta">If you have <strong>an opportunity</strong> for me, take a peek at <Leenk href="https://drive.google.com/file/d/1eT5cDgOwDseLEzERlJJ7jEC1SJy54zGu/view?usp=sharing" >my resume</Leenk></div> */}
-                <div className="home-call-to-action__cta"><strong>Hiring?</strong> Have <strong>a project</strong> that you think I might be interested in? <Leenk to="/contact" >let’s talk!</Leenk></div>
-                <div className="home-call-to-action__extra-text">Otherwise, let’s share our ideas about interesting topics. Here are some things that are currently big in my world: <strong>Human-Computer Interaction, Applications of Blockchain,</strong> and <strong>Product Design</strong></div>
+                <div className="home-call-to-action__cta">Want to work with me? Have a project in mind? Simply want to chat? <Leenk to={`mailto:${EMAIL__DEV}`} >Email me!</Leenk></div>
+                <div className="home-call-to-action__extra-text">Otherwise, let&apos;s share our ideas about interesting topics. Here are some things that are currently big in my world: <strong>Human-Computer Interaction, Applications of Blockchain,</strong> and <strong>Product Design</strong></div>
             </div>
             <Footer />
         </div>

@@ -15,11 +15,11 @@ const LINK_VARIATIONS = {
     main: [
         {
             text: "at a glance",
-            url: "/"
+            url: "/at-a-glance"
         },
         {
             text: "contact",
-            url: "/contact"
+            url: "/"
         }
     ]
 };

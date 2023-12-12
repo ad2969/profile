@@ -22,7 +22,7 @@ const ContactStatus: React.FunctionComponent<Props> = ({ status, doScroll }) => 
     return (
         <div className="contact-status" id="contact-status">
             <div className="contact-status__location">&#128205;Vancouver, Canada</div>
-            <div className="contact-status__text">Currently {statusDiv}</div>
+            <div className="contact-status__text">Status: {statusDiv}</div>
             <div className="contact-status__availability">My working hours are Monday to Friday, 09:00 - 18:00 (PST)</div>
             <Leenk
                 accent={!status}

@@ -3,13 +3,13 @@ import React from "react";
 import Leenk from "../../components/buttons/leenk";
 import TooltipButton from "../../components/buttons/tooltipButton";
 
-import InstagramLogo from "../../assets/svg/logos/instagram";
+import EmailLogo from "../../assets/svg/logos/email";
+import GithubLogo from "../../assets/svg/logos/github";
 import LinkedinLogo from "../../assets/svg/logos/linkedin";
-import TwitterLogo from "../../assets/svg/logos/twitter";
 import SpotifyLogo from "../../assets/svg/logos/spotify";
 import Logo from "../../assets/svg/logo";
 
-import { LINKEDIN, TWITTER, INSTAGRAM, SPOTIFY } from "../../assets/links";
+import { LINKEDIN, SPOTIFY, EMAIL__DEV, GITHUB } from "../../assets/links";
 
 import COLORS from "../../styles/themes/_default.module.scss";
 
@@ -28,16 +28,16 @@ const Footer: React.FunctionComponent = () => {
                         url={LINKEDIN} tooltipText="Linkedin" direction="right"
                     />
                     <TooltipButton
-                        icon={TwitterLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
-                        url={TWITTER} tooltipText="Twitter" direction="right"
-                    />
-                    <TooltipButton
-                        icon={InstagramLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
-                        url={INSTAGRAM} tooltipText="Instagram" direction="right"
+                        icon={GithubLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        url={GITHUB} tooltipText="Github" direction="right"
                     />
                     <TooltipButton
                         icon={SpotifyLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
                         url={SPOTIFY} tooltipText="Spotify" direction="right"
+                    />
+                    <TooltipButton
+                        icon={EmailLogo} strokeColor={COLORS.primary} hoverColor={COLORS.white}
+                        url={`mailto:${EMAIL__DEV}`} tooltipText="Email" direction="right"
                     />
                 </div>
                 <div className="home-footer-space"></div>
