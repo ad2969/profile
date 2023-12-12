@@ -26,7 +26,7 @@ const ContactStatus: React.FunctionComponent<Props> = ({ status, doScroll }) => 
             <div className="contact-status__availability">My working hours are Monday to Friday, 09:00 - 18:00 (PST)</div>
             <Leenk
                 accent={!status}
-                href={process.env.REACT_APP_DEVCALENDAR_URL}
+                href={process.env.REACT_APP_BOOKING_URL}
             >&gt; Book a Meeting &lt;</Leenk>
         </div>
     );
